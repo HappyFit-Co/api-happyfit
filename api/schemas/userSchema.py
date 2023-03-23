@@ -1,17 +1,18 @@
-from dietSchema import DietSchema
-from exerciseSchema import ExerciseSchema
-from historicSchema import HistoricSchema
 from marshmallow import Schema, fields
+
+from api.schemas.dietSchema import DietSchema, MacroSchema
+from api.schemas.exerciseSchema import ExerciseSchema
+from api.schemas.historicSchema import HistoricSchema
 
 
 class GoalSchema(Schema):
     weight = fields.Float()
     objective = fields.String()
     calories = fields.Integer()
-    macro_nutrient = fields.Dict(keys=fields.String(), values=fields.Integer())
     water = fields.Integer()
     deadline = fields.Date()
     exercise = fields.Nested(ExerciseSchema)
+    macro_nutrient = fields.Nested(MacroSchema)
     diet = fields.Nested(DietSchema)
 
 class UserSchema(Schema):

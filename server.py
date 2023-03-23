@@ -23,15 +23,17 @@ class Server():
     def __init__(self) -> None:
         self.app = Flask(__name__)
 
+        # Database config
         self.app.config['MONGO_URI'] = 'mongodb+srv://admin:UJBfUiR5KEFylFUt@fitdb.orqhkym.mongodb.net/test'
-
         init_db(self.app)
 
+        # Swagger config
         self.app.config['SWAGGER'] = {
             'title': 'API Flask - HappyFit',
         }
         self.swagger = Swagger(self.app)
 
+        # Import config
         self.app.config.from_pyfile('config.py')
 
         # Registrando blueprints

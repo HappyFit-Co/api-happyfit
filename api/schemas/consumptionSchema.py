@@ -1,5 +1,7 @@
 from marshmallow import Schema, fields
-from schemas import DietSchema, ExerciseSchema
+
+from api.schemas.dietSchema import DietSchema, MacroSchema
+from api.schemas.exerciseSchema import ExerciseSchema
 
 
 class ConsumptionSchema(Schema):
@@ -7,6 +9,6 @@ class ConsumptionSchema(Schema):
     date = fields.Date()
     calories = fields.Integer()
     water = fields.Integer()
-    macro_nutrient = fields.Dict(keys=fields.String(), values=fields.Integer())
+    macro_nutrient = fields.Nested(MacroSchema)
     exercise = fields.Nested(ExerciseSchema)
     diet = fields.Nested(DietSchema)
