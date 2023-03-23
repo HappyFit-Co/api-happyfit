@@ -1,9 +1,11 @@
 
-![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
+<div align="center">
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge">
+  <img alt="GitHub forks" src="https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge">
+  <img alt="Bitbucket open issues" src="https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge">
+  <img alt="Bitbucket open pull request" src="https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge">
+</div>
 
 <div align="center">
   <img src="https://cdn.discordapp.com/attachments/445732137623224331/1088506154872750090/logo_happyfit.png" alt="logo HappyFit">
