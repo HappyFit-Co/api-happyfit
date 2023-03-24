@@ -10,5 +10,5 @@ class ConsumptionSchema(Schema):
     calories = fields.Integer()
     water = fields.Integer()
     macro_nutrient = fields.Nested(FoodMacroSchema)
-    exercise = fields.Nested(ExerciseSchema, many=True)
+    workout = fields.Nested(ExerciseSchema, many=True)
     diet = fields.Nested(FoodSchema, many=True)

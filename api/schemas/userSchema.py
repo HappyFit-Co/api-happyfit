@@ -1,4 +1,4 @@
-from marshmallow import Schema, fields
+from marshmallow import Schema, fields, validate
 
 from api.schemas.exerciseSchema import ExerciseSchema
 from api.schemas.foodSchema import FoodMacroSchema, FoodSchema
@@ -12,15 +12,15 @@ class UserGoalSchema(Schema):
     macro_nutrientDay = fields.Nested(FoodMacroSchema, required=True)
     waterDay = fields.Integer(required=True)
     deadline = fields.Date(required=True)
-    workout = fields.String(many=True, required=True)
-    diet = fields.String(many=True, required=True)
+    workout = fields.List(fields.String())
+    diet = fields.List(fields.String())
 
 
 class UserSchema(Schema):
     _id = fields.String()
-    name = fields.String(required=True)
+    name = fields.String(required=True, validate=validate.Length(min=1, max=50))
     email = fields.Email(required=True)
-    pwd = fields.String(required=True)
+    pwd = fields.String(required=True, validate=validate.Length(min=8))
     weight = fields.Float()
     height = fields.Float()
     age = fields.Integer()
