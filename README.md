@@ -24,13 +24,11 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 ## 🐍 Usando o HappyFit
 
-Para usar a API RESTful HappyFit, siga estas etapas:
+Para usar a API RESTful HappyFit com docker basta seguir a etapa abaixo: 
 
 ```
-<exemplo_de_uso>
+docker run -d --rm -p 5000:5000 happyfit
 ```
-
-Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Fornece uma referência de opções para pontos de bônus!
 
 ## 📫 Documentação
 
@@ -106,6 +104,6 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 ## 📝 Licença
 
-Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
+Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais detalhes.
 
 [⬆ Voltar ao topo](#happyfit-restful-api)<br>
