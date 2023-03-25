@@ -75,7 +75,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="https://github.com/mrjonas151">
-        <img src="https://avatars.githubusercontent.com/u/89425034?v=4" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://avatars.githubusercontent.com/u/89425034?v=4" width="90px;" alt="Foto do Jonas"/><br>
         <sub>
           <b>Jonas Tomaz de Aquinos</b>
         </sub>
@@ -83,7 +83,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="https://github.com/Tchuc01">
-        <img src="https://avatars.githubusercontent.com/u/106837080?v=4" width="100px;" alt="Foto do Luiz"/><br>
+        <img src="https://avatars.githubusercontent.com/u/106837080?v=4" width="90px;" alt="Foto do Luiz"/><br>
         <sub>
           <b>Luiz Henrique da Silva Araújo</b>
         </sub>
@@ -91,7 +91,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="https://github.com/phTononFerreira">
-        <img src="https://avatars.githubusercontent.com/u/97487176?v=4" width="100px;" alt="Foto do Pedro"/><br>
+        <img src="https://avatars.githubusercontent.com/u/97487176?v=4" width="90px;" alt="Foto do Pedro"/><br>
         <sub>
           <b>Pedro Henrique Tonon Ferreira</b>
         </sub>
@@ -99,7 +99,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="https://github.com/takeshitos">
-        <img src="https://avatars.githubusercontent.com/u/89425063?v=4" width="100px;" alt="Foto do Ricardo"/><br>
+        <img src="https://avatars.githubusercontent.com/u/89425063?v=4" width="90px;" alt="Foto do Ricardo"/><br>
         <sub>
           <b>Ricardo Takeshi Outi Miyamoto</b>
         </sub>
@@ -107,7 +107,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="https://github.com/RobertoLuiz99">
-        <img src="https://avatars.githubusercontent.com/u/117315179?v=4" width="100px;" alt="Foto do Roberto"/><br>
+        <img src="https://avatars.githubusercontent.com/u/117315179?v=4" width="90px;" alt="Foto do Roberto"/><br>
         <sub>
           <b>Roberto Luiz Pereira Raposo</b>
         </sub>
@@ -115,7 +115,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="https://github.com/SidneyFerracinJr">
-        <img src="https://avatars.githubusercontent.com/u/64179428?v=4" width="100px;" alt="Foto do Sidney"/><br>
+        <img src="https://avatars.githubusercontent.com/u/64179428?v=4" width="90px;" alt="Foto do Sidney"/><br>
         <sub>
           <b>Sidney Alexandre Ferracin Jr.</b>
         </sub>
@@ -123,7 +123,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="https://github.com/ViniciusGR797">
-        <img src="https://avatars.githubusercontent.com/u/106624536?v=4" width="100px;" alt="Foto do Vinícius"/><br>
+        <img src="https://avatars.githubusercontent.com/u/106624536?v=4" width="90px;" alt="Foto do Vinícius"/><br>
         <sub>
           <b>Vinícius Gomes Ribeiro</b>
         </sub>
