@@ -1,13 +1,11 @@
-from flasgger import Swagger
+from apispec import APISpec
+from apispec.ext.marshmallow import MarshmallowPlugin
 from flask import Flask
-from flask_pymongo import PyMongo
+from flask_apispec.extension import FlaskApiSpec
+from flask_restful import Api
 
-# Blueprints
-from api.routes.consumptions import consumptions_bp
-from api.routes.diets import diets_bp
-from api.routes.exercises import exercises_bp
-from api.routes.historics import historics_bp
-from api.routes.users import users_bp
+# Resources
+from api.routes.users import Users
 # Database
 from api.utils.database import init_db
 
@@ -18,35 +16,44 @@ class Server():
     debug: bool = True
 
     app = None
-    swagger = None
+    api = None
 
     def __init__(self) -> None:
         self.app = Flask(__name__)
+        self.api = Api(self.app)
 
+        # Database config
         self.app.config['MONGO_URI'] = 'mongodb+srv://admin:UJBfUiR5KEFylFUt@fitdb.orqhkym.mongodb.net/test'
-
         init_db(self.app)
 
-        self.app.config['SWAGGER'] = {
-            'title': 'API Flask - HappyFit',
-        }
-        self.swagger = Swagger(self.app)
-
+        # Import config
         self.app.config.from_pyfile('config.py')
 
-        # Registrando blueprints
-        self.app.register_blueprint(users_bp, url_prefix='/users')
-        self.app.register_blueprint(historics_bp, url_prefix='/historics')
-        self.app.register_blueprint(exercises_bp, url_prefix='/exercises')
-        self.app.register_blueprint(diets_bp, url_prefix='/diets')
-        self.app.register_blueprint(consumptions_bp, url_prefix='/consumptions')
 
+        # Registrando resources
+        self.api.add_resource(Users, '/users', endpoint='users')
+        self.api.add_resource(Users, '/users/<string:user_id>', endpoint='user')
+
+        # Configurando documentação
+        self.app.config.update({
+            'APISPEC_SPEC': APISpec(
+                title='Awesome Project',
+                version='v1',
+                plugins=[MarshmallowPlugin()],
+                openapi_version='3.0.0'
+            ),
+            'APISPEC_SWAGGER_URL': '/swagger/',  # URI to access API Doc JSON
+            'APISPEC_SWAGGER_UI_URL': '/swagger-ui/'  # URI to access UI of API Doc
+        })
+
+        self.docs = FlaskApiSpec(self.app)
+        self.docs.register(Users)
+
+        
 
 
 server = Server()
 
 if __name__ == '__main__':
-
     app = server.app
-
     app.run(host=server.host, port=server.port, debug=server.debug)

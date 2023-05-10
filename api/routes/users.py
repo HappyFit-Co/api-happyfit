@@ -1,38 +1,22 @@
-from bson import ObjectId
-from flasgger import Swagger, swag_from
-from flask import Blueprint, Flask, Response, jsonify, request
-from flask_pymongo import PyMongo
-from marshmallow import ValidationError
-
-from api.schemas.userSchema import UserSchema
-
-users_bp = Blueprint('users_bp', __name__)
-
-# Rotas e controladores
+from flask import request
+from flask_apispec import marshal_with
+from flask_apispec.views import MethodResource
+from flask_restful import Resource
+from marshmallow import Schema, fields
 
 
-@users_bp.route('/', methods=['GET'])
-def get_users():
-    try:
-        data = []
-        return jsonify(data)
-    except:
-        return jsonify({"Error": "Erro ao obter"}), 400
+class AwesomeResponseSchema(Schema):
+    message = fields.Str(default='Success')
 
+class Users(MethodResource, Resource):
+    @marshal_with(AwesomeResponseSchema)
+    def get(self):
+        return {'Response':"GET"}
+    def post(self):
+        return {'Response':"POST"}, 201
 
-@users_bp.route('/<id>', methods=['GET'])
-def get_user(id):
-    data = id
-    return jsonify(data)
+    def put(self, user_id):
+        return {"ID":user_id}, 200
 
-
-@users_bp.route('/', methods=['POST'])
-def create_user():
-    try:
-        data = request.get_json()
-        user = UserSchema().load(data)
-        return jsonify(user), 201
-    except ValidationError as err:
-        return jsonify(err.messages), 400
-    except Exception as e:
-        return jsonify(str(e)), 500
+    def delete(self, user_id):
+        return {"ID":user_id}, 200
