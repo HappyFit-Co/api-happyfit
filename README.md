@@ -1,26 +1,18 @@
-# HappyFit
+# HappyFit RESTful API
 
-![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
+<div align="center">
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/HappyFit-Co/api-happyfit?style=for-the-badge">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/HappyFit-Co/api-happyfit?style=for-the-badge">
+  <img alt="GitHub forks" src="https://img.shields.io/github/forks/HappyFit-Co/api-happyfit?style=for-the-badge">
+  <img alt="Bitbucket open issues" src="https://img.shields.io/bitbucket/issues/HappyFit-Co/api-happyfit?style=for-the-badge">
+  <img alt="Bitbucket open pull request" src="https://img.shields.io/bitbucket/pr-raw/HappyFit-Co/api-happyfit?style=for-the-badge">
+</div>
 
 <div align="center">
   <img src="https://cdn.discordapp.com/attachments/445732137623224331/1088506154872750090/logo_happyfit.png" alt="logo HappyFit">
 </div>
   
-> Linha adicional de texto informativo sobre o que o projeto faz. Sua introdução deve ter cerca de 2 ou 3 linhas. Não exagere, as pessoas não vão ler.
-
-### Ajustes e melhorias
-
-O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
-
-- [x] Tarefa 1
-- [x] Tarefa 2
-- [x] Tarefa 3
-- [ ] Tarefa 4
-- [ ] Tarefa 5
+> O software proposto visa controlar a ingestão de alimentos e água, bem como gerenciar treinos de academia do usuário. Com interface web, o aplicativo oferecerá notificações sobre consumo de água e metas diárias, estimulando hábitos saudáveis
 
 ## 💻 Pré-requisitos
 
@@ -30,43 +22,19 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 * Você tem uma máquina `<Windows / Linux / Mac>`. Indique qual sistema operacional é compatível / não compatível.
 * Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
 
-## 🚀 Instalando <nome_do_projeto>
+## 🐍 Usando o HappyFit
 
-Para instalar o <nome_do_projeto>, siga estas etapas:
-
-Linux e macOS:
-```
-<comando_de_instalação>
-```
-
-Windows:
-```
-<comando_de_instalação>
-```
-
-## ☕ Usando o HappyFit
-
-Para usar <nome_do_projeto>, siga estas etapas:
+Para usar a API RESTful HappyFit com docker basta seguir a etapa abaixo: 
 
 ```
-<exemplo_de_uso>
+docker run -d --rm -p 5000:5000 happyfit
 ```
 
-Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Fornece uma referência de opções para pontos de bônus!
+## 📫 Documentação
 
-## 📫 Contribuindo para o HappyFit
-<!---Se o seu README for longo ou se você tiver algum processo ou etapas específicas que deseja que os contribuidores sigam, considere a criação de um arquivo CONTRIBUTING.md separado--->
-Para contribuir com <nome_do_projeto>, siga estas etapas:
+Confira a [Documentação do HappyFit]().
 
-1. Bifurque este repositório.
-2. Crie um branch: `git checkout -b <nome_branch>`.
-3. Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
-4. Envie para o branch original: `git push origin <nome_do_projeto> / <local>`
-5. Crie a solicitação de pull.
-
-Como alternativa, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
-
-## 🤝 Colaboradores
+## 🤝 Equipe
 
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
@@ -74,7 +42,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="https://github.com/mrjonas151">
-        <img src="https://avatars.githubusercontent.com/u/89425034?v=4" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://avatars.githubusercontent.com/u/89425034?v=4" width="100px;" alt="Foto do Jonas"/><br>
         <sub>
           <b>Jonas Tomaz de Aquinos</b>
         </sub>
@@ -104,6 +72,8 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         </sub>
       </a>
     </td>
+  </tr>
+  <tr>
     <td align="center">
       <a href="https://github.com/RobertoLuiz99">
         <img src="https://avatars.githubusercontent.com/u/117315179?v=4" width="100px;" alt="Foto do Roberto"/><br>
@@ -131,8 +101,9 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   </tr>
 </table>
 
+
 ## 📝 Licença
 
-Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE.md) para mais detalhes.
+Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais detalhes.
 
-[⬆ Voltar ao topo](#nome-do-projeto)<br>
+[⬆ Voltar ao topo](#happyfit-restful-api)<br>
