@@ -1,22 +1,29 @@
 from flask import request
-from flask_apispec import marshal_with
-from flask_apispec.views import MethodResource
-from flask_restful import Resource
-from marshmallow import Schema, fields
+from flask_restx import Resource, Namespace, fields
 
 
-class AwesomeResponseSchema(Schema):
-    message = fields.Str(default='Success')
+api = Namespace('users', description='User operations')
 
-class Users(MethodResource, Resource):
-    @marshal_with(AwesomeResponseSchema)
+class AwesomeResponseSchema(fields.Raw):
+    def format(self, value):
+        return {'message': value or 'Success'}
+
+class Users(Resource):
+    @api.marshal_with(AwesomeResponseSchema())
     def get(self):
-        return {'Response':"GET"}
+        return {'Response': "GET"}
+
+    @api.doc(responses={201: 'Created'})
+    @api.marshal_with(AwesomeResponseSchema())
     def post(self):
-        return {'Response':"POST"}, 201
+        return {'Response': "POST"}, 201
 
+    @api.doc(params={'user_id': 'User ID'})
     def put(self, user_id):
-        return {"ID":user_id}, 200
+        return {"ID": user_id}, 200
 
+    @api.doc(params={'user_id': 'User ID'})
     def delete(self, user_id):
-        return {"ID":user_id}, 200
+        return {"ID": user_id}, 200
+
+api.add_resource(Users, '/')

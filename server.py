@@ -1,18 +1,17 @@
+from flask import Flask
+from flask_restx import Api
 from apispec import APISpec
 from apispec.ext.marshmallow import MarshmallowPlugin
-from flask import Flask
 from flask_apispec.extension import FlaskApiSpec
-from flask_restful import Api
 
 # Resources
 from api.routes.users import Users
 # Database
 from api.utils.database import init_db
 
-
 class Server():
     host: str = None
-    port: str = "8080"
+    port: str = 8080
     debug: bool = True
 
     app = None
@@ -20,15 +19,14 @@ class Server():
 
     def __init__(self) -> None:
         self.app = Flask(__name__)
-        self.api = Api(self.app)
+        self.api = Api(self.app, version='v1', title='Awesome Project')
 
         # Database config
-        self.app.config['MONGO_URI'] = 'mongodb+srv://admin:UJBfUiR5KEFylFUt@fitdb.orqhkym.mongodb.net/test'
+        self.app.config['MONGO_URI'] = 'mongodb+srv://vinicin:i0W7rFpzsPPHtQXl@fitdb.orqhkym.mongodb.net/'
         init_db(self.app)
 
         # Import config
         self.app.config.from_pyfile('config.py')
-
 
         # Registrando resources
         self.api.add_resource(Users, '/users', endpoint='users')
@@ -48,9 +46,6 @@ class Server():
 
         self.docs = FlaskApiSpec(self.app)
         self.docs.register(Users)
-
-        
-
 
 server = Server()
 

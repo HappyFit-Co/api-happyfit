@@ -1,8 +1,5 @@
 from marshmallow import Schema, fields
-
-from api.schemas.consumptionSchema import ConsumptionSchema
-
+from api.schemas.recordSchema import RecordSchema
 
 class HistoricSchema(Schema):
-    _id = fields.String()
-    consumption = fields.Nested(ConsumptionSchema, many=True)
+    historic = fields.Nested(RecordSchema, many=True)
