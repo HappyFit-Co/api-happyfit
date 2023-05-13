@@ -1,7 +1,6 @@
 from flask import request
 from flask_restx import Resource, Namespace, fields
 
-
 api = Namespace('users', description='User operations')
 
 class AwesomeResponseSchema(fields.Raw):

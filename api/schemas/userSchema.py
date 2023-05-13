@@ -1,15 +1,21 @@
-from marshmallow import Schema, fields
-from api.schemas.goalSchema import GoalSchema
-from api.schemas.historicSchema import HistoricSchema
+from flask_restx import fields, Namespace
 
-class UserSchema(Schema):
-    _id = fields.String()
-    name = fields.String()
-    email = fields.Email()
-    pwd = fields.String()
-    weight = fields.Float()
-    height = fields.Float()
-    age = fields.Integer()
-    activity_level = fields.String()
-    goal = fields.Nested(GoalSchema)
-    historic = fields.Nested(HistoricSchema)
+from .goalSchema import goal_schema
+from .historicSchema import historic_schema
+from .notificationSchema import notification_schema
+
+ns = Namespace('users', description='User operations')
+
+user_schema = ns.model('User', {
+    '_id': fields.String(),
+    'name': fields.String(),
+    'email': fields.String(),
+    'pwd': fields.String(),
+    'weight': fields.Float(),
+    'height': fields.Float(),
+    'age': fields.Integer(),
+    'activity_level': fields.String(),
+    'goal': fields.Nested(goal_schema),
+    'historic': fields.Nested(historic_schema),
+    'notification_config': fields.Nested(notification_schema),
+})

@@ -1,5 +1,9 @@
-from marshmallow import Schema, fields
-from api.schemas.recordSchema import RecordSchema
+from flask_restx import fields, Namespace
 
-class HistoricSchema(Schema):
-    historic = fields.Nested(RecordSchema, many=True)
+from .recordSchema import record_schema
+
+ns = Namespace('historic', description='Historic operations')
+
+historic = ns.model('Historic', {
+    'historic': fields.List(fields.Nested(record_schema), required=True)
+})

@@ -1,20 +1,26 @@
-from marshmallow import Schema, fields
-from api.schemas.foodSchema import MacroSchema
+from flask_restx import fields, Namespace
 
-class WorkoutSchema(Schema):
-    exercise_id = fields.String()
-    hour = fields.Time()
+from .foodSchema import macro_schema
 
-class DietSchema(Schema):
-    calories = fields.Integer()
-    macro_nutrient = fields.Nested(MacroSchema)
-    hour = fields.Time()
+ns = Namespace('record', description='Record operations')
 
-class RecordSchema(Schema):
-    _id = fields.String()
-    date = fields.Date()
-    daily_calories = fields.Integer()
-    daily_water = fields.Integer()
-    daily_macro_nutrient = fields.Nested(MacroSchema)
-    workout = fields.Nested(WorkoutSchema, many=True)
-    diet = fields.Nested(DietSchema, many=True)
+workout_schema = ns.model('Workout', {
+    'exercise_id': fields.String(required=True),
+    'hour': fields.Time(required=True)
+})
+
+diet_schema = ns.model('Diet', {
+    'calories': fields.Integer(required=True),
+    'macro_nutrient': fields.Nested(macro_schema, required=True),
+    'hour': fields.Time(required=True)
+})
+
+record_schema = ns.model('Record', {
+    '_id': fields.String(required=True),
+    'date': fields.Date(required=True),
+    'daily_calories': fields.Integer(required=True),
+    'daily_water': fields.Integer(required=True),
+    'daily_macro_nutrient': fields.Nested(macro_schema, required=True),
+    'workout': fields.List(fields.Nested(workout_schema)),
+    'diet': fields.List(fields.Nested(diet_schema))
+})

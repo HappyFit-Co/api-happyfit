@@ -1,24 +1,29 @@
-from marshmallow import Schema, fields
+from flask_restx import fields, Namespace
 
-class MacroSchema(Schema):
-    protein = fields.Float()
-    carbohydrate = fields.Float()
-    fat = fields.Float()
+ns = Namespace('food', description='Food operations')
 
-class MineralSchema(Schema):
-    sodium = fields.String()
-    calcium = fields.String()
-    magnesium = fields.String()
-    potassium = fields.String()
-    selenium = fields.String()
-    zinc = fields.String()
+macro_schema = ns.model('Macro', {
+    'protein': fields.Float(),
+    'carbohydrate': fields.Float(),
+    'fat': fields.Float()
+})
 
-class FoodSchema(Schema):
-    _id = fields.String()
-    name = fields.String()
-    portion = fields.String()
-    calories = fields.Integer()
-    macro_nutrient = fields.Nested(MacroSchema)
-    minerals = fields.Nested(MineralSchema)
-    sugar = fields.String()
-    fiber = fields.String()
+mineral_schema = ns.model('Mineral', {
+    'sodium': fields.String(),
+    'calcium': fields.String(),
+    'magnesium': fields.String(),
+    'potassium': fields.String(),
+    'selenium': fields.String(),
+    'zinc': fields.String()
+})
+
+food_schema = ns.model('Food', {
+    '_id': fields.String(),
+    'name': fields.String(),
+    'portion': fields.String(),
+    'calories': fields.Integer(),
+    'macro_nutrient': fields.Nested(macro_schema),
+    'minerals': fields.Nested(mineral_schema),
+    'sugar': fields.String(),
+    'fiber': fields.String()
+})
