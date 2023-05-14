@@ -1,5 +1,4 @@
-from flask import abort
-from flask_restx import Resource, fields
+from flask_restx import Resource
 from api.controllers.exerciseController import ExerciseController
 from api.schemas.exerciseSchema import ns, exercise_schema
 
@@ -9,7 +8,6 @@ exercise_controller = ExerciseController()
 class ExerciseList(Resource):
     @ns.doc(description='Retorna a lista de dados de exercício')
     @ns.marshal_list_with(exercise_schema)
-    @ns.expect({})
     def get(self):
         """Lista todos os exercícios"""
         return exercise_controller.get_all_exercises()
