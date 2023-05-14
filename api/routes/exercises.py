@@ -1,8 +1,8 @@
-from flask_restx import Namespace, Resource, fields
-from flask import request
-from api.utils.database import mongo
-# from api import api
+from flask_restx import Resource
+from api.controllers.exerciseController import ExerciseController
 from api.schemas.exerciseSchema import ns, exercise_schema
+
+exercise_controller = ExerciseController()
 
 @ns.route('/')
 class ExerciseList(Resource):
@@ -11,8 +11,7 @@ class ExerciseList(Resource):
         """
         Retorna a lista de dados de exercício
         """
-        exercises = list(mongo.db.exercises.find())
-        return exercises
+        return exercise_controller.get_all_exercises()
 
     @ns.expect(exercise_schema)
     @ns.marshal_with(exercise_schema, code=201)
@@ -20,8 +19,5 @@ class ExerciseList(Resource):
         """
         Adiciona um novo dado à lista de exercício
         """
-        new_exercise = request.get_json()
-        exercise = mongo.db.exercises.insert_one(new_exercise)
-        return mongo.db.exercises.find_one({'_id': exercise.inserted_id})
-
-# api.add_namespace(ns)
+        new_exercise = ns.payload
+        return exercise_controller.add_new_exercise(new_exercise)
