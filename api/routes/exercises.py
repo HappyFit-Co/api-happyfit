@@ -23,11 +23,11 @@ class ExerciseById(Resource):
 
 @ns.route('/name/<string:exercise_name>')
 class ExerciseByName(Resource):
-    @ns.doc(description='Retorna dados de um exercício pelo nome', params={'exercise_name': 'Nome do exercício que deseja buscar'})
+    @ns.doc(description='Retorna dados de exercícios pelo nome', params={'exercise_name': 'Nome do exercício que deseja buscar'})
     @ns.marshal_with(exercise_schema)
     @ns.expect({'exercise_name': str})
     def get(self, exercise_name):
-        """Lista exercício pelo name"""
+        """Lista exercícios pelo name"""
         return exercise_controller.get_exercise_by_name(exercise_name)
 
 @ns.route('/muscle/<string:exercise_target>')
@@ -36,5 +36,5 @@ class ExerciseByTarget(Resource):
     @ns.marshal_list_with(exercise_schema)
     @ns.expect({'exercise_target': str})
     def get(self, exercise_target):
-        """Lista exercício pelo músculo target"""
+        """Lista exercícios pelo músculo target"""
         return exercise_controller.get_exercise_by_target(exercise_target)
