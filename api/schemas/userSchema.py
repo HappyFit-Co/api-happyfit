@@ -15,9 +15,9 @@ user_parser.add_argument('weight', type=float, required=True, help='Peso do usu�
 user_parser.add_argument('height', type=float, required=True, help='Altura do usuário em metros')
 user_parser.add_argument('age', type=int, required=True, help='Idade do usuário')
 user_parser.add_argument('activity_level', type=str, required=True, help='Nível de atividade física do usuário')
-user_parser.add_argument('goal', type=dict, required=True, help='Objetivo do usuário', nested=goal_schema)
-user_parser.add_argument('historic', type=dict, required=True, help='Histórico do usuário', nested=historic_schema)
-user_parser.add_argument('notification_config', type=dict, required=True, help='Configurações de notificação do usuário', nested=notification_schema)
+user_parser.add_argument('goal', type=dict, required=True, help='Objetivo do usuário')
+user_parser.add_argument('historic', type=dict, required=True, help='Histórico do usuário')
+user_parser.add_argument('notification_config', type=dict, required=True, help='Configurações de notificação do usuário')
 
 user_schema = ns.model('User', {
     '_id': fields.String(required=True, description='Identificador único do usuário'),

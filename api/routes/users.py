@@ -13,17 +13,14 @@ class UserMe(Resource):
     @ns.marshal_with(user_schema)
     def get(self):
         """Lista o usuário logado"""
-        user_id = get_jwt_identity()
-        return user_controller.GetUserMe(user_id)
+        return user_controller.get_user_me(get_jwt_identity())
     
     @ns.doc(description='Registra um novo usuário')
     @ns.expect(user_schema)
     @ns.marshal_with(user_schema)
     def post(self):
         """Cadastra um novo usuário"""
-        user_data = request.json
-        new_user = user_controller.create_user(user_data)
-        return new_user, 201
+        return user_controller.create_user(request.json)
     
 @ns.route('/login')
 class LoginUser(Resource):

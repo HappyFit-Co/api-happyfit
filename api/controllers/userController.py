@@ -1,29 +1,22 @@
-from api.services.exercises import ExerciseService
+from api.services.users import UserService
 
-class ExerciseController:
+class UserController:
     def __init__(self):
-        self.exercise_service = ExerciseService()
+        self.user_service = UserService()
 
-    def get_all_exercises(self):
-        exercises = self.exercise_service.get_all_exercises()
-        if not exercises:
-            return exercises, 404
-        return exercises, 200
+    def get_user_me(self, user_id):
+        pass
 
-    def get_exercise_by_id(self, exercise_id):
-        exercise = self.exercise_service.get_exercise_by_id(exercise_id)
-        if not exercise:
-            return exercise, 404
-        return exercise, 200
+    def create_user(self, user_data):
+        created_user_id = self.user_service.create_user(user_data)
+        if not created_user_id:
+            return user, 400 
+        user = self.user_service.get_user_by_id(created_user_id)
+        if not user:
+            return user, 404
+        return user, 201 
 
-    def get_exercise_by_name(self, exercise_name):
-        exercises = self.exercise_service.get_exercise_by_name(exercise_name)
-        if not exercises:
-            return exercises, 404
-        return exercises, 200
+    def get_user_by_email(self, user_email):
+        pass
 
-    def get_exercise_by_target(self, exercise_target):
-        exercises = self.exercise_service.get_exercise_by_target(exercise_target)
-        if not exercises:
-            return exercises, 404
-        return exercises, 200
+
