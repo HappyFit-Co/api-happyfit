@@ -1,7 +1,7 @@
 from api.utils.database import mongo
 from bson.objectid import ObjectId
 
-class UserService:
+class UserService: 
     def create_user(self, user_data):
         try:
             result = mongo.db.users.insert_one(user_data)

@@ -2,7 +2,7 @@ from flask import request
 from flask_restx import Resource
 from flask_jwt_extended import jwt_required, get_jwt_identity, create_access_token
 from api.controllers.userController import UserController
-from api.schemas.userSchema import ns, user_schema
+from api.schemas.userSchema import ns, user_schema 
 
 user_controller = UserController()
 

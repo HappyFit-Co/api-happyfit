@@ -4,7 +4,7 @@ from api.schemas.exerciseSchema import ns, exercise_schema
 
 exercise_controller = ExerciseController()
 
-@ns.route('/')
+@ns.route('/') 
 class ExerciseList(Resource):
     @ns.doc(description='Retorna a lista de dados de exercício')
     @ns.marshal_list_with(exercise_schema)
