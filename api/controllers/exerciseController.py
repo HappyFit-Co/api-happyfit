@@ -12,7 +12,9 @@ class ExerciseController:
 
     def get_exercise_by_id(self, exercise_id):
         exercise = self.exercise_service.get_exercise_by_id(exercise_id)
-        return exercise
+        if not exercise:
+            return exercise, 404
+        return exercise, 200
 
     def get_exercise_by_name(self, exercise_name):
         exercises = self.exercise_service.get_exercise_by_name(exercise_name)
@@ -22,4 +24,6 @@ class ExerciseController:
 
     def get_exercise_by_target(self, exercise_target):
         exercises = self.exercise_service.get_exercise_by_target(exercise_target)
-        return exercises
+        if not exercises:
+            return exercises, 404
+        return exercises, 200
