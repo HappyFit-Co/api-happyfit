@@ -4,7 +4,7 @@ from flask_jwt_extended import (create_access_token, get_jwt, get_jwt_identity,
                                 jwt_required)
 from flask_restx import Resource
 
-from api.controllers.users import UserController
+from api.controllers.userController import UserController
 from api.schemas.userSchema import ns, user_schema
 from api.security.password import compare_pwd
 

@@ -1,3 +1,4 @@
+from flask_jwt_extended import jwt_required
 from flask_restx import Resource
 
 from api.controllers.exercises import ExerciseController
@@ -7,6 +8,7 @@ exercise_controller = ExerciseController()
 
 @ns.route('/') 
 class ExerciseList(Resource):
+    @jwt_required()
     @ns.doc(description='Retorna a lista de dados de exercício')
     @ns.marshal_list_with(exercise_schema)
     def get(self):
@@ -15,6 +17,7 @@ class ExerciseList(Resource):
 
 @ns.route('/id/<string:exercise_id>')
 class ExerciseById(Resource):
+    @jwt_required()
     @ns.doc(description='Retorna dados de um exercício pelo _id', params={'exercise_id': 'ID do exercício que deseja buscar'})
     @ns.marshal_with(exercise_schema)
     @ns.expect({'exercise_id': str})
@@ -24,6 +27,7 @@ class ExerciseById(Resource):
 
 @ns.route('/name/<string:exercise_name>')
 class ExerciseByName(Resource):
+    @jwt_required()
     @ns.doc(description='Retorna dados de exercícios pelo nome', params={'exercise_name': 'Nome do exercício que deseja buscar'})
     @ns.marshal_with(exercise_schema)
     @ns.expect({'exercise_name': str})
@@ -33,6 +37,7 @@ class ExerciseByName(Resource):
 
 @ns.route('/muscle/<string:exercise_target>')
 class ExerciseByTarget(Resource):
+    @jwt_required()
     @ns.doc(description='Retorna lista de exercícios pelo músculo target', params={'exercise_target': 'Nome do músculo target que deseja buscar'})
     @ns.marshal_list_with(exercise_schema)
     @ns.expect({'exercise_target': str})
