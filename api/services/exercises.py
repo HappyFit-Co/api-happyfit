@@ -1,5 +1,5 @@
 from api.utils.database import mongo
-from bson.objectid import ObjectId
+from bson.objectid import ObjectId 
 
 class ExerciseService:
     def get_all_exercises(self):

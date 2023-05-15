@@ -4,7 +4,7 @@ from api.schemas.foodSchema import ns, food_schema
 
 food_controller = FoodController()
 
-@ns.route('/')
+@ns.route('/') 
 class FoodList(Resource):
     @ns.doc(description='Retorna a lista de dados de alimentos')
     @ns.marshal_list_with(food_schema)

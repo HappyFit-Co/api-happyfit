@@ -1,6 +1,6 @@
 from api.services.foods import FoodService
 
-class FoodController:
+class FoodController: 
     def __init__(self):
         self.food_service = FoodService()
 

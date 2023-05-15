@@ -1,6 +1,6 @@
 from api.services.users import UserService
 
-class UserController:
+class UserController: 
     def __init__(self):
         self.user_service = UserService()
 

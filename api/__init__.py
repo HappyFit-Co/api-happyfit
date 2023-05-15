@@ -2,7 +2,7 @@ from flask_restx import Api
 from flask_pymongo import PyMongo
 
 # Inicializa a extensão PyMongo
-mongo = PyMongo()
+mongo = PyMongo() 
 
 # Cria o objeto Api, que é uma extensão do Flask
 api = Api(
