@@ -6,7 +6,7 @@ from api.utils.database import mongo
 
 
 class UserService: 
-    def create_user(self, user_data):
+    def create_user(user_data):
         try:
             # Criptografando senha do usuário
             password = user_data.get('pwd')
@@ -18,10 +18,10 @@ class UserService:
         except TypeError:
             return None
  
-    def get_user_by_id(self, user_id):
+    def get_user_by_id(user_id):
         user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
         return user
 
-    def get_user_by_email(self, user_email):
+    def get_user_by_email(user_email):
         user = mongo.db.users.find_one({"email": user_email})
         return user

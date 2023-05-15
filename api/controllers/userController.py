@@ -1,15 +1,20 @@
 from flask_jwt_extended import create_access_token
+from flask_restx import abort
 
 from api.security.password import compare_pwd
-from api.services.users import UserService
+from api.security.token import create_token, is_token_valid
+from api.services.users import UserService as user_service
 
 
 class UserController:
-    def __init__(self):
-        self.user_service = UserService()
 
     def get_user_me(self, user_id):
-        pass
+        if not user_id:
+            abort(401, description='Usuário não encontrado')
+        
+        user = user_service.get_user_by_id(user_id)
+
+        return user
 
     def create_user(self, user_data):
         created_user_id = self.user_service.create_user(user_data)
@@ -33,6 +38,8 @@ class UserController:
         if not compare_pwd(password, user['pwd']):
             return {'message': 'Senha incorreta'}, 401
 
+        access_token = create_token(user['_id'])
+        
         access_token = create_access_token(identity=str(user['_id']), )
         return {'access_token': access_token}
     

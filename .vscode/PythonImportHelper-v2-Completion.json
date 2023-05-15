@@ -64,6 +64,14 @@
         "documentation": {}
     },
     {
+        "label": "get_jwt",
+        "importPath": "flask_jwt_extended",
+        "description": "flask_jwt_extended",
+        "isExtraImport": true,
+        "detail": "flask_jwt_extended",
+        "documentation": {}
+    },
+    {
         "label": "get_jwt_identity",
         "importPath": "flask_jwt_extended",
         "description": "flask_jwt_extended",
@@ -80,11 +88,203 @@
         "documentation": {}
     },
     {
+        "label": "create_access_token",
+        "importPath": "flask_jwt_extended",
+        "description": "flask_jwt_extended",
+        "isExtraImport": true,
+        "detail": "flask_jwt_extended",
+        "documentation": {}
+    },
+    {
+        "label": "decode_token",
+        "importPath": "flask_jwt_extended",
+        "description": "flask_jwt_extended",
+        "isExtraImport": true,
+        "detail": "flask_jwt_extended",
+        "documentation": {}
+    },
+    {
         "label": "JWTManager",
         "importPath": "flask_jwt_extended",
         "description": "flask_jwt_extended",
         "isExtraImport": true,
         "detail": "flask_jwt_extended",
+        "documentation": {}
+    },
+    {
+        "label": "abort",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Namespace",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Namespace",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Namespace",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Namespace",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Namespace",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Namespace",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Namespace",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
         "documentation": {}
     },
     {
@@ -112,179 +312,27 @@
         "documentation": {}
     },
     {
+        "label": "create_token",
+        "importPath": "api.security.token",
+        "description": "api.security.token",
+        "isExtraImport": true,
+        "detail": "api.security.token",
+        "documentation": {}
+    },
+    {
+        "label": "is_token_valid",
+        "importPath": "api.security.token",
+        "description": "api.security.token",
+        "isExtraImport": true,
+        "detail": "api.security.token",
+        "documentation": {}
+    },
+    {
         "label": "UserService",
         "importPath": "api.services.users",
         "description": "api.services.users",
         "isExtraImport": true,
         "detail": "api.services.users",
-        "documentation": {}
-    },
-    {
-        "label": "Resource",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "Resource",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "Resource",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "Resource",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "Resource",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "Resource",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "Resource",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "Namespace",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "fields",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "Namespace",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "fields",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "Namespace",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "fields",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "Namespace",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "fields",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "Namespace",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "fields",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "Namespace",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "fields",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "Namespace",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
-        "documentation": {}
-    },
-    {
-        "label": "fields",
-        "importPath": "flask_restx",
-        "description": "flask_restx",
-        "isExtraImport": true,
-        "detail": "flask_restx",
         "documentation": {}
     },
     {
@@ -481,6 +529,14 @@
         "documentation": {}
     },
     {
+        "label": "Config",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
         "label": "mongo",
         "importPath": "api.utils.database",
         "description": "api.utils.database",
@@ -618,6 +674,14 @@
         "documentation": {}
     },
     {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "load_dotenv",
         "importPath": "dotenv",
         "description": "dotenv",
@@ -692,7 +756,7 @@
         "kind": 6,
         "importPath": "api.controllers.userController",
         "description": "api.controllers.userController",
-        "peekOfCode": "class UserController:\n    def __init__(self):\n        self.user_service = UserService()\n    def get_user_me(self, user_id):\n        pass\n    def create_user(self, user_data):\n        created_user_id = self.user_service.create_user(user_data)\n        if not created_user_id:\n            return user, 400\n        user = self.user_service.get_user_by_id(created_user_id)",
+        "peekOfCode": "class UserController:\n    def get_user_me(self, user_id):\n        if not user_id:\n            abort(401, description='Usuário não encontrado')\n        user = user_service.get_user_by_id(user_id)\n        return user\n    def create_user(self, user_data):\n        created_user_id = self.user_service.create_user(user_data)\n        if not created_user_id:\n            return user, 400",
         "detail": "api.controllers.userController",
         "documentation": {}
     },
@@ -1084,6 +1148,24 @@
         "documentation": {}
     },
     {
+        "label": "create_token",
+        "kind": 2,
+        "importPath": "api.security.token",
+        "description": "api.security.token",
+        "peekOfCode": "def create_token(user_id):\n    access_token = create_access_token(identity=str(user_id))\n    return access_token\ndef is_token_valid(token):\n    try:\n        decoded_token = decode_token(token)    \n        return True\n    except Exception:    \n        return False",
+        "detail": "api.security.token",
+        "documentation": {}
+    },
+    {
+        "label": "is_token_valid",
+        "kind": 2,
+        "importPath": "api.security.token",
+        "description": "api.security.token",
+        "peekOfCode": "def is_token_valid(token):\n    try:\n        decoded_token = decode_token(token)    \n        return True\n    except Exception:    \n        return False",
+        "detail": "api.security.token",
+        "documentation": {}
+    },
+    {
         "label": "ExerciseService",
         "kind": 6,
         "importPath": "api.services.exercises",
@@ -1142,7 +1224,7 @@
         "kind": 6,
         "importPath": "api.services.users",
         "description": "api.services.users",
-        "peekOfCode": "class UserService: \n    def create_user(self, user_data):\n        try:\n            # Criptografando senha do usuário\n            password = user_data.get('pwd')\n            hashed_password = encrypt_pwd(password)\n            user_data['pwd'] = hashed_password\n            result = mongo.db.users.insert_one(user_data)\n            return result.inserted_id\n        except TypeError:",
+        "peekOfCode": "class UserService: \n    def create_user(user_data):\n        try:\n            # Criptografando senha do usuário\n            password = user_data.get('pwd')\n            hashed_password = encrypt_pwd(password)\n            user_data['pwd'] = hashed_password\n            result = mongo.db.users.insert_one(user_data)\n            return result.inserted_id\n        except TypeError:",
         "detail": "api.services.users",
         "documentation": {}
     },
@@ -1169,7 +1251,7 @@
         "kind": 6,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "class Config:\n    # Configurações do MongoDB\n    MONGO_URI = os.environ.get('MONGO_URI')\n    # Configurações do Flask \n    DEBUG = os.environ.get('DEBUG', True)\n    HOST = os.environ.get('HOST', 'localhost')\n    PORT = os.environ.get('PORT', 5000)\n    # Configurações do Flask-RESTX\n    RESTX_MASK_SWAGGER = os.environ.get('RESTX_MASK_SWAGGER', False)\n    # Chave secreta para autenticação de sessão",
+        "peekOfCode": "class Config:\n    # Configurações do MongoDB\n    MONGO_URI = os.environ.get('MONGO_URI')\n    # Configurações do Flask\n    DEBUG = os.environ.get('DEBUG', True)\n    HOST = os.environ.get('HOST', 'localhost')\n    PORT = os.environ.get('PORT', 5000)\n    # Configurações do Flask-RESTX\n    RESTX_MASK_SWAGGER = os.environ.get('RESTX_MASK_SWAGGER', False)\n    # Configurações do JWT",
         "detail": "config",
         "documentation": {}
     },
@@ -1178,7 +1260,7 @@
         "kind": 5,
         "importPath": "server",
         "description": "server",
-        "peekOfCode": "app = Flask(__name__)\napp.config.from_object('config.Config')\nmongo.init_app(app)\nJWTManager(app)\n# Configura a API com a instância do objeto api criada em api.__init__.py\napi.init_app(app) \nif __name__ == '__main__':\n    app.run(host=app.config['HOST'], port=app.config['PORT'], debug=app.config['DEBUG'])",
+        "peekOfCode": "app = Flask(__name__)\nJWTManager(app)\napp.config.from_object('config.Config')\nmongo.init_app(app)\n# Configura a API com a instância do objeto api criada em api.__init__.py\napi.init_app(app) \nif __name__ == '__main__':\n    app.run(host=app.config['HOST'], port=app.config['PORT'], debug=app.config['DEBUG'])",
         "detail": "server",
         "documentation": {}
     }
