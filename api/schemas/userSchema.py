@@ -32,4 +32,3 @@ user_schema = ns.model('User', {
     'historic': fields.Nested(historic_schema, required=True, description='Histórico do usuário'),
     'notification_config': fields.Nested(notification_schema, required=True, description='Configurações de notificação do usuário'),
 })
-
