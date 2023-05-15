@@ -1,6 +1,7 @@
 from flask_restx import Resource
-from api.controllers.exerciseController import ExerciseController
-from api.schemas.exerciseSchema import ns, exercise_schema
+
+from api.controllers.exercises import ExerciseController
+from api.schemas.exerciseSchema import exercise_schema, ns
 
 exercise_controller = ExerciseController()
 

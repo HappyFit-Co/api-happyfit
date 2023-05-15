@@ -44,4 +44,4 @@ class UserController:
         return {'access_token': access_token}
     
     def get_user_by_email(self, user_email):
-        return self.user_service.get_user_by_email(user_email)
+        return user_service.get_user_by_email(user_email)
