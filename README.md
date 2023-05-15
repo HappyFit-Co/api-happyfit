@@ -13,7 +13,8 @@
 </div>
 
 <div align="center">
-@@ -14,22 +18,60 @@
+  <img src="https://cdn.discordapp.com/attachments/445732137623224331/1088506154872750090/logo_happyfit.png" alt="logo HappyFit">
+</div>
 
 > O software proposto visa controlar a ingestão de alimentos e água, bem como gerenciar treinos de academia do usuário. Com interface web, o aplicativo oferecerá notificações sobre consumo de água e metas diárias, estimulando hábitos saudáveis
 ## 💻 Pré-requisitos
@@ -81,7 +82,9 @@ docker run -d --rm -p 5000:5000 happyfit
 ## 📫 Documentação
 
 Confira a [Documentação do HappyFit]().
+
 ## 🤝 Equipe
+
 Agradecemos às seguintes pessoas que contribuíram para este projeto:
 <table>
   <tr>
@@ -145,6 +148,9 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
   </tr>
 </table>
+
 ## 📝 Licença
+
 Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais detalhes.
+
 [⬆ Voltar ao topo](#happyfit-restful-api)
