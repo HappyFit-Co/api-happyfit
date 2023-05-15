@@ -3,7 +3,6 @@ from flask_restx import abort
 
 from api.utils.database import mongo
 
-
 class NotificationService:
     def get_config(user_id):
         try:
