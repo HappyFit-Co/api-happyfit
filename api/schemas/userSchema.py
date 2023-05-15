@@ -1,4 +1,4 @@
-from flask_restx import Namespace, fields
+from flask_restx import Namespace, fields 
 
 from .goalSchema import goal_schema
 from .historicSchema import historic_schema

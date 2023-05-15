@@ -1,4 +1,4 @@
-from flask_restx import Namespace, fields
+from flask_restx import Namespace, fields 
 
 ns = Namespace('exercises', description='Operações relacionadas a exercícios')
 

@@ -8,7 +8,7 @@ class Config:
     # Configurações do MongoDB
     MONGO_URI = os.environ.get('MONGO_URI')
 
-    # Configurações do Flask
+    # Configurações do Flask 
     DEBUG = os.environ.get('DEBUG', True)
     HOST = os.environ.get('HOST', 'localhost')
     PORT = os.environ.get('PORT', 5000)

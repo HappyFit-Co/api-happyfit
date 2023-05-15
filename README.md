@@ -1,4 +1,4 @@
-# HappyFit RESTful API
+# HappyFit RESTful API 
 
 <div align="center">
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/HappyFit-Co/api-happyfit?style=for-the-badge">
@@ -11,20 +11,22 @@
 <div align="center">
   <img src="https://cdn.discordapp.com/attachments/445732137623224331/1088506154872750090/logo_happyfit.png" alt="logo HappyFit">
 </div>
-  
+
 > O software proposto visa controlar a ingestão de alimentos e água, bem como gerenciar treinos de academia do usuário. Com interface web, o aplicativo oferecerá notificações sobre consumo de água e metas diárias, estimulando hábitos saudáveis
 
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
+
 <!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
+
 * Você instalou a versão mais recente de `<linguagem / dependência / requeridos>`
 * Você tem uma máquina `<Windows / Linux / Mac>`. Indique qual sistema operacional é compatível / não compatível.
 * Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
 
 ## 🐍 Usando o HappyFit
 
-Para usar a API RESTful HappyFit com docker basta seguir a etapa abaixo: 
+Para usar a API RESTful HappyFit com docker basta seguir a etapa abaixo:
 
 ```
 docker run -d --rm -p 5000:5000 happyfit
@@ -101,9 +103,8 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   </tr>
 </table>
 
-
 ## 📝 Licença
 
 Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais detalhes.
 
-[⬆ Voltar ao topo](#happyfit-restful-api)<br>
+[⬆ Voltar ao topo](#happyfit-restful-api)`<br>`

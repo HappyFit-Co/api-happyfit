@@ -1,4 +1,4 @@
-from flask_restx import Namespace, fields
+from flask_restx import Namespace, fields 
 
 ns = Namespace('notifications', description='Operações relacionadas a notificações')
 
