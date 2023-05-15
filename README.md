@@ -107,4 +107,4 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais detalhes.
 
-[⬆ Voltar ao topo](#happyfit-restful-api)`<br>`
+[⬆ Voltar ao topo](#happyfit-restful-api)
