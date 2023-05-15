@@ -1,10 +1,13 @@
 from flask import Flask
+from flask_jwt_extended import JWTManager
+
 from api import api
 from api.utils.database import mongo
 
 app = Flask(__name__)
 app.config.from_object('config.Config')
 mongo.init_app(app)
+jwt = JWTManager(app)
 
 # Configura a API com a instância do objeto api criada em api.__init__.py
 api.init_app(app) 
