@@ -1,9 +1,18 @@
-from api.utils.database import mongo
+import bcrypt
 from bson.objectid import ObjectId
+
+from api.security.password import encrypt_pwd
+from api.utils.database import mongo
+
 
 class UserService: 
     def create_user(self, user_data):
         try:
+            # Criptografando senha do usuário
+            password = user_data.get('pwd')
+            hashed_password = encrypt_pwd(password)
+            user_data['pwd'] = hashed_password
+            
             result = mongo.db.users.insert_one(user_data)
             return result.inserted_id
         except TypeError:
@@ -14,5 +23,5 @@ class UserService:
         return user
 
     def get_user_by_email(self, user_email):
-        user = list(mongo.db.users.find({"email": {"$regex": user_email, "$options": "i"}}))
+        user = mongo.db.users.find_one({"email": user_email})
         return user

@@ -1,5 +1,6 @@
 from api.services.exercises import ExerciseService
 
+
 class ExerciseController: 
     def __init__(self):
         self.exercise_service = ExerciseService()

@@ -1,0 +1,1185 @@
+[
+    {
+        "label": "ExerciseService",
+        "importPath": "api.services.exercises",
+        "description": "api.services.exercises",
+        "isExtraImport": true,
+        "detail": "api.services.exercises",
+        "documentation": {}
+    },
+    {
+        "label": "FoodService",
+        "importPath": "api.services.foods",
+        "description": "api.services.foods",
+        "isExtraImport": true,
+        "detail": "api.services.foods",
+        "documentation": {}
+    },
+    {
+        "label": "GoalService",
+        "importPath": "api.services.goals",
+        "description": "api.services.goals",
+        "isExtraImport": true,
+        "detail": "api.services.goals",
+        "documentation": {}
+    },
+    {
+        "label": "HistoricService",
+        "importPath": "api.services.historics",
+        "description": "api.services.historics",
+        "isExtraImport": true,
+        "detail": "api.services.historics",
+        "documentation": {}
+    },
+    {
+        "label": "NotificationService",
+        "importPath": "api.services.notifications",
+        "description": "api.services.notifications",
+        "isExtraImport": true,
+        "detail": "api.services.notifications",
+        "documentation": {}
+    },
+    {
+        "label": "RecordService",
+        "importPath": "api.services.records",
+        "description": "api.services.records",
+        "isExtraImport": true,
+        "detail": "api.services.records",
+        "documentation": {}
+    },
+    {
+        "label": "create_access_token",
+        "importPath": "flask_jwt_extended",
+        "description": "flask_jwt_extended",
+        "isExtraImport": true,
+        "detail": "flask_jwt_extended",
+        "documentation": {}
+    },
+    {
+        "label": "create_access_token",
+        "importPath": "flask_jwt_extended",
+        "description": "flask_jwt_extended",
+        "isExtraImport": true,
+        "detail": "flask_jwt_extended",
+        "documentation": {}
+    },
+    {
+        "label": "get_jwt_identity",
+        "importPath": "flask_jwt_extended",
+        "description": "flask_jwt_extended",
+        "isExtraImport": true,
+        "detail": "flask_jwt_extended",
+        "documentation": {}
+    },
+    {
+        "label": "jwt_required",
+        "importPath": "flask_jwt_extended",
+        "description": "flask_jwt_extended",
+        "isExtraImport": true,
+        "detail": "flask_jwt_extended",
+        "documentation": {}
+    },
+    {
+        "label": "JWTManager",
+        "importPath": "flask_jwt_extended",
+        "description": "flask_jwt_extended",
+        "isExtraImport": true,
+        "detail": "flask_jwt_extended",
+        "documentation": {}
+    },
+    {
+        "label": "compare_pwd",
+        "importPath": "api.security.password",
+        "description": "api.security.password",
+        "isExtraImport": true,
+        "detail": "api.security.password",
+        "documentation": {}
+    },
+    {
+        "label": "compare_pwd",
+        "importPath": "api.security.password",
+        "description": "api.security.password",
+        "isExtraImport": true,
+        "detail": "api.security.password",
+        "documentation": {}
+    },
+    {
+        "label": "encrypt_pwd",
+        "importPath": "api.security.password",
+        "description": "api.security.password",
+        "isExtraImport": true,
+        "detail": "api.security.password",
+        "documentation": {}
+    },
+    {
+        "label": "UserService",
+        "importPath": "api.services.users",
+        "description": "api.services.users",
+        "isExtraImport": true,
+        "detail": "api.services.users",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Namespace",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Namespace",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Namespace",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Namespace",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Namespace",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Namespace",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "Namespace",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "fields",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "ExerciseController",
+        "importPath": "api.controllers.exerciseController",
+        "description": "api.controllers.exerciseController",
+        "isExtraImport": true,
+        "detail": "api.controllers.exerciseController",
+        "documentation": {}
+    },
+    {
+        "label": "ns",
+        "importPath": "api.schemas.exerciseSchema",
+        "description": "api.schemas.exerciseSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.exerciseSchema",
+        "documentation": {}
+    },
+    {
+        "label": "exercise_schema",
+        "importPath": "api.schemas.exerciseSchema",
+        "description": "api.schemas.exerciseSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.exerciseSchema",
+        "documentation": {}
+    },
+    {
+        "label": "FoodController",
+        "importPath": "api.controllers.foodController",
+        "description": "api.controllers.foodController",
+        "isExtraImport": true,
+        "detail": "api.controllers.foodController",
+        "documentation": {}
+    },
+    {
+        "label": "ns",
+        "importPath": "api.schemas.foodSchema",
+        "description": "api.schemas.foodSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.foodSchema",
+        "documentation": {}
+    },
+    {
+        "label": "food_schema",
+        "importPath": "api.schemas.foodSchema",
+        "description": "api.schemas.foodSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.foodSchema",
+        "documentation": {}
+    },
+    {
+        "label": "GoalController",
+        "importPath": "api.controllers.goalController",
+        "description": "api.controllers.goalController",
+        "isExtraImport": true,
+        "detail": "api.controllers.goalController",
+        "documentation": {}
+    },
+    {
+        "label": "ns",
+        "importPath": "api.schemas.goalSchema",
+        "description": "api.schemas.goalSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.goalSchema",
+        "documentation": {}
+    },
+    {
+        "label": "goal_schema",
+        "importPath": "api.schemas.goalSchema",
+        "description": "api.schemas.goalSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.goalSchema",
+        "documentation": {}
+    },
+    {
+        "label": "HistoricController",
+        "importPath": "api.controllers.historicController",
+        "description": "api.controllers.historicController",
+        "isExtraImport": true,
+        "detail": "api.controllers.historicController",
+        "documentation": {}
+    },
+    {
+        "label": "ns",
+        "importPath": "api.schemas.historicSchema",
+        "description": "api.schemas.historicSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.historicSchema",
+        "documentation": {}
+    },
+    {
+        "label": "historic_schema",
+        "importPath": "api.schemas.historicSchema",
+        "description": "api.schemas.historicSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.historicSchema",
+        "documentation": {}
+    },
+    {
+        "label": "NotificationController",
+        "importPath": "api.controllers.notificationController",
+        "description": "api.controllers.notificationController",
+        "isExtraImport": true,
+        "detail": "api.controllers.notificationController",
+        "documentation": {}
+    },
+    {
+        "label": "ns",
+        "importPath": "api.schemas.notificationSchema",
+        "description": "api.schemas.notificationSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.notificationSchema",
+        "documentation": {}
+    },
+    {
+        "label": "notification_schema",
+        "importPath": "api.schemas.notificationSchema",
+        "description": "api.schemas.notificationSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.notificationSchema",
+        "documentation": {}
+    },
+    {
+        "label": "RecordController",
+        "importPath": "api.controllers.recordController",
+        "description": "api.controllers.recordController",
+        "isExtraImport": true,
+        "detail": "api.controllers.recordController",
+        "documentation": {}
+    },
+    {
+        "label": "ns",
+        "importPath": "api.schemas.recordSchema",
+        "description": "api.schemas.recordSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.recordSchema",
+        "documentation": {}
+    },
+    {
+        "label": "record_schema",
+        "importPath": "api.schemas.recordSchema",
+        "description": "api.schemas.recordSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.recordSchema",
+        "documentation": {}
+    },
+    {
+        "label": "bcrypt",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "bcrypt",
+        "description": "bcrypt",
+        "detail": "bcrypt",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "UserController",
+        "importPath": "api.controllers.userController",
+        "description": "api.controllers.userController",
+        "isExtraImport": true,
+        "detail": "api.controllers.userController",
+        "documentation": {}
+    },
+    {
+        "label": "ns",
+        "importPath": "api.schemas.userSchema",
+        "description": "api.schemas.userSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.userSchema",
+        "documentation": {}
+    },
+    {
+        "label": "user_schema",
+        "importPath": "api.schemas.userSchema",
+        "description": "api.schemas.userSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.userSchema",
+        "documentation": {}
+    },
+    {
+        "label": "mongo",
+        "importPath": "api.utils.database",
+        "description": "api.utils.database",
+        "isExtraImport": true,
+        "detail": "api.utils.database",
+        "documentation": {}
+    },
+    {
+        "label": "mongo",
+        "importPath": "api.utils.database",
+        "description": "api.utils.database",
+        "isExtraImport": true,
+        "detail": "api.utils.database",
+        "documentation": {}
+    },
+    {
+        "label": "mongo",
+        "importPath": "api.utils.database",
+        "description": "api.utils.database",
+        "isExtraImport": true,
+        "detail": "api.utils.database",
+        "documentation": {}
+    },
+    {
+        "label": "mongo",
+        "importPath": "api.utils.database",
+        "description": "api.utils.database",
+        "isExtraImport": true,
+        "detail": "api.utils.database",
+        "documentation": {}
+    },
+    {
+        "label": "mongo",
+        "importPath": "api.utils.database",
+        "description": "api.utils.database",
+        "isExtraImport": true,
+        "detail": "api.utils.database",
+        "documentation": {}
+    },
+    {
+        "label": "mongo",
+        "importPath": "api.utils.database",
+        "description": "api.utils.database",
+        "isExtraImport": true,
+        "detail": "api.utils.database",
+        "documentation": {}
+    },
+    {
+        "label": "mongo",
+        "importPath": "api.utils.database",
+        "description": "api.utils.database",
+        "isExtraImport": true,
+        "detail": "api.utils.database",
+        "documentation": {}
+    },
+    {
+        "label": "mongo",
+        "importPath": "api.utils.database",
+        "description": "api.utils.database",
+        "isExtraImport": true,
+        "detail": "api.utils.database",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson.objectid",
+        "description": "bson.objectid",
+        "isExtraImport": true,
+        "detail": "bson.objectid",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson.objectid",
+        "description": "bson.objectid",
+        "isExtraImport": true,
+        "detail": "bson.objectid",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson.objectid",
+        "description": "bson.objectid",
+        "isExtraImport": true,
+        "detail": "bson.objectid",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson.objectid",
+        "description": "bson.objectid",
+        "isExtraImport": true,
+        "detail": "bson.objectid",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson.objectid",
+        "description": "bson.objectid",
+        "isExtraImport": true,
+        "detail": "bson.objectid",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson.objectid",
+        "description": "bson.objectid",
+        "isExtraImport": true,
+        "detail": "bson.objectid",
+        "documentation": {}
+    },
+    {
+        "label": "ObjectId",
+        "importPath": "bson.objectid",
+        "description": "bson.objectid",
+        "isExtraImport": true,
+        "detail": "bson.objectid",
+        "documentation": {}
+    },
+    {
+        "label": "PyMongo",
+        "importPath": "flask_pymongo",
+        "description": "flask_pymongo",
+        "isExtraImport": true,
+        "detail": "flask_pymongo",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "api",
+        "importPath": "api",
+        "description": "api",
+        "isExtraImport": true,
+        "detail": "api",
+        "documentation": {}
+    },
+    {
+        "label": "ExerciseController",
+        "kind": 6,
+        "importPath": "api.controllers.exerciseController",
+        "description": "api.controllers.exerciseController",
+        "peekOfCode": "class ExerciseController: \n    def __init__(self):\n        self.exercise_service = ExerciseService()\n    def get_all_exercises(self):\n        exercises = self.exercise_service.get_all_exercises()\n        if not exercises:\n            return exercises, 404\n        return exercises, 200\n    def get_exercise_by_id(self, exercise_id):\n        exercise = self.exercise_service.get_exercise_by_id(exercise_id)",
+        "detail": "api.controllers.exerciseController",
+        "documentation": {}
+    },
+    {
+        "label": "FoodController",
+        "kind": 6,
+        "importPath": "api.controllers.foodController",
+        "description": "api.controllers.foodController",
+        "peekOfCode": "class FoodController: \n    def __init__(self):\n        self.food_service = FoodService()\n    def get_all_foods(self):\n        foods = self.food_service.get_all_foods()\n        if not foods:\n            return foods, 404\n        return foods, 200\n    def get_food_by_id(self, food_id):\n        food = self.food_service.get_food_by_id(food_id)",
+        "detail": "api.controllers.foodController",
+        "documentation": {}
+    },
+    {
+        "label": "GoalController",
+        "kind": 6,
+        "importPath": "api.controllers.goalController",
+        "description": "api.controllers.goalController",
+        "peekOfCode": "class GoalController: \n    def __init__(self):\n        self.goal_service = GoalService()",
+        "detail": "api.controllers.goalController",
+        "documentation": {}
+    },
+    {
+        "label": "HistoricController",
+        "kind": 6,
+        "importPath": "api.controllers.historicController",
+        "description": "api.controllers.historicController",
+        "peekOfCode": "class HistoricController: \n    def __init__(self):\n        self.historic_service = HistoricService()",
+        "detail": "api.controllers.historicController",
+        "documentation": {}
+    },
+    {
+        "label": "NotificationController",
+        "kind": 6,
+        "importPath": "api.controllers.notificationController",
+        "description": "api.controllers.notificationController",
+        "peekOfCode": "class NotificationController: \n    def __init__(self):\n        self.notification_service = NotificationService()",
+        "detail": "api.controllers.notificationController",
+        "documentation": {}
+    },
+    {
+        "label": "RecordController",
+        "kind": 6,
+        "importPath": "api.controllers.recordController",
+        "description": "api.controllers.recordController",
+        "peekOfCode": "class RecordController: \n    def __init__(self):\n        self.record_service = RecordService()",
+        "detail": "api.controllers.recordController",
+        "documentation": {}
+    },
+    {
+        "label": "UserController",
+        "kind": 6,
+        "importPath": "api.controllers.userController",
+        "description": "api.controllers.userController",
+        "peekOfCode": "class UserController:\n    def __init__(self):\n        self.user_service = UserService()\n    def get_user_me(self, user_id):\n        pass\n    def create_user(self, user_data):\n        created_user_id = self.user_service.create_user(user_data)\n        if not created_user_id:\n            return user, 400\n        user = self.user_service.get_user_by_id(created_user_id)",
+        "detail": "api.controllers.userController",
+        "documentation": {}
+    },
+    {
+        "label": "ExerciseList",
+        "kind": 6,
+        "importPath": "api.routes.exercises",
+        "description": "api.routes.exercises",
+        "peekOfCode": "class ExerciseList(Resource):\n    @ns.doc(description='Retorna a lista de dados de exercício')\n    @ns.marshal_list_with(exercise_schema)\n    def get(self):\n        \"\"\"Lista todos os exercícios\"\"\"\n        return exercise_controller.get_all_exercises()\n@ns.route('/id/<string:exercise_id>')\nclass ExerciseById(Resource):\n    @ns.doc(description='Retorna dados de um exercício pelo _id', params={'exercise_id': 'ID do exercício que deseja buscar'})\n    @ns.marshal_with(exercise_schema)",
+        "detail": "api.routes.exercises",
+        "documentation": {}
+    },
+    {
+        "label": "ExerciseById",
+        "kind": 6,
+        "importPath": "api.routes.exercises",
+        "description": "api.routes.exercises",
+        "peekOfCode": "class ExerciseById(Resource):\n    @ns.doc(description='Retorna dados de um exercício pelo _id', params={'exercise_id': 'ID do exercício que deseja buscar'})\n    @ns.marshal_with(exercise_schema)\n    @ns.expect({'exercise_id': str})\n    def get(self, exercise_id):\n        \"\"\"Lista exercício pelo _id\"\"\"\n        return exercise_controller.get_exercise_by_id(exercise_id)\n@ns.route('/name/<string:exercise_name>')\nclass ExerciseByName(Resource):\n    @ns.doc(description='Retorna dados de exercícios pelo nome', params={'exercise_name': 'Nome do exercício que deseja buscar'})",
+        "detail": "api.routes.exercises",
+        "documentation": {}
+    },
+    {
+        "label": "ExerciseByName",
+        "kind": 6,
+        "importPath": "api.routes.exercises",
+        "description": "api.routes.exercises",
+        "peekOfCode": "class ExerciseByName(Resource):\n    @ns.doc(description='Retorna dados de exercícios pelo nome', params={'exercise_name': 'Nome do exercício que deseja buscar'})\n    @ns.marshal_with(exercise_schema)\n    @ns.expect({'exercise_name': str})\n    def get(self, exercise_name):\n        \"\"\"Lista exercícios pelo name\"\"\"\n        return exercise_controller.get_exercise_by_name(exercise_name)\n@ns.route('/muscle/<string:exercise_target>')\nclass ExerciseByTarget(Resource):\n    @ns.doc(description='Retorna lista de exercícios pelo músculo target', params={'exercise_target': 'Nome do músculo target que deseja buscar'})",
+        "detail": "api.routes.exercises",
+        "documentation": {}
+    },
+    {
+        "label": "ExerciseByTarget",
+        "kind": 6,
+        "importPath": "api.routes.exercises",
+        "description": "api.routes.exercises",
+        "peekOfCode": "class ExerciseByTarget(Resource):\n    @ns.doc(description='Retorna lista de exercícios pelo músculo target', params={'exercise_target': 'Nome do músculo target que deseja buscar'})\n    @ns.marshal_list_with(exercise_schema)\n    @ns.expect({'exercise_target': str})\n    def get(self, exercise_target):\n        \"\"\"Lista exercícios pelo músculo target\"\"\"\n        return exercise_controller.get_exercise_by_target(exercise_target)",
+        "detail": "api.routes.exercises",
+        "documentation": {}
+    },
+    {
+        "label": "exercise_controller",
+        "kind": 5,
+        "importPath": "api.routes.exercises",
+        "description": "api.routes.exercises",
+        "peekOfCode": "exercise_controller = ExerciseController()\n@ns.route('/') \nclass ExerciseList(Resource):\n    @ns.doc(description='Retorna a lista de dados de exercício')\n    @ns.marshal_list_with(exercise_schema)\n    def get(self):\n        \"\"\"Lista todos os exercícios\"\"\"\n        return exercise_controller.get_all_exercises()\n@ns.route('/id/<string:exercise_id>')\nclass ExerciseById(Resource):",
+        "detail": "api.routes.exercises",
+        "documentation": {}
+    },
+    {
+        "label": "FoodList",
+        "kind": 6,
+        "importPath": "api.routes.foods",
+        "description": "api.routes.foods",
+        "peekOfCode": "class FoodList(Resource):\n    @ns.doc(description='Retorna a lista de dados de alimentos')\n    @ns.marshal_list_with(food_schema)\n    def get(self):\n        \"\"\"Lista todos os alimentos\"\"\"\n        return food_controller.get_all_foods()\n@ns.route('/id/<string:food_id>')\nclass FoodById(Resource):\n    @ns.doc(description='Retorna dados de um alimento pelo _id', params={'food_id': 'ID do alimento que deseja buscar'})\n    @ns.marshal_with(food_schema)",
+        "detail": "api.routes.foods",
+        "documentation": {}
+    },
+    {
+        "label": "FoodById",
+        "kind": 6,
+        "importPath": "api.routes.foods",
+        "description": "api.routes.foods",
+        "peekOfCode": "class FoodById(Resource):\n    @ns.doc(description='Retorna dados de um alimento pelo _id', params={'food_id': 'ID do alimento que deseja buscar'})\n    @ns.marshal_with(food_schema)\n    @ns.expect({'food_id': str})\n    def get(self, food_id):\n        \"\"\"Lista alimento pelo _id\"\"\"\n        return food_controller.get_food_by_id(food_id)\n@ns.route('/name/<string:food_name>')\nclass FoodByName(Resource):\n    @ns.doc(description='Retorna dados de alimentos pelo nome', params={'food_name': 'Nome do alimento que deseja buscar'})",
+        "detail": "api.routes.foods",
+        "documentation": {}
+    },
+    {
+        "label": "FoodByName",
+        "kind": 6,
+        "importPath": "api.routes.foods",
+        "description": "api.routes.foods",
+        "peekOfCode": "class FoodByName(Resource):\n    @ns.doc(description='Retorna dados de alimentos pelo nome', params={'food_name': 'Nome do alimento que deseja buscar'})\n    @ns.marshal_with(food_schema)\n    @ns.expect({'food_name': str})\n    def get(self, food_name):\n        \"\"\"Lista alimentos pelo name\"\"\"\n        return food_controller.get_food_by_name(food_name)",
+        "detail": "api.routes.foods",
+        "documentation": {}
+    },
+    {
+        "label": "food_controller",
+        "kind": 5,
+        "importPath": "api.routes.foods",
+        "description": "api.routes.foods",
+        "peekOfCode": "food_controller = FoodController()\n@ns.route('/') \nclass FoodList(Resource):\n    @ns.doc(description='Retorna a lista de dados de alimentos')\n    @ns.marshal_list_with(food_schema)\n    def get(self):\n        \"\"\"Lista todos os alimentos\"\"\"\n        return food_controller.get_all_foods()\n@ns.route('/id/<string:food_id>')\nclass FoodById(Resource):",
+        "detail": "api.routes.foods",
+        "documentation": {}
+    },
+    {
+        "label": "UserMe",
+        "kind": 6,
+        "importPath": "api.routes.users",
+        "description": "api.routes.users",
+        "peekOfCode": "class UserMe(Resource):\n    @jwt_required()\n    @ns.doc(description='Retorna as informações do usuário logado')\n    @ns.marshal_with(user_schema)\n    def get(self):\n        \"\"\"Lista o usuário logado\"\"\"\n        return user_controller.get_user_me(get_jwt_identity())\n    @ns.doc(description='Registra um novo usuário')\n    @ns.expect(user_schema)\n    @ns.marshal_with(user_schema)",
+        "detail": "api.routes.users",
+        "documentation": {}
+    },
+    {
+        "label": "LoginUser",
+        "kind": 6,
+        "importPath": "api.routes.users",
+        "description": "api.routes.users",
+        "peekOfCode": "class LoginUser(Resource):\n    @ns.doc(description='Login do usuário')\n    @ns.expect(user_schema)\n    def post(self):\n        \"\"\"Faz login do usuário\"\"\"\n        return user_controller.login(request)",
+        "detail": "api.routes.users",
+        "documentation": {}
+    },
+    {
+        "label": "user_controller",
+        "kind": 5,
+        "importPath": "api.routes.users",
+        "description": "api.routes.users",
+        "peekOfCode": "user_controller = UserController()\n@ns.route('/')\nclass UserMe(Resource):\n    @jwt_required()\n    @ns.doc(description='Retorna as informações do usuário logado')\n    @ns.marshal_with(user_schema)\n    def get(self):\n        \"\"\"Lista o usuário logado\"\"\"\n        return user_controller.get_user_me(get_jwt_identity())\n    @ns.doc(description='Registra um novo usuário')",
+        "detail": "api.routes.users",
+        "documentation": {}
+    },
+    {
+        "label": "ns",
+        "kind": 5,
+        "importPath": "api.schemas.exerciseSchema",
+        "description": "api.schemas.exerciseSchema",
+        "peekOfCode": "ns = Namespace('exercises', description='Operações relacionadas a exercícios')\n# Analisar e validar os dados de entrada da solicitação HTTP e garantir que os campos obrigatórios estejam presentes\nexercise_parser = ns.parser()\nexercise_parser.add_argument('_id', type=str, required=True, help='Identificador único')\nexercise_parser.add_argument('name', type=str, required=True, help='Nome')\nexercise_parser.add_argument('body_part', type=str, required=True, help='Parte do corpo')\nexercise_parser.add_argument('target', type=str, required=True, help='Músculo alvo')\nexercise_parser.add_argument('repetition', type=int, required=True, help='Número de repetições')\nexercise_parser.add_argument('series', type=int, required=True, help='Número de séries')\nexercise_parser.add_argument('interval', type=int, required=True, help='Tempo de intervalo entre séries')",
+        "detail": "api.schemas.exerciseSchema",
+        "documentation": {}
+    },
+    {
+        "label": "exercise_parser",
+        "kind": 5,
+        "importPath": "api.schemas.exerciseSchema",
+        "description": "api.schemas.exerciseSchema",
+        "peekOfCode": "exercise_parser = ns.parser()\nexercise_parser.add_argument('_id', type=str, required=True, help='Identificador único')\nexercise_parser.add_argument('name', type=str, required=True, help='Nome')\nexercise_parser.add_argument('body_part', type=str, required=True, help='Parte do corpo')\nexercise_parser.add_argument('target', type=str, required=True, help='Músculo alvo')\nexercise_parser.add_argument('repetition', type=int, required=True, help='Número de repetições')\nexercise_parser.add_argument('series', type=int, required=True, help='Número de séries')\nexercise_parser.add_argument('interval', type=int, required=True, help='Tempo de intervalo entre séries')\nexercise_parser.add_argument('equipment', type=str, required=True, help='Equipamento')\nexercise_parser.add_argument('execution_gif', type=str, required=True, help='Gif de execução do exercício')",
+        "detail": "api.schemas.exerciseSchema",
+        "documentation": {}
+    },
+    {
+        "label": "exercise_schema",
+        "kind": 5,
+        "importPath": "api.schemas.exerciseSchema",
+        "description": "api.schemas.exerciseSchema",
+        "peekOfCode": "exercise_schema = ns.model('Exercise', {\n    '_id': fields.String(required=True, description='Identificador único'),\n    'name': fields.String(required=True, description='Nome'),\n    'body_part': fields.String(required=True, description='Parte do corpo'),\n    'target': fields.String(required=True, description='Músculo alvo'),\n    'repetition': fields.Integer(required=True, description='Número de repetições'),\n    'series': fields.Integer(required=True, description='Número de séries'),\n    'interval': fields.Integer(required=True, description='Tempo de intervalo entre séries'),\n    'equipment': fields.String(required=True, description='Equipamento'),\n    'execution_gif': fields.String(required=True, description='Gif de execução do exercício')",
+        "detail": "api.schemas.exerciseSchema",
+        "documentation": {}
+    },
+    {
+        "label": "ns",
+        "kind": 5,
+        "importPath": "api.schemas.foodSchema",
+        "description": "api.schemas.foodSchema",
+        "peekOfCode": "ns = Namespace('foods', description='Operações relacionadas a comidas')\n# Analisar e validar os dados de entrada da solicitação HTTP e garantir que os campos obrigatórios estejam presentes\nfood_parser = ns.parser()\nfood_parser.add_argument('_id', type=str, required=True, help='Identificador único')\nfood_parser.add_argument('name', type=str, required=True, help='Nome da comida')\nfood_parser.add_argument('portion', type=str, required=True, help='Porção da comida')\nfood_parser.add_argument('calories', type=int, required=True, help='Quantidade de calorias')\nfood_parser.add_argument('macro_nutrient', type=dict, required=True, help='Macro nutrientes (proteína, carboidrato e gordura)')\nfood_parser.add_argument('minerals', type=dict, required=True, help='Minerais (sódio, cálcio, magnésio, potássio, selênio e zinco)')\nfood_parser.add_argument('sugar', type=str, required=True, help='Quantidade de açúcar')",
+        "detail": "api.schemas.foodSchema",
+        "documentation": {}
+    },
+    {
+        "label": "food_parser",
+        "kind": 5,
+        "importPath": "api.schemas.foodSchema",
+        "description": "api.schemas.foodSchema",
+        "peekOfCode": "food_parser = ns.parser()\nfood_parser.add_argument('_id', type=str, required=True, help='Identificador único')\nfood_parser.add_argument('name', type=str, required=True, help='Nome da comida')\nfood_parser.add_argument('portion', type=str, required=True, help='Porção da comida')\nfood_parser.add_argument('calories', type=int, required=True, help='Quantidade de calorias')\nfood_parser.add_argument('macro_nutrient', type=dict, required=True, help='Macro nutrientes (proteína, carboidrato e gordura)')\nfood_parser.add_argument('minerals', type=dict, required=True, help='Minerais (sódio, cálcio, magnésio, potássio, selênio e zinco)')\nfood_parser.add_argument('sugar', type=str, required=True, help='Quantidade de açúcar')\nfood_parser.add_argument('fiber', type=str, required=True, help='Quantidade de fibras')\n# Gerar a documentação automática do Swagger UI e a model",
+        "detail": "api.schemas.foodSchema",
+        "documentation": {}
+    },
+    {
+        "label": "macro_schema",
+        "kind": 5,
+        "importPath": "api.schemas.foodSchema",
+        "description": "api.schemas.foodSchema",
+        "peekOfCode": "macro_schema = ns.model('Macro', {\n    'protein': fields.Float(required=True, description='Quantidade de proteínas'),\n    'carbohydrate': fields.Float(required=True, description='Quantidade de carboidratos'),\n    'fat': fields.Float(required=True, description='Quantidade de gorduras')\n})\nmineral_schema = ns.model('Mineral', {\n    'sodium': fields.String(required=True, description='Quantidade de sódio'),\n    'calcium': fields.String(required=True, description='Quantidade de cálcio'),\n    'magnesium': fields.String(required=True, description='Quantidade de magnésio'),\n    'potassium': fields.String(required=True, description='Quantidade de potássio'),",
+        "detail": "api.schemas.foodSchema",
+        "documentation": {}
+    },
+    {
+        "label": "mineral_schema",
+        "kind": 5,
+        "importPath": "api.schemas.foodSchema",
+        "description": "api.schemas.foodSchema",
+        "peekOfCode": "mineral_schema = ns.model('Mineral', {\n    'sodium': fields.String(required=True, description='Quantidade de sódio'),\n    'calcium': fields.String(required=True, description='Quantidade de cálcio'),\n    'magnesium': fields.String(required=True, description='Quantidade de magnésio'),\n    'potassium': fields.String(required=True, description='Quantidade de potássio'),\n    'selenium': fields.String(required=True, description='Quantidade de selênio'),\n    'zinc': fields.String(required=True, description='Quantidade de zinco')\n})\nfood_schema = ns.model('Food', {\n    '_id': fields.String(description='Identificador único'),",
+        "detail": "api.schemas.foodSchema",
+        "documentation": {}
+    },
+    {
+        "label": "food_schema",
+        "kind": 5,
+        "importPath": "api.schemas.foodSchema",
+        "description": "api.schemas.foodSchema",
+        "peekOfCode": "food_schema = ns.model('Food', {\n    '_id': fields.String(description='Identificador único'),\n    'name': fields.String(required=True, description='Nome da comida'),\n    'portion': fields.String(required=True, description='Porção da comida'),\n    'calories': fields.Integer(required=True, description='Quantidade de calorias'),\n    'macro_nutrient': fields.Nested(macro_schema, required=True, description='Macro nutrientes (proteína, carboidrato e gordura)'),\n    'minerals': fields.Nested(mineral_schema, required=True, description='Minerais (sódio, cálcio, magnésio, potássio, selênio e zinco)'),\n    'sugar': fields.String(description='Quantidade de açúcar'),\n    'fiber': fields.String(description='Quantidade de fibras')\n})",
+        "detail": "api.schemas.foodSchema",
+        "documentation": {}
+    },
+    {
+        "label": "ns",
+        "kind": 5,
+        "importPath": "api.schemas.goalSchema",
+        "description": "api.schemas.goalSchema",
+        "peekOfCode": "ns = Namespace('goals', description='Operações relacionadas a metas')\nworkout_schema = ns.model('Workout', {\n    'exercise_id': fields.String(required=True, description='Identificador único do exercício'),\n    'hour': fields.String(required=True, description='Horário do dia'),\n    'weekday': fields.String(required=True, description='Dia da Semana')\n})\ndiet_schema = ns.model('Diet', {\n    'food_id': fields.String(required=True, description='Identificador único do alimento'),\n    'weekday': fields.String(required=True, description='Dia da Semana')\n})",
+        "detail": "api.schemas.goalSchema",
+        "documentation": {}
+    },
+    {
+        "label": "workout_schema",
+        "kind": 5,
+        "importPath": "api.schemas.goalSchema",
+        "description": "api.schemas.goalSchema",
+        "peekOfCode": "workout_schema = ns.model('Workout', {\n    'exercise_id': fields.String(required=True, description='Identificador único do exercício'),\n    'hour': fields.String(required=True, description='Horário do dia'),\n    'weekday': fields.String(required=True, description='Dia da Semana')\n})\ndiet_schema = ns.model('Diet', {\n    'food_id': fields.String(required=True, description='Identificador único do alimento'),\n    'weekday': fields.String(required=True, description='Dia da Semana')\n})\n# Analisar e validar os dados de entrada da solicitação HTTP e garantir que os campos obrigatórios estejam presentes",
+        "detail": "api.schemas.goalSchema",
+        "documentation": {}
+    },
+    {
+        "label": "diet_schema",
+        "kind": 5,
+        "importPath": "api.schemas.goalSchema",
+        "description": "api.schemas.goalSchema",
+        "peekOfCode": "diet_schema = ns.model('Diet', {\n    'food_id': fields.String(required=True, description='Identificador único do alimento'),\n    'weekday': fields.String(required=True, description='Dia da Semana')\n})\n# Analisar e validar os dados de entrada da solicitação HTTP e garantir que os campos obrigatórios estejam presentes\ngoal_parser = ns.parser()\ngoal_parser.add_argument('weight', type=float, required=True, help='Peso do usuário em kg')\ngoal_parser.add_argument('objective', type=str, required=True, help='Objetivo do usuário')\ngoal_parser.add_argument('daily_calories', type=int, required=True, help='Calorias diárias recomendadas para o usuário')\ngoal_parser.add_argument('daily_water', type=int, required=True, help='Quantidade de água diária recomendada para o usuário')",
+        "detail": "api.schemas.goalSchema",
+        "documentation": {}
+    },
+    {
+        "label": "goal_parser",
+        "kind": 5,
+        "importPath": "api.schemas.goalSchema",
+        "description": "api.schemas.goalSchema",
+        "peekOfCode": "goal_parser = ns.parser()\ngoal_parser.add_argument('weight', type=float, required=True, help='Peso do usuário em kg')\ngoal_parser.add_argument('objective', type=str, required=True, help='Objetivo do usuário')\ngoal_parser.add_argument('daily_calories', type=int, required=True, help='Calorias diárias recomendadas para o usuário')\ngoal_parser.add_argument('daily_water', type=int, required=True, help='Quantidade de água diária recomendada para o usuário')\ngoal_parser.add_argument('daily_macro_nutrient', type=dict, required=True, help='Macronutrientes diários recomendados para o usuário')\ngoal_parser.add_argument('deadline', type=str, required=True, help='Prazo para alcançar a meta no formato ISO (YYYY-MM-DD)'),\ngoal_parser.add_argument('workout', type=list, required=True, location='json', help='Lista de treinos diários do usuário')\ngoal_parser.add_argument('diet', type=list, required=True, location='json', help='Lista de refeições diárias do usuário')\n# Gerar a documentação automática do Swagger UI e a model",
+        "detail": "api.schemas.goalSchema",
+        "documentation": {}
+    },
+    {
+        "label": "goal_schema",
+        "kind": 5,
+        "importPath": "api.schemas.goalSchema",
+        "description": "api.schemas.goalSchema",
+        "peekOfCode": "goal_schema = ns.model('Goal', {\n    'weight': fields.Float(required=True, description='Peso do usuário'),\n    'objective': fields.String(required=True, description='Objetivo do usuário'),\n    'daily_calories': fields.Integer(required=True, description='Calorias diárias do usuário'),\n    'daily_water': fields.Integer(required=True, description='Água diária que o usuário deve ingerir'),\n    'daily_macro_nutrient': fields.Nested(macro_schema, required=True, description='Macronutrientes diários do usuário'),\n    'deadline': fields.String(required=True, description='Prazo para alcançar a meta'),\n    'workout': fields.List(fields.Nested(workout_schema), required=True, description='Treinos diários do usuário'),\n    'diet': fields.List(fields.Nested(diet_schema), required=True, description='Alimentação diária do usuário')\n})",
+        "detail": "api.schemas.goalSchema",
+        "documentation": {}
+    },
+    {
+        "label": "ns",
+        "kind": 5,
+        "importPath": "api.schemas.historicSchema",
+        "description": "api.schemas.historicSchema",
+        "peekOfCode": "ns = Namespace('historics', description='Operações relacionadas ao histórico')\n# Analisar e validar os dados de entrada da solicitação HTTP e garantir que os campos obrigatórios estejam presentes\nhistoric_parser = ns.parser()\nhistoric_parser.add_argument('historic', type=list, required=True, location='json', help='Registro de histórico do usuário')\n# Gerar a documentação automática do Swagger UI e a model\nhistoric_schema = ns.model('Historic', {\n    'historic': fields.List(fields.Nested(record_schema, required=True, description='Registro de histórico')),\n})",
+        "detail": "api.schemas.historicSchema",
+        "documentation": {}
+    },
+    {
+        "label": "historic_parser",
+        "kind": 5,
+        "importPath": "api.schemas.historicSchema",
+        "description": "api.schemas.historicSchema",
+        "peekOfCode": "historic_parser = ns.parser()\nhistoric_parser.add_argument('historic', type=list, required=True, location='json', help='Registro de histórico do usuário')\n# Gerar a documentação automática do Swagger UI e a model\nhistoric_schema = ns.model('Historic', {\n    'historic': fields.List(fields.Nested(record_schema, required=True, description='Registro de histórico')),\n})",
+        "detail": "api.schemas.historicSchema",
+        "documentation": {}
+    },
+    {
+        "label": "historic_schema",
+        "kind": 5,
+        "importPath": "api.schemas.historicSchema",
+        "description": "api.schemas.historicSchema",
+        "peekOfCode": "historic_schema = ns.model('Historic', {\n    'historic': fields.List(fields.Nested(record_schema, required=True, description='Registro de histórico')),\n})",
+        "detail": "api.schemas.historicSchema",
+        "documentation": {}
+    },
+    {
+        "label": "ns",
+        "kind": 5,
+        "importPath": "api.schemas.notificationSchema",
+        "description": "api.schemas.notificationSchema",
+        "peekOfCode": "ns = Namespace('notifications', description='Operações relacionadas a notificações')\n# Analisar e validar os dados de entrada da solicitação HTTP e garantir que os campos obrigatórios estejam presentes\nnotification_parser = ns.parser()\nnotification_parser.add_argument('workout', type=dict, required=True, help='Detalhes da notificação de treino')\nnotification_parser.add_argument('water', type=dict, required=True, help='Detalhes da notificação de água')\n# Gerar a documentação automática do Swagger UI e a model\nworkout = ns.model('Workout', {\n    'frequency': fields.String(required=True, description='Frequência de treino'),\n    'hour': fields.String(required=True, description='Horário do treino')\n})",
+        "detail": "api.schemas.notificationSchema",
+        "documentation": {}
+    },
+    {
+        "label": "notification_parser",
+        "kind": 5,
+        "importPath": "api.schemas.notificationSchema",
+        "description": "api.schemas.notificationSchema",
+        "peekOfCode": "notification_parser = ns.parser()\nnotification_parser.add_argument('workout', type=dict, required=True, help='Detalhes da notificação de treino')\nnotification_parser.add_argument('water', type=dict, required=True, help='Detalhes da notificação de água')\n# Gerar a documentação automática do Swagger UI e a model\nworkout = ns.model('Workout', {\n    'frequency': fields.String(required=True, description='Frequência de treino'),\n    'hour': fields.String(required=True, description='Horário do treino')\n})\nwater = ns.model('Water', {\n    'frequency': fields.String(required=True, description='Frequência de hidratação'),",
+        "detail": "api.schemas.notificationSchema",
+        "documentation": {}
+    },
+    {
+        "label": "workout",
+        "kind": 5,
+        "importPath": "api.schemas.notificationSchema",
+        "description": "api.schemas.notificationSchema",
+        "peekOfCode": "workout = ns.model('Workout', {\n    'frequency': fields.String(required=True, description='Frequência de treino'),\n    'hour': fields.String(required=True, description='Horário do treino')\n})\nwater = ns.model('Water', {\n    'frequency': fields.String(required=True, description='Frequência de hidratação'),\n    'start_hour': fields.String(required=True, description='Horário de início da hidratação'),\n    'end_hour': fields.String(required=True, description='Horário de término da hidratação')\n})\nnotification_schema = ns.model('Notification', {",
+        "detail": "api.schemas.notificationSchema",
+        "documentation": {}
+    },
+    {
+        "label": "water",
+        "kind": 5,
+        "importPath": "api.schemas.notificationSchema",
+        "description": "api.schemas.notificationSchema",
+        "peekOfCode": "water = ns.model('Water', {\n    'frequency': fields.String(required=True, description='Frequência de hidratação'),\n    'start_hour': fields.String(required=True, description='Horário de início da hidratação'),\n    'end_hour': fields.String(required=True, description='Horário de término da hidratação')\n})\nnotification_schema = ns.model('Notification', {\n    'workout': fields.Nested(workout, required=True, description='Detalhes da notificação de treino'),\n    'water': fields.Nested(water, required=True, description='Detalhes da notificação de água')\n})",
+        "detail": "api.schemas.notificationSchema",
+        "documentation": {}
+    },
+    {
+        "label": "notification_schema",
+        "kind": 5,
+        "importPath": "api.schemas.notificationSchema",
+        "description": "api.schemas.notificationSchema",
+        "peekOfCode": "notification_schema = ns.model('Notification', {\n    'workout': fields.Nested(workout, required=True, description='Detalhes da notificação de treino'),\n    'water': fields.Nested(water, required=True, description='Detalhes da notificação de água')\n})",
+        "detail": "api.schemas.notificationSchema",
+        "documentation": {}
+    },
+    {
+        "label": "ns",
+        "kind": 5,
+        "importPath": "api.schemas.recordSchema",
+        "description": "api.schemas.recordSchema",
+        "peekOfCode": "ns = Namespace('records', description='Operações relacionadas a registro')\nworkout_schema = ns.model('Workout', {\n    'exercise_id': fields.String(required=True, description='Identificador único do exercício'),\n    'hour': fields.String(required=True, description='Hora do treino no formato HH:MM')\n})\ndiet_schema = ns.model('Diet', {\n    'calories': fields.Integer(required=True, description='Quantidade de calorias ingeridas'),\n    'macro_nutrient': fields.Nested(macro_schema, required=True, description='Macro nutrientes ingeridos'),\n    'hour': fields.String(required=True, description='Hora da refeição no formato HH:MM')\n})",
+        "detail": "api.schemas.recordSchema",
+        "documentation": {}
+    },
+    {
+        "label": "workout_schema",
+        "kind": 5,
+        "importPath": "api.schemas.recordSchema",
+        "description": "api.schemas.recordSchema",
+        "peekOfCode": "workout_schema = ns.model('Workout', {\n    'exercise_id': fields.String(required=True, description='Identificador único do exercício'),\n    'hour': fields.String(required=True, description='Hora do treino no formato HH:MM')\n})\ndiet_schema = ns.model('Diet', {\n    'calories': fields.Integer(required=True, description='Quantidade de calorias ingeridas'),\n    'macro_nutrient': fields.Nested(macro_schema, required=True, description='Macro nutrientes ingeridos'),\n    'hour': fields.String(required=True, description='Hora da refeição no formato HH:MM')\n})\n# Analisar e validar os dados de entrada da solicitação HTTP e garantir que os campos obrigatórios estejam presentes    ",
+        "detail": "api.schemas.recordSchema",
+        "documentation": {}
+    },
+    {
+        "label": "diet_schema",
+        "kind": 5,
+        "importPath": "api.schemas.recordSchema",
+        "description": "api.schemas.recordSchema",
+        "peekOfCode": "diet_schema = ns.model('Diet', {\n    'calories': fields.Integer(required=True, description='Quantidade de calorias ingeridas'),\n    'macro_nutrient': fields.Nested(macro_schema, required=True, description='Macro nutrientes ingeridos'),\n    'hour': fields.String(required=True, description='Hora da refeição no formato HH:MM')\n})\n# Analisar e validar os dados de entrada da solicitação HTTP e garantir que os campos obrigatórios estejam presentes    \nrecord_parser = ns.parser()\nrecord_parser.add_argument('_id', type=str, required=True, help='Identificador único')\nrecord_parser.add_argument('date', type=str, required=True, help='Data do registro no formato ISO (YYYY-MM-DD)'),\nrecord_parser.add_argument('daily_calories', type=int, required=True, help='Calorias diárias')",
+        "detail": "api.schemas.recordSchema",
+        "documentation": {}
+    },
+    {
+        "label": "record_parser",
+        "kind": 5,
+        "importPath": "api.schemas.recordSchema",
+        "description": "api.schemas.recordSchema",
+        "peekOfCode": "record_parser = ns.parser()\nrecord_parser.add_argument('_id', type=str, required=True, help='Identificador único')\nrecord_parser.add_argument('date', type=str, required=True, help='Data do registro no formato ISO (YYYY-MM-DD)'),\nrecord_parser.add_argument('daily_calories', type=int, required=True, help='Calorias diárias')\nrecord_parser.add_argument('daily_water', type=int, required=True, help='Quantidade de água ingerida no dia')\nrecord_parser.add_argument('daily_macro_nutrient', type=dict, required=True, help='Macronutrientes diários')\nrecord_parser.add_argument('workout', type=list, required=True, location='json', help='Lista de treinos do dia')\nrecord_parser.add_argument('diet', type=list, required=True, location='json', help='Lista de refeições do dia')\n# Gerar a documentação automática do Swagger UI e a model\nrecord_schema = ns.model('Record', {",
+        "detail": "api.schemas.recordSchema",
+        "documentation": {}
+    },
+    {
+        "label": "record_schema",
+        "kind": 5,
+        "importPath": "api.schemas.recordSchema",
+        "description": "api.schemas.recordSchema",
+        "peekOfCode": "record_schema = ns.model('Record', {\n    '_id': fields.String(required=True, description='Identificador único'),\n    'date': fields.String(required=True, description='Data do registro no formato AAAA-MM-DD'),\n    'daily_calories': fields.Integer(required=True, description='Quantidade de calorias ingeridas no dia'),\n    'daily_water': fields.Integer(required=True, description='Quantidade de água ingerida no dia'),\n    'daily_macro_nutrient': fields.Nested(macro_schema, required=True, description='Macro nutrientes ingeridos no dia'),\n    'workout': fields.List(fields.Nested(workout_schema), required=True, description='Lista de exercícios realizados no dia'),\n    'diet': fields.List(fields.Nested(diet_schema), required=True, description='Lista de alimentos consumidos no dia')\n})",
+        "detail": "api.schemas.recordSchema",
+        "documentation": {}
+    },
+    {
+        "label": "ns",
+        "kind": 5,
+        "importPath": "api.schemas.userSchema",
+        "description": "api.schemas.userSchema",
+        "peekOfCode": "ns = Namespace('users', description='Operações relacionadas a usuários')\nuser_parser = ns.parser()\nuser_parser.add_argument('_id', type=str, required=True, help='Identificador único do usuário')\nuser_parser.add_argument('name', type=str, required=True, help='Nome do usuário')\nuser_parser.add_argument('email', type=str, required=True, help='Endereço de email do usuário')\nuser_parser.add_argument('pwd', type=str, required=True, help='Senha do usuário')\nuser_parser.add_argument('weight', type=float, required=True, help='Peso do usuário em kg')\nuser_parser.add_argument('height', type=float, required=True, help='Altura do usuário em metros')\nuser_parser.add_argument('age', type=int, required=True, help='Idade do usuário')\nuser_parser.add_argument('activity_level', type=str, required=True, help='Nível de atividade física do usuário')",
+        "detail": "api.schemas.userSchema",
+        "documentation": {}
+    },
+    {
+        "label": "user_parser",
+        "kind": 5,
+        "importPath": "api.schemas.userSchema",
+        "description": "api.schemas.userSchema",
+        "peekOfCode": "user_parser = ns.parser()\nuser_parser.add_argument('_id', type=str, required=True, help='Identificador único do usuário')\nuser_parser.add_argument('name', type=str, required=True, help='Nome do usuário')\nuser_parser.add_argument('email', type=str, required=True, help='Endereço de email do usuário')\nuser_parser.add_argument('pwd', type=str, required=True, help='Senha do usuário')\nuser_parser.add_argument('weight', type=float, required=True, help='Peso do usuário em kg')\nuser_parser.add_argument('height', type=float, required=True, help='Altura do usuário em metros')\nuser_parser.add_argument('age', type=int, required=True, help='Idade do usuário')\nuser_parser.add_argument('activity_level', type=str, required=True, help='Nível de atividade física do usuário')\nuser_parser.add_argument('goal', type=dict, required=True, help='Objetivo do usuário')",
+        "detail": "api.schemas.userSchema",
+        "documentation": {}
+    },
+    {
+        "label": "user_schema",
+        "kind": 5,
+        "importPath": "api.schemas.userSchema",
+        "description": "api.schemas.userSchema",
+        "peekOfCode": "user_schema = ns.model('User', {\n    '_id': fields.String(required=True, description='Identificador único do usuário'),\n    'name': fields.String(required=True, description='Nome do usuário'),\n    'email': fields.String(required=True, description='Endereço de email do usuário'),\n    'pwd': fields.String(required=True, description='Senha do usuário'),\n    'weight': fields.Float(required=True, description='Peso do usuário em kg'),\n    'height': fields.Float(required=True, description='Altura do usuário em metros'),\n    'age': fields.Integer(required=True, description='Idade do usuário'),\n    'activity_level': fields.String(required=True, description='Nível de atividade física do usuário'),\n    'goal': fields.Nested(goal_schema, required=True, description='Objetivo do usuário'),",
+        "detail": "api.schemas.userSchema",
+        "documentation": {}
+    },
+    {
+        "label": "encrypt_pwd",
+        "kind": 2,
+        "importPath": "api.security.password",
+        "description": "api.security.password",
+        "peekOfCode": "def encrypt_pwd(pwd):\n    hashed_password = bcrypt.hashpw(pwd.encode(\n        'utf-8'), bcrypt.gensalt()).decode('utf-8')\n    return hashed_password\ndef compare_pwd(pwd, hash_pwd):\n    return bcrypt.checkpw(pwd.encode('utf-8'), hash_pwd.encode('utf-8'))",
+        "detail": "api.security.password",
+        "documentation": {}
+    },
+    {
+        "label": "compare_pwd",
+        "kind": 2,
+        "importPath": "api.security.password",
+        "description": "api.security.password",
+        "peekOfCode": "def compare_pwd(pwd, hash_pwd):\n    return bcrypt.checkpw(pwd.encode('utf-8'), hash_pwd.encode('utf-8'))",
+        "detail": "api.security.password",
+        "documentation": {}
+    },
+    {
+        "label": "ExerciseService",
+        "kind": 6,
+        "importPath": "api.services.exercises",
+        "description": "api.services.exercises",
+        "peekOfCode": "class ExerciseService:\n    def get_all_exercises(self):\n        exercises = list(mongo.db.exercises.find())\n        return exercises\n    def get_exercise_by_id(self, exercise_id):\n        exercise = mongo.db.exercises.find_one({\"_id\": ObjectId(exercise_id)})\n        return exercise\n    def get_exercise_by_name(self, exercise_name):\n        exercises = list(mongo.db.exercises.find({\"name\": {\"$regex\": exercise_name, \"$options\": \"i\"}}))\n        return exercises",
+        "detail": "api.services.exercises",
+        "documentation": {}
+    },
+    {
+        "label": "FoodService",
+        "kind": 6,
+        "importPath": "api.services.foods",
+        "description": "api.services.foods",
+        "peekOfCode": "class FoodService:\n    def get_all_foods(self):\n        foods = list(mongo.db.foods.find())\n        return foods\n    def get_food_by_id(self, food_id):\n        food = mongo.db.foods.find_one({\"_id\": ObjectId(food_id)})\n        return food\n    def get_food_by_name(self, food_name):\n        foods = list(mongo.db.foods.find({\"name\": {\"$regex\": food_name, \"$options\": \"i\"}}))\n        return foods",
+        "detail": "api.services.foods",
+        "documentation": {}
+    },
+    {
+        "label": "GoalService",
+        "kind": 6,
+        "importPath": "api.services.goals",
+        "description": "api.services.goals",
+        "peekOfCode": "class GoalService:\n    pass",
+        "detail": "api.services.goals",
+        "documentation": {}
+    },
+    {
+        "label": "HistoricService",
+        "kind": 6,
+        "importPath": "api.services.historics",
+        "description": "api.services.historics",
+        "peekOfCode": "class HistoricService: \n    pass",
+        "detail": "api.services.historics",
+        "documentation": {}
+    },
+    {
+        "label": "NotificationService",
+        "kind": 6,
+        "importPath": "api.services.notifications",
+        "description": "api.services.notifications",
+        "peekOfCode": "class NotificationService: \n    pass",
+        "detail": "api.services.notifications",
+        "documentation": {}
+    },
+    {
+        "label": "RecordService",
+        "kind": 6,
+        "importPath": "api.services.records",
+        "description": "api.services.records",
+        "peekOfCode": "class RecordService: \n    pass",
+        "detail": "api.services.records",
+        "documentation": {}
+    },
+    {
+        "label": "UserService",
+        "kind": 6,
+        "importPath": "api.services.users",
+        "description": "api.services.users",
+        "peekOfCode": "class UserService: \n    def create_user(self, user_data):\n        try:\n            # Criptografando senha do usuário\n            password = user_data.get('pwd')\n            hashed_password = encrypt_pwd(password)\n            user_data['pwd'] = hashed_password\n            result = mongo.db.users.insert_one(user_data)\n            return result.inserted_id\n        except TypeError:",
+        "detail": "api.services.users",
+        "documentation": {}
+    },
+    {
+        "label": "init_db",
+        "kind": 2,
+        "importPath": "api.utils.database",
+        "description": "api.utils.database",
+        "peekOfCode": "def init_db(app):\n    mongo.init_app(app)",
+        "detail": "api.utils.database",
+        "documentation": {}
+    },
+    {
+        "label": "mongo",
+        "kind": 5,
+        "importPath": "api.utils.database",
+        "description": "api.utils.database",
+        "peekOfCode": "mongo = PyMongo()\ndef init_db(app):\n    mongo.init_app(app)",
+        "detail": "api.utils.database",
+        "documentation": {}
+    },
+    {
+        "label": "Config",
+        "kind": 6,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "class Config:\n    # Configurações do MongoDB\n    MONGO_URI = os.environ.get('MONGO_URI')\n    # Configurações do Flask \n    DEBUG = os.environ.get('DEBUG', True)\n    HOST = os.environ.get('HOST', 'localhost')\n    PORT = os.environ.get('PORT', 5000)\n    # Configurações do Flask-RESTX\n    RESTX_MASK_SWAGGER = os.environ.get('RESTX_MASK_SWAGGER', False)\n    # Chave secreta para autenticação de sessão",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "server",
+        "description": "server",
+        "peekOfCode": "app = Flask(__name__)\napp.config.from_object('config.Config')\nmongo.init_app(app)\nJWTManager(app)\n# Configura a API com a instância do objeto api criada em api.__init__.py\napi.init_app(app) \nif __name__ == '__main__':\n    app.run(host=app.config['HOST'], port=app.config['PORT'], debug=app.config['DEBUG'])",
+        "detail": "server",
+        "documentation": {}
+    }
+]
