@@ -12,4 +12,24 @@ class NotificationService:
                 abort(404, "Usuário não encontrado")
             return user["notification_config"], 200
         except:
-            return {'message': 'Erro ao buscar configuração'}, 500
+            abort(400, "Usuário não encontrado")
+
+    def set_workout_config(user_id, newConfig):
+        try:
+            mongo.db.users.update_one(
+                {"_id": ObjectId(user_id)},
+                {"$set": {"notification_config.workout": newConfig}}
+            )
+            return {"message": "Configuração atualizada com sucesso"}, 200
+        except:
+            return {'message': 'Erro ao atualizar configuração'}, 400
+
+    def set_water_config(user_id, newConfig):
+        try:
+            mongo.db.users.update_one(
+                {"_id": ObjectId(user_id)},
+                {"$set": {"notification_config.water": newConfig}}
+            )
+            return {"message": "Configuração atualizada com sucesso"}, 200
+        except:
+            return {'message': 'Erro ao atualizar configuração'}, 400

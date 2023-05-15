@@ -32,7 +32,39 @@
         "documentation": {}
     },
     {
-        "label": "\\",
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "NotificationService",
         "importPath": "api.services.notifications",
         "description": "api.services.notifications",
         "isExtraImport": true,
@@ -169,6 +201,14 @@
     },
     {
         "label": "Resource",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
+        "label": "marshal_with",
         "importPath": "flask_restx",
         "description": "flask_restx",
         "isExtraImport": true,
@@ -480,6 +520,22 @@
         "documentation": {}
     },
     {
+        "label": "water_schema",
+        "importPath": "api.schemas.notificationSchema",
+        "description": "api.schemas.notificationSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.notificationSchema",
+        "documentation": {}
+    },
+    {
+        "label": "workout_schema",
+        "importPath": "api.schemas.notificationSchema",
+        "description": "api.schemas.notificationSchema",
+        "isExtraImport": true,
+        "detail": "api.schemas.notificationSchema",
+        "documentation": {}
+    },
+    {
         "label": "RecordController",
         "importPath": "api.controllers.records",
         "description": "api.controllers.records",
@@ -510,22 +566,6 @@
         "importPath": "bcrypt",
         "description": "bcrypt",
         "detail": "bcrypt",
-        "documentation": {}
-    },
-    {
-        "label": "request",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "Flask",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
         "documentation": {}
     },
     {
@@ -762,7 +802,7 @@
         "kind": 6,
         "importPath": "api.controllers.notifications",
         "description": "api.controllers.notifications",
-        "peekOfCode": "class NotificationController: \n    def get_notificationsConfigs(user_id):\n        notificationsConfig = notification_service.get_config(user_id)\n        return notificationsConfig",
+        "peekOfCode": "class NotificationController:\n    def get_notifications_configs(user_id):\n        notificationsConfig = NotificationService.get_config(user_id)\n        return notificationsConfig\n    def set_notification_workout(user_id, newConfig):\n        status = NotificationService.set_workout_config(user_id, newConfig)\n        return status\n    def set_notification_workout_default(user_id):\n        defaultWorkoutConfig = {\n            \"frequency\": \"every weekday\",",
         "detail": "api.controllers.notifications",
         "documentation": {}
     },
@@ -870,7 +910,7 @@
         "kind": 6,
         "importPath": "api.routes.notifications",
         "description": "api.routes.notifications",
-        "peekOfCode": "class Notifications(Resource):\n    @jwt_required()\n    @ns.doc(description='Obtem todas configurações de notificação do usuário')\n    def get(self):\n        \"\"\"Lista configurações de notificação.\"\"\"\n        return NotificationController.get_notificationsConfigs(get_jwt_identity())\n@ns.route('/workout')\nclass NotificationsWorkout(Resource):\n    @jwt_required()\n    @ns.expect(notification_schema)",
+        "peekOfCode": "class Notifications(Resource):\n    @jwt_required()\n    @marshal_with(notification_schema)\n    @ns.doc(description='Obtem todas configurações de notificação do usuário')\n    def get(self):\n        \"\"\"Lista configurações de notificação.\"\"\"\n        return NotificationController.get_notifications_configs(get_jwt_identity())\n@ns.route('/workout')\nclass NotificationsWorkout(Resource):\n    @jwt_required()",
         "detail": "api.routes.notifications",
         "documentation": {}
     },
@@ -879,7 +919,7 @@
         "kind": 6,
         "importPath": "api.routes.notifications",
         "description": "api.routes.notifications",
-        "peekOfCode": "class NotificationsWorkout(Resource):\n    @jwt_required()\n    @ns.expect(notification_schema)\n    @ns.doc(description='Altera as configurações de notificação de treino do usuário')\n    def put(self):\n        \"\"\"Altera configurações de notificação de treino.\"\"\"\n        pass\n@ns.route('/workout/default')\nclass NotificationsWorkoutDefault(Resource):\n    @jwt_required()",
+        "peekOfCode": "class NotificationsWorkout(Resource):\n    @jwt_required()\n    @ns.expect(workout_schema)\n    @ns.doc(description='Altera as configurações de notificação de treino do usuário')\n    def put(self):\n        \"\"\"Altera configurações de notificação de treino.\"\"\"\n        return NotificationController.set_notification_workout(get_jwt_identity(), request.json)\n@ns.route('/workout/default')\nclass NotificationsWorkoutDefault(Resource):\n    @jwt_required()",
         "detail": "api.routes.notifications",
         "documentation": {}
     },
@@ -888,7 +928,7 @@
         "kind": 6,
         "importPath": "api.routes.notifications",
         "description": "api.routes.notifications",
-        "peekOfCode": "class NotificationsWorkoutDefault(Resource):\n    @jwt_required()\n    @ns.doc(description='Altera as configurações de notificação do usuário para padrão')\n    def put(self):\n        \"\"\"Altera configurações de notificação de treino para padrão.\"\"\"\n        pass\n@ns.route('/water')\nclass NotificationsWater(Resource):\n    @jwt_required()\n    @ns.expect(notification_schema)",
+        "peekOfCode": "class NotificationsWorkoutDefault(Resource):\n    @jwt_required()\n    @ns.doc(description='Altera as configurações de notificação do usuário para padrão')\n    def put(self):\n        \"\"\"Altera configurações de notificação de treino para padrão.\"\"\"\n        return NotificationController.set_notification_workout_default(get_jwt_identity())\n@ns.route('/water')\nclass NotificationsWater(Resource):\n    @jwt_required()\n    @ns.expect(water_schema)",
         "detail": "api.routes.notifications",
         "documentation": {}
     },
@@ -897,7 +937,7 @@
         "kind": 6,
         "importPath": "api.routes.notifications",
         "description": "api.routes.notifications",
-        "peekOfCode": "class NotificationsWater(Resource):\n    @jwt_required()\n    @ns.expect(notification_schema)\n    @ns.doc(description='Altera as configurações de notificação de água do usuário para padrão')\n    def put(self):\n        \"\"\"Altera configurações de notificação de água.\"\"\"\n        pass\n@ns.route('/water/default')\nclass NotificationsWaterDefault(Resource):\n    @jwt_required()",
+        "peekOfCode": "class NotificationsWater(Resource):\n    @jwt_required()\n    @ns.expect(water_schema)\n    @ns.doc(description='Altera as configurações de notificação de água do usuário para padrão')\n    def put(self):\n        \"\"\"Altera configurações de notificação de água.\"\"\"\n        return NotificationController.set_notification_water(get_jwt_identity(), request.json)\n@ns.route('/water/default')\nclass NotificationsWaterDefault(Resource):\n    @jwt_required()",
         "detail": "api.routes.notifications",
         "documentation": {}
     },
@@ -906,7 +946,7 @@
         "kind": 6,
         "importPath": "api.routes.notifications",
         "description": "api.routes.notifications",
-        "peekOfCode": "class NotificationsWaterDefault(Resource):\n    @jwt_required()\n    @ns.doc(description='Altera as configurações de notificação do usuário para padrão')\n    def put(self):\n        \"\"\"Altera configurações de notificação de água de treino para padrão.\"\"\"\n        pass",
+        "peekOfCode": "class NotificationsWaterDefault(Resource):\n    @jwt_required()\n    @ns.doc(description='Altera as configurações de notificação do usuário para padrão')\n    def put(self):\n        \"\"\"Altera configurações de notificação de água de treino para padrão.\"\"\"\n        return NotificationController.set_notification_water_default(get_jwt_identity())",
         "detail": "api.routes.notifications",
         "documentation": {}
     },
@@ -1086,7 +1126,7 @@
         "kind": 5,
         "importPath": "api.schemas.notificationSchema",
         "description": "api.schemas.notificationSchema",
-        "peekOfCode": "ns = Namespace('notifications', description='Operações relacionadas a notificações')\n# Analisar e validar os dados de entrada da solicitação HTTP e garantir que os campos obrigatórios estejam presentes\nnotification_parser = ns.parser()\nnotification_parser.add_argument('workout', type=dict, required=True, help='Detalhes da notificação de treino')\nnotification_parser.add_argument('water', type=dict, required=True, help='Detalhes da notificação de água')\n# Gerar a documentação automática do Swagger UI e a model\nworkout = ns.model('Workout', {\n    'frequency': fields.String(required=True, description='Frequência de treino'),\n    'hour': fields.String(required=True, description='Horário do treino')\n})",
+        "peekOfCode": "ns = Namespace('notifications', description='Operações relacionadas a notificações')\n# Analisar e validar os dados de entrada da solicitação HTTP e garantir que os campos obrigatórios estejam presentes\nnotification_parser = ns.parser()\nnotification_parser.add_argument('workout', type=dict, required=True, help='Detalhes da notificação de treino')\nnotification_parser.add_argument('water', type=dict, required=True, help='Detalhes da notificação de água')\n# Gerar a documentação automática do Swagger UI e a model\nworkout_schema = ns.model('Workout', {\n    'frequency': fields.String(required=True, description='Frequência de treino'),\n    'hour': fields.String(required=True, description='Horário do treino')\n})",
         "detail": "api.schemas.notificationSchema",
         "documentation": {}
     },
@@ -1095,25 +1135,25 @@
         "kind": 5,
         "importPath": "api.schemas.notificationSchema",
         "description": "api.schemas.notificationSchema",
-        "peekOfCode": "notification_parser = ns.parser()\nnotification_parser.add_argument('workout', type=dict, required=True, help='Detalhes da notificação de treino')\nnotification_parser.add_argument('water', type=dict, required=True, help='Detalhes da notificação de água')\n# Gerar a documentação automática do Swagger UI e a model\nworkout = ns.model('Workout', {\n    'frequency': fields.String(required=True, description='Frequência de treino'),\n    'hour': fields.String(required=True, description='Horário do treino')\n})\nwater = ns.model('Water', {\n    'frequency': fields.String(required=True, description='Frequência de hidratação'),",
+        "peekOfCode": "notification_parser = ns.parser()\nnotification_parser.add_argument('workout', type=dict, required=True, help='Detalhes da notificação de treino')\nnotification_parser.add_argument('water', type=dict, required=True, help='Detalhes da notificação de água')\n# Gerar a documentação automática do Swagger UI e a model\nworkout_schema = ns.model('Workout', {\n    'frequency': fields.String(required=True, description='Frequência de treino'),\n    'hour': fields.String(required=True, description='Horário do treino')\n})\nwater_schema = ns.model('Water', {\n    'frequency': fields.String(required=True, description='Frequência de hidratação'),",
         "detail": "api.schemas.notificationSchema",
         "documentation": {}
     },
     {
-        "label": "workout",
+        "label": "workout_schema",
         "kind": 5,
         "importPath": "api.schemas.notificationSchema",
         "description": "api.schemas.notificationSchema",
-        "peekOfCode": "workout = ns.model('Workout', {\n    'frequency': fields.String(required=True, description='Frequência de treino'),\n    'hour': fields.String(required=True, description='Horário do treino')\n})\nwater = ns.model('Water', {\n    'frequency': fields.String(required=True, description='Frequência de hidratação'),\n    'start_hour': fields.String(required=True, description='Horário de início da hidratação'),\n    'end_hour': fields.String(required=True, description='Horário de término da hidratação')\n})\nnotification_schema = ns.model('Notification', {",
+        "peekOfCode": "workout_schema = ns.model('Workout', {\n    'frequency': fields.String(required=True, description='Frequência de treino'),\n    'hour': fields.String(required=True, description='Horário do treino')\n})\nwater_schema = ns.model('Water', {\n    'frequency': fields.String(required=True, description='Frequência de hidratação'),\n    'start_hour': fields.String(required=True, description='Horário de início da hidratação'),\n    'end_hour': fields.String(required=True, description='Horário de término da hidratação')\n})\nnotification_schema = ns.model('Notification', {",
         "detail": "api.schemas.notificationSchema",
         "documentation": {}
     },
     {
-        "label": "water",
+        "label": "water_schema",
         "kind": 5,
         "importPath": "api.schemas.notificationSchema",
         "description": "api.schemas.notificationSchema",
-        "peekOfCode": "water = ns.model('Water', {\n    'frequency': fields.String(required=True, description='Frequência de hidratação'),\n    'start_hour': fields.String(required=True, description='Horário de início da hidratação'),\n    'end_hour': fields.String(required=True, description='Horário de término da hidratação')\n})\nnotification_schema = ns.model('Notification', {\n    'workout': fields.Nested(workout, required=True, description='Detalhes da notificação de treino'),\n    'water': fields.Nested(water, required=True, description='Detalhes da notificação de água')\n})",
+        "peekOfCode": "water_schema = ns.model('Water', {\n    'frequency': fields.String(required=True, description='Frequência de hidratação'),\n    'start_hour': fields.String(required=True, description='Horário de início da hidratação'),\n    'end_hour': fields.String(required=True, description='Horário de término da hidratação')\n})\nnotification_schema = ns.model('Notification', {\n    'workout': fields.Nested(workout_schema, required=True, description='Detalhes da notificação de treino'),\n    'water': fields.Nested(water_schema, required=True, description='Detalhes da notificação de água')\n})",
         "detail": "api.schemas.notificationSchema",
         "documentation": {}
     },
@@ -1122,7 +1162,7 @@
         "kind": 5,
         "importPath": "api.schemas.notificationSchema",
         "description": "api.schemas.notificationSchema",
-        "peekOfCode": "notification_schema = ns.model('Notification', {\n    'workout': fields.Nested(workout, required=True, description='Detalhes da notificação de treino'),\n    'water': fields.Nested(water, required=True, description='Detalhes da notificação de água')\n})",
+        "peekOfCode": "notification_schema = ns.model('Notification', {\n    'workout': fields.Nested(workout_schema, required=True, description='Detalhes da notificação de treino'),\n    'water': fields.Nested(water_schema, required=True, description='Detalhes da notificação de água')\n})",
         "detail": "api.schemas.notificationSchema",
         "documentation": {}
     },
@@ -1275,7 +1315,7 @@
         "kind": 6,
         "importPath": "api.services.notifications",
         "description": "api.services.notifications",
-        "peekOfCode": "class NotificationService:\n    def get_config(user_id):\n        try:\n            user = mongo.db.users.find_one({\"_id\": ObjectId(user_id)})\n            if not user:\n                abort(404, \"Usuário não encontrado\")\n            return user[\"notification_config\"], 200\n        except:\n            return {'message': 'Erro ao buscar configuração'}, 500",
+        "peekOfCode": "class NotificationService:\n    def get_config(user_id):\n        try:\n            user = mongo.db.users.find_one({\"_id\": ObjectId(user_id)})\n            if not user:\n                abort(404, \"Usuário não encontrado\")\n            return user[\"notification_config\"], 200\n        except:\n            abort(400, \"Usuário não encontrado\")\n    def set_workout_config(user_id, newConfig):",
         "detail": "api.services.notifications",
         "documentation": {}
     },

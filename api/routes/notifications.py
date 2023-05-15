@@ -1,27 +1,31 @@
+from flask import request
 from flask_jwt_extended import get_jwt_identity, jwt_required
-from flask_restx import Resource
+from flask_restx import Resource, marshal_with
 
 from api.controllers.notifications import NotificationController
-from api.schemas.notificationSchema import notification_schema, ns
+from api.schemas.notificationSchema import (notification_schema, ns,
+                                            water_schema, workout_schema)
 
 
 @ns.route('/')
 class Notifications(Resource):
     @jwt_required()
+    @marshal_with(notification_schema)
     @ns.doc(description='Obtem todas configurações de notificação do usuário')
     def get(self):
         """Lista configurações de notificação."""
-        return NotificationController.get_notificationsConfigs(get_jwt_identity())
+        return NotificationController.get_notifications_configs(get_jwt_identity())
 
 
 @ns.route('/workout')
 class NotificationsWorkout(Resource):
     @jwt_required()
-    @ns.expect(notification_schema)
+    @ns.expect(workout_schema)
     @ns.doc(description='Altera as configurações de notificação de treino do usuário')
     def put(self):
         """Altera configurações de notificação de treino."""
-        pass
+        return NotificationController.set_notification_workout(get_jwt_identity(), request.json)
+        
 
 
 @ns.route('/workout/default')
@@ -30,17 +34,17 @@ class NotificationsWorkoutDefault(Resource):
     @ns.doc(description='Altera as configurações de notificação do usuário para padrão')
     def put(self):
         """Altera configurações de notificação de treino para padrão."""
-        pass
+        return NotificationController.set_notification_workout_default(get_jwt_identity())
 
 
 @ns.route('/water')
 class NotificationsWater(Resource):
     @jwt_required()
-    @ns.expect(notification_schema)
+    @ns.expect(water_schema)
     @ns.doc(description='Altera as configurações de notificação de água do usuário para padrão')
     def put(self):
         """Altera configurações de notificação de água."""
-        pass
+        return NotificationController.set_notification_water(get_jwt_identity(), request.json)
 
 
 @ns.route('/water/default')
@@ -49,4 +53,4 @@ class NotificationsWaterDefault(Resource):
     @ns.doc(description='Altera as configurações de notificação do usuário para padrão')
     def put(self):
         """Altera configurações de notificação de água de treino para padrão."""
-        pass
+        return NotificationController.set_notification_water_default(get_jwt_identity())
