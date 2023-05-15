@@ -1,6 +1,7 @@
 from flask_restx import Resource
-from api.controllers.foodController import FoodController
-from api.schemas.foodSchema import ns, food_schema
+
+from api.controllers.foods import FoodController
+from api.schemas.foodSchema import food_schema, ns
 
 food_controller = FoodController()
 

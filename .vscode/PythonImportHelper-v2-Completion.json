@@ -32,7 +32,7 @@
         "documentation": {}
     },
     {
-        "label": "NotificationService",
+        "label": "\\",
         "importPath": "api.services.notifications",
         "description": "api.services.notifications",
         "isExtraImport": true,
@@ -49,6 +49,22 @@
     },
     {
         "label": "create_access_token",
+        "importPath": "flask_jwt_extended",
+        "description": "flask_jwt_extended",
+        "isExtraImport": true,
+        "detail": "flask_jwt_extended",
+        "documentation": {}
+    },
+    {
+        "label": "get_jwt_identity",
+        "importPath": "flask_jwt_extended",
+        "description": "flask_jwt_extended",
+        "isExtraImport": true,
+        "detail": "flask_jwt_extended",
+        "documentation": {}
+    },
+    {
+        "label": "jwt_required",
         "importPath": "flask_jwt_extended",
         "description": "flask_jwt_extended",
         "isExtraImport": true,
@@ -288,6 +304,14 @@
         "documentation": {}
     },
     {
+        "label": "abort",
+        "importPath": "flask_restx",
+        "description": "flask_restx",
+        "isExtraImport": true,
+        "detail": "flask_restx",
+        "documentation": {}
+    },
+    {
         "label": "compare_pwd",
         "importPath": "api.security.password",
         "description": "api.security.password",
@@ -337,18 +361,10 @@
     },
     {
         "label": "ExerciseController",
-        "importPath": "api.controllers.exerciseController",
-        "description": "api.controllers.exerciseController",
+        "importPath": "api.controllers.exercises",
+        "description": "api.controllers.exercises",
         "isExtraImport": true,
-        "detail": "api.controllers.exerciseController",
-        "documentation": {}
-    },
-    {
-        "label": "ns",
-        "importPath": "api.schemas.exerciseSchema",
-        "description": "api.schemas.exerciseSchema",
-        "isExtraImport": true,
-        "detail": "api.schemas.exerciseSchema",
+        "detail": "api.controllers.exercises",
         "documentation": {}
     },
     {
@@ -360,19 +376,19 @@
         "documentation": {}
     },
     {
-        "label": "FoodController",
-        "importPath": "api.controllers.foodController",
-        "description": "api.controllers.foodController",
+        "label": "ns",
+        "importPath": "api.schemas.exerciseSchema",
+        "description": "api.schemas.exerciseSchema",
         "isExtraImport": true,
-        "detail": "api.controllers.foodController",
+        "detail": "api.schemas.exerciseSchema",
         "documentation": {}
     },
     {
-        "label": "ns",
-        "importPath": "api.schemas.foodSchema",
-        "description": "api.schemas.foodSchema",
+        "label": "FoodController",
+        "importPath": "api.controllers.foods",
+        "description": "api.controllers.foods",
         "isExtraImport": true,
-        "detail": "api.schemas.foodSchema",
+        "detail": "api.controllers.foods",
         "documentation": {}
     },
     {
@@ -384,19 +400,19 @@
         "documentation": {}
     },
     {
-        "label": "GoalController",
-        "importPath": "api.controllers.goalController",
-        "description": "api.controllers.goalController",
+        "label": "ns",
+        "importPath": "api.schemas.foodSchema",
+        "description": "api.schemas.foodSchema",
         "isExtraImport": true,
-        "detail": "api.controllers.goalController",
+        "detail": "api.schemas.foodSchema",
         "documentation": {}
     },
     {
-        "label": "ns",
-        "importPath": "api.schemas.goalSchema",
-        "description": "api.schemas.goalSchema",
+        "label": "GoalController",
+        "importPath": "api.controllers.goals",
+        "description": "api.controllers.goals",
         "isExtraImport": true,
-        "detail": "api.schemas.goalSchema",
+        "detail": "api.controllers.goals",
         "documentation": {}
     },
     {
@@ -408,19 +424,19 @@
         "documentation": {}
     },
     {
-        "label": "HistoricController",
-        "importPath": "api.controllers.historicController",
-        "description": "api.controllers.historicController",
+        "label": "ns",
+        "importPath": "api.schemas.goalSchema",
+        "description": "api.schemas.goalSchema",
         "isExtraImport": true,
-        "detail": "api.controllers.historicController",
+        "detail": "api.schemas.goalSchema",
         "documentation": {}
     },
     {
-        "label": "ns",
-        "importPath": "api.schemas.historicSchema",
-        "description": "api.schemas.historicSchema",
+        "label": "HistoricController",
+        "importPath": "api.controllers.historics",
+        "description": "api.controllers.historics",
         "isExtraImport": true,
-        "detail": "api.schemas.historicSchema",
+        "detail": "api.controllers.historics",
         "documentation": {}
     },
     {
@@ -432,19 +448,19 @@
         "documentation": {}
     },
     {
-        "label": "NotificationController",
-        "importPath": "api.controllers.notificationController",
-        "description": "api.controllers.notificationController",
+        "label": "ns",
+        "importPath": "api.schemas.historicSchema",
+        "description": "api.schemas.historicSchema",
         "isExtraImport": true,
-        "detail": "api.controllers.notificationController",
+        "detail": "api.schemas.historicSchema",
         "documentation": {}
     },
     {
-        "label": "ns",
-        "importPath": "api.schemas.notificationSchema",
-        "description": "api.schemas.notificationSchema",
+        "label": "NotificationController",
+        "importPath": "api.controllers.notifications",
+        "description": "api.controllers.notifications",
         "isExtraImport": true,
-        "detail": "api.schemas.notificationSchema",
+        "detail": "api.controllers.notifications",
         "documentation": {}
     },
     {
@@ -456,11 +472,19 @@
         "documentation": {}
     },
     {
-        "label": "RecordController",
-        "importPath": "api.controllers.recordController",
-        "description": "api.controllers.recordController",
+        "label": "ns",
+        "importPath": "api.schemas.notificationSchema",
+        "description": "api.schemas.notificationSchema",
         "isExtraImport": true,
-        "detail": "api.controllers.recordController",
+        "detail": "api.schemas.notificationSchema",
+        "documentation": {}
+    },
+    {
+        "label": "RecordController",
+        "importPath": "api.controllers.records",
+        "description": "api.controllers.records",
+        "isExtraImport": true,
+        "detail": "api.controllers.records",
         "documentation": {}
     },
     {
@@ -506,10 +530,10 @@
     },
     {
         "label": "UserController",
-        "importPath": "api.controllers.userController",
-        "description": "api.controllers.userController",
+        "importPath": "api.controllers.users",
+        "description": "api.controllers.users",
         "isExtraImport": true,
-        "detail": "api.controllers.userController",
+        "detail": "api.controllers.users",
         "documentation": {}
     },
     {
@@ -700,64 +724,64 @@
     {
         "label": "ExerciseController",
         "kind": 6,
-        "importPath": "api.controllers.exerciseController",
-        "description": "api.controllers.exerciseController",
+        "importPath": "api.controllers.exercises",
+        "description": "api.controllers.exercises",
         "peekOfCode": "class ExerciseController: \n    def __init__(self):\n        self.exercise_service = ExerciseService()\n    def get_all_exercises(self):\n        exercises = self.exercise_service.get_all_exercises()\n        if not exercises:\n            return exercises, 404\n        return exercises, 200\n    def get_exercise_by_id(self, exercise_id):\n        exercise = self.exercise_service.get_exercise_by_id(exercise_id)",
-        "detail": "api.controllers.exerciseController",
+        "detail": "api.controllers.exercises",
         "documentation": {}
     },
     {
         "label": "FoodController",
         "kind": 6,
-        "importPath": "api.controllers.foodController",
-        "description": "api.controllers.foodController",
+        "importPath": "api.controllers.foods",
+        "description": "api.controllers.foods",
         "peekOfCode": "class FoodController: \n    def __init__(self):\n        self.food_service = FoodService()\n    def get_all_foods(self):\n        foods = self.food_service.get_all_foods()\n        if not foods:\n            return foods, 404\n        return foods, 200\n    def get_food_by_id(self, food_id):\n        food = self.food_service.get_food_by_id(food_id)",
-        "detail": "api.controllers.foodController",
+        "detail": "api.controllers.foods",
         "documentation": {}
     },
     {
         "label": "GoalController",
         "kind": 6,
-        "importPath": "api.controllers.goalController",
-        "description": "api.controllers.goalController",
+        "importPath": "api.controllers.goals",
+        "description": "api.controllers.goals",
         "peekOfCode": "class GoalController: \n    def __init__(self):\n        self.goal_service = GoalService()",
-        "detail": "api.controllers.goalController",
+        "detail": "api.controllers.goals",
         "documentation": {}
     },
     {
         "label": "HistoricController",
         "kind": 6,
-        "importPath": "api.controllers.historicController",
-        "description": "api.controllers.historicController",
+        "importPath": "api.controllers.historics",
+        "description": "api.controllers.historics",
         "peekOfCode": "class HistoricController: \n    def __init__(self):\n        self.historic_service = HistoricService()",
-        "detail": "api.controllers.historicController",
+        "detail": "api.controllers.historics",
         "documentation": {}
     },
     {
         "label": "NotificationController",
         "kind": 6,
-        "importPath": "api.controllers.notificationController",
-        "description": "api.controllers.notificationController",
-        "peekOfCode": "class NotificationController: \n    def __init__(self):\n        self.notification_service = NotificationService()",
-        "detail": "api.controllers.notificationController",
+        "importPath": "api.controllers.notifications",
+        "description": "api.controllers.notifications",
+        "peekOfCode": "class NotificationController: \n    def get_notificationsConfigs(user_id):\n        notificationsConfig = notification_service.get_config(user_id)\n        return notificationsConfig",
+        "detail": "api.controllers.notifications",
         "documentation": {}
     },
     {
         "label": "RecordController",
         "kind": 6,
-        "importPath": "api.controllers.recordController",
-        "description": "api.controllers.recordController",
+        "importPath": "api.controllers.records",
+        "description": "api.controllers.records",
         "peekOfCode": "class RecordController: \n    def __init__(self):\n        self.record_service = RecordService()",
-        "detail": "api.controllers.recordController",
+        "detail": "api.controllers.records",
         "documentation": {}
     },
     {
         "label": "UserController",
         "kind": 6,
-        "importPath": "api.controllers.userController",
-        "description": "api.controllers.userController",
+        "importPath": "api.controllers.users",
+        "description": "api.controllers.users",
         "peekOfCode": "class UserController:\n    def get_user_me(self, user_id):\n        if not user_id:\n            abort(401, description='Usuário não encontrado')\n        user = user_service.get_user_by_id(user_id)\n        return user\n    def create_user(self, user_data):\n        created_user_id = self.user_service.create_user(user_data)\n        if not created_user_id:\n            return user, 400",
-        "detail": "api.controllers.userController",
+        "detail": "api.controllers.users",
         "documentation": {}
     },
     {
@@ -839,6 +863,51 @@
         "description": "api.routes.foods",
         "peekOfCode": "food_controller = FoodController()\n@ns.route('/') \nclass FoodList(Resource):\n    @ns.doc(description='Retorna a lista de dados de alimentos')\n    @ns.marshal_list_with(food_schema)\n    def get(self):\n        \"\"\"Lista todos os alimentos\"\"\"\n        return food_controller.get_all_foods()\n@ns.route('/id/<string:food_id>')\nclass FoodById(Resource):",
         "detail": "api.routes.foods",
+        "documentation": {}
+    },
+    {
+        "label": "Notifications",
+        "kind": 6,
+        "importPath": "api.routes.notifications",
+        "description": "api.routes.notifications",
+        "peekOfCode": "class Notifications(Resource):\n    @jwt_required()\n    @ns.doc(description='Obtem todas configurações de notificação do usuário')\n    def get(self):\n        \"\"\"Lista configurações de notificação.\"\"\"\n        return NotificationController.get_notificationsConfigs(get_jwt_identity())\n@ns.route('/workout')\nclass NotificationsWorkout(Resource):\n    @jwt_required()\n    @ns.expect(notification_schema)",
+        "detail": "api.routes.notifications",
+        "documentation": {}
+    },
+    {
+        "label": "NotificationsWorkout",
+        "kind": 6,
+        "importPath": "api.routes.notifications",
+        "description": "api.routes.notifications",
+        "peekOfCode": "class NotificationsWorkout(Resource):\n    @jwt_required()\n    @ns.expect(notification_schema)\n    @ns.doc(description='Altera as configurações de notificação de treino do usuário')\n    def put(self):\n        \"\"\"Altera configurações de notificação de treino.\"\"\"\n        pass\n@ns.route('/workout/default')\nclass NotificationsWorkoutDefault(Resource):\n    @jwt_required()",
+        "detail": "api.routes.notifications",
+        "documentation": {}
+    },
+    {
+        "label": "NotificationsWorkoutDefault",
+        "kind": 6,
+        "importPath": "api.routes.notifications",
+        "description": "api.routes.notifications",
+        "peekOfCode": "class NotificationsWorkoutDefault(Resource):\n    @jwt_required()\n    @ns.doc(description='Altera as configurações de notificação do usuário para padrão')\n    def put(self):\n        \"\"\"Altera configurações de notificação de treino para padrão.\"\"\"\n        pass\n@ns.route('/water')\nclass NotificationsWater(Resource):\n    @jwt_required()\n    @ns.expect(notification_schema)",
+        "detail": "api.routes.notifications",
+        "documentation": {}
+    },
+    {
+        "label": "NotificationsWater",
+        "kind": 6,
+        "importPath": "api.routes.notifications",
+        "description": "api.routes.notifications",
+        "peekOfCode": "class NotificationsWater(Resource):\n    @jwt_required()\n    @ns.expect(notification_schema)\n    @ns.doc(description='Altera as configurações de notificação de água do usuário para padrão')\n    def put(self):\n        \"\"\"Altera configurações de notificação de água.\"\"\"\n        pass\n@ns.route('/water/default')\nclass NotificationsWaterDefault(Resource):\n    @jwt_required()",
+        "detail": "api.routes.notifications",
+        "documentation": {}
+    },
+    {
+        "label": "NotificationsWaterDefault",
+        "kind": 6,
+        "importPath": "api.routes.notifications",
+        "description": "api.routes.notifications",
+        "peekOfCode": "class NotificationsWaterDefault(Resource):\n    @jwt_required()\n    @ns.doc(description='Altera as configurações de notificação do usuário para padrão')\n    def put(self):\n        \"\"\"Altera configurações de notificação de água de treino para padrão.\"\"\"\n        pass",
+        "detail": "api.routes.notifications",
         "documentation": {}
     },
     {
@@ -1206,7 +1275,7 @@
         "kind": 6,
         "importPath": "api.services.notifications",
         "description": "api.services.notifications",
-        "peekOfCode": "class NotificationService: \n    pass",
+        "peekOfCode": "class NotificationService:\n    def get_config(user_id):\n        try:\n            user = mongo.db.users.find_one({\"_id\": ObjectId(user_id)})\n            if not user:\n                abort(404, \"Usuário não encontrado\")\n            return user[\"notification_config\"], 200\n        except:\n            return {'message': 'Erro ao buscar configuração'}, 500",
         "detail": "api.services.notifications",
         "documentation": {}
     },
