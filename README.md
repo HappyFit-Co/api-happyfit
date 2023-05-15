@@ -1,4 +1,4 @@
-# HappyFit RESTful API 
+# HappyFit RESTful API
 
 <div align="center">
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/HappyFit-Co/api-happyfit?style=for-the-badge">
