@@ -5,7 +5,7 @@ from flask_jwt_extended import (create_access_token, get_jwt, get_jwt_identity,
 from flask_restx import Resource
 
 from api.controllers.userController import UserController
-from api.schemas.userSchema import ns, user_schema
+from api.schemas.users import ns, user_schema
 from api.security.password import compare_pwd
 
 user_controller = UserController()
@@ -14,7 +14,7 @@ user_controller = UserController()
 @ns.route('/')
 class UserMe(Resource):
     @jwt_required()
-    @ns.doc(description='Retorna as informações do usuário logado')
+    @ns.doc(security='jwt', description='Retorna as informações do usuário logado')
     @ns.marshal_with(user_schema)
     def get(self):
         """Lista o usuário logado"""
