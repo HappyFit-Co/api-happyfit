@@ -1,5 +1,6 @@
-from flask import abort, jsonify
+from flask_restx import marshal
 from api.services.exercises import ExerciseService
+from api.schemas.exercises import exercise_schema
 
 class ExerciseController: 
     def __init__(self):
@@ -14,8 +15,9 @@ class ExerciseController:
     def get_exercise_by_id(self, exercise_id):
         exercise = self.exercise_service.get_exercise_by_id(exercise_id)
         if not exercise:
-            return exercise, 404
-        return exercise, 200
+            return {'msg': 'Searched _id not found'}, 404
+        return marshal(exercise, exercise_schema), 200
+    
 
     def get_exercise_by_name(self, exercise_name):
         exercises = self.exercise_service.get_exercise_by_name(exercise_name)

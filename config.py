@@ -17,7 +17,7 @@ class Config:
 
     # Configurações do Flask-RESTX
     RESTX_MASK_SWAGGER = os.environ.get('RESTX_MASK_SWAGGER', False)
-
+   
     # Configurações do JWT
     JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(
