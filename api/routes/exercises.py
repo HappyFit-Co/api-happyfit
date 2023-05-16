@@ -2,7 +2,7 @@ from flask_jwt_extended import jwt_required
 from flask_restx import Resource
 
 from api.controllers.exercises import ExerciseController
-from api.schemas.exerciseSchema import exercise_schema, ns
+from api.schemas.exercises import exercise_schema, ns
 
 exercise_controller = ExerciseController()
 

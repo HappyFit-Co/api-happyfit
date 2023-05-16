@@ -1,8 +1,8 @@
-from flask_restx import Namespace, fields 
+from flask_restx import Namespace, fields
 
-from .goalSchema import goal_schema
-from .historicSchema import historic_schema
-from .notificationSchema import notification_schema
+from .goals import goal_schema
+from .historics import historic_schema
+from .notifications import notification_schema
 
 ns = Namespace('users', description='Operações relacionadas a usuários')
 

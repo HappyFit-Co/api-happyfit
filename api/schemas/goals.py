@@ -1,6 +1,6 @@
-from flask_restx import Namespace, fields 
+from flask_restx import Namespace, fields
 
-from .foodSchema import macro_schema
+from .foods import macro_schema
 
 ns = Namespace('goals', description='Operações relacionadas a metas')
 

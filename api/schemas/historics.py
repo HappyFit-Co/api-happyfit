@@ -1,6 +1,6 @@
-from flask_restx import Namespace, fields 
+from flask_restx import Namespace, fields
 
-from .recordSchema import record_schema
+from .records import record_schema
 
 ns = Namespace('historics', description='Operações relacionadas ao histórico')
 
@@ -10,5 +10,5 @@ historic_parser.add_argument('historic', type=list, required=True, location='jso
 
 # Gerar a documentação automática do Swagger UI e a model
 historic_schema = ns.model('Historic', {
-    'historic': fields.List(fields.Nested(record_schema, required=True, description='Registro de histórico')),
+    'record': fields.List(fields.Nested(record_schema, required=True, description='Registro de histórico')),
 })

@@ -1,4 +1,4 @@
 from flask_restx import Resource
 
 from api.controllers.goals import GoalController
-from api.schemas.goalSchema import goal_schema, ns
+from api.schemas.goals import goal_schema, ns

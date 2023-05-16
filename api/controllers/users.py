@@ -3,7 +3,7 @@ from flask_restx import abort
 
 from api.security.password import compare_pwd
 from api.security.token import create_token, is_token_valid
-from api.services.users import UserService as user_service
+from api.services.users import UserService
 
 
 class UserController:
@@ -12,15 +12,15 @@ class UserController:
         if not user_id:
             abort(401, description='Usuário não encontrado')
         
-        user = user_service.get_user_by_id(user_id)
+        user = UserService.get_user_by_id(user_id)
 
         return user
 
     def create_user(self, user_data):
-        created_user_id = self.user_service.create_user(user_data)
+        created_user_id = UserService.create_user(user_data)
         if not created_user_id:
             return user, 400
-        user = self.user_service.get_user_by_id(created_user_id)
+        user = UserService.get_user_by_id(created_user_id)
         if not user:
             return user, 404
         return user, 201
@@ -44,4 +44,4 @@ class UserController:
         return {'access_token': access_token}
     
     def get_user_by_email(self, user_email):
-        return user_service.get_user_by_email(user_email)
+        return UserService.get_user_by_email(user_email)

@@ -2,7 +2,7 @@ from flask_jwt_extended import jwt_required
 from flask_restx import Resource
 
 from api.controllers.foods import FoodController
-from api.schemas.foodSchema import food_schema, ns
+from api.schemas.foods import food_schema, ns
 
 food_controller = FoodController()
 
