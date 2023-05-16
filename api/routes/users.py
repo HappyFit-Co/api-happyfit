@@ -13,7 +13,7 @@ user_controller = UserController()
 @ns.route('/')
 class UserMe(Resource):
     @jwt_required()
-    @ns.doc(description='Retorna as informações do usuário logado')
+    @ns.doc(security='jwt', description='Retorna as informações do usuário logado')
     @ns.marshal_with(user_schema)
     def get(self):
         """Lista o usuário logado"""
