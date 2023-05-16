@@ -1,6 +1,6 @@
 from flask_restx import Namespace, fields 
 
-from .recordSchema import record_schema
+from .records import record_schema
 
 ns = Namespace('historics', description='Operações relacionadas ao histórico')
 
