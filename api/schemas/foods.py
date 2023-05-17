@@ -14,13 +14,13 @@ food_parser.add_argument('sugar', type=str, required=True, help='Quantidade de a
 food_parser.add_argument('fiber', type=str, required=True, help='Quantidade de fibras')
 
 # Gerar a documentação automática do Swagger UI e a model
-macro_schema = ns.model('Macro', {
+macro_schema = ns.model('FoodMacro', {
     'protein': fields.Float(required=True, description='Quantidade de proteínas', example=20),
     'carbohydrate': fields.Float(required=True, description='Quantidade de carboidratos', example=50),
     'fat': fields.Float(required=True, description='Quantidade de gorduras', example=5)
 })
 
-mineral_schema = ns.model('Mineral', {
+mineral_schema = ns.model('FoodMineral', {
     'sodium': fields.String(required=True, description='Quantidade de sódio'),
     'calcium': fields.String(required=True, description='Quantidade de cálcio'),
     'magnesium': fields.String(required=True, description='Quantidade de magnésio'),
