@@ -12,3 +12,8 @@ historic_parser.add_argument('historic', type=list, required=True, location='jso
 historic_schema = ns.model('Historic', {
     'record': fields.List(fields.Nested(record_schema, required=True, description='Registro de histórico')),
 })
+
+# Definindo valores padrão
+default_historic = {
+    "record": []
+}

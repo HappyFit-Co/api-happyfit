@@ -4,13 +4,13 @@ from .foods import macro_schema
 
 ns = Namespace('goals', description='Operações relacionadas a metas')
 
-workout_schema = ns.model('Workout', {
+workout_schema = ns.model('GoalWorkout', {
     'exercise_id': fields.String(required=True, description='Identificador único do exercício'),
     'hour': fields.String(required=True, description='Horário do dia'),
     'weekday': fields.String(required=True, description='Dia da Semana')
 })
 
-diet_schema = ns.model('Diet', {
+diet_schema = ns.model('GoalDiet', {
     'food_id': fields.String(required=True, description='Identificador único do alimento'),
     'weekday': fields.String(required=True, description='Dia da Semana')
 })
@@ -37,3 +37,19 @@ goal_schema = ns.model('Goal', {
     'workout': fields.List(fields.Nested(workout_schema), required=True, description='Treinos diários do usuário'),
     'diet': fields.List(fields.Nested(diet_schema), required=True, description='Alimentação diária do usuário')
 })
+
+# Definindo valores padrão
+default_goal = {
+    "weight": 0,
+    "objective": "",
+    "daily_calories": 0,
+    "daily_water": 0,
+    "daily_macro_nutrient": {
+        "protein": 20,
+        "carbohydrate": 50,
+        "fat": 5
+    },
+    "deadline": "",
+    "workout": [],
+    "diet": []
+}
