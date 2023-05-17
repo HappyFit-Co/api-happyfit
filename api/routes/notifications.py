@@ -6,7 +6,6 @@ from api.controllers.notifications import NotificationController
 from api.schemas.notifications import (notification_schema, ns, water_schema,
                                        workout_schema)
 
-
 @ns.route('/')
 class Notifications(Resource):
     @jwt_required()    

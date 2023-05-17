@@ -35,3 +35,19 @@ record_schema = ns.model('Record', {
     'workout': fields.List(fields.Nested(workout_schema), required=True, description='Lista de exercícios realizados no dia'),
     'diet': fields.List(fields.Nested(diet_schema), required=True, description='Lista de alimentos consumidos no dia')
 })
+
+unauthorized_schema = ns.model('UnauthorizedResponse', {
+    'msg': fields.String(required=False, description='Mensagem de não autorizado', example='Missing Authorization Header')
+})
+
+unprocessable_schema = ns.model('UnprocessableEntityResponse', {
+    'msg': fields.String(required=False, description='Mensagem de entidade não processável', example='Bearer token from invalid header')
+})
+
+not_found_schema = ns.model('NotFoundResponse', {
+    'msg': fields.String(required=False, description='Mensagem de não encontrado', example='Register not found')
+})
+
+bad_request_schema = ns.model('BadRequestResponse', {
+    'msg': fields.String(required=False, description='Mensagem de requisição inválida', example='Invalid request due to errors or inappropriate customer data')
+})

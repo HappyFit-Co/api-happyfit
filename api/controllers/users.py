@@ -5,9 +5,7 @@ from api.security.password import compare_pwd
 from api.security.token import create_token, is_token_valid
 from api.services.users import UserService
 
-
 class UserController:
-
     def get_user_me(self, user_id):
         if not user_id:
             abort(401, description='Usuário não encontrado')
