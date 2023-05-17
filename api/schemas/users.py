@@ -32,3 +32,18 @@ user_schema = ns.model('User', {
     'historic': fields.Nested(historic_schema, required=True, description='Histórico do usuário'),
     'notification_config': fields.Nested(notification_schema, required=True, description='Configurações de notificação do usuário'),
 })
+
+create_user_schema = ns.model('CreateUser', {
+    'name': fields.String(required=True, description='Nome do usuário'),
+    'email': fields.String(required=True, description='Endereço de email do usuário'),
+    'pwd': fields.String(required=True, description='Senha do usuário'),
+    'weight': fields.Float(required=True, description='Peso do usuário em kg'),
+    'height': fields.Float(required=True, description='Altura do usuário em metros'),
+    'age': fields.Integer(required=True, description='Idade do usuário'),
+    'activity_level': fields.String(required=True, description='Nível de atividade física do usuário')
+})
+
+login_user_schema = ns.model('LogineUser', {
+    'email': fields.String(required=True, description='Endereço de email do usuário'),
+    'pwd': fields.String(required=True, description='Senha do usuário')
+})
