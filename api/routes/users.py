@@ -3,7 +3,8 @@ from flask_jwt_extended import get_jwt_identity, jwt_required
 from flask_restx import Resource
 
 from api.controllers.users import UserController
-from api.schemas.users import ns, user_schema, create_user_schema, login_user_schema
+from api.schemas.users import (create_user_schema, login_user_schema, ns,
+                               user_schema)
 
 user_controller = UserController()
 
@@ -17,8 +18,7 @@ class UserMe(Resource):
         return user_controller.get_user_me(get_jwt_identity())
 
     @ns.doc(description='Registra um novo usuário')
-    @ns.marshal_with(user_schema)
-    @ns.expect(create_user_schema)
+    @ns.expect(create_user_schema, validate=True, strict=False)
     def post(self):
         """Cadastra um novo usuário"""
         return user_controller.create_user(request.json)

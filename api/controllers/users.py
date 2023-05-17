@@ -1,9 +1,11 @@
 from flask_jwt_extended import create_access_token
-from flask_restx import abort
+from flask_restx import abort, marshal
 
+from api.schemas.users import user_schema
 from api.security.password import compare_pwd
 from api.security.token import create_token, is_token_valid
 from api.services.users import UserService
+
 
 class UserController:
     def get_user_me(self, user_id):
@@ -16,12 +18,14 @@ class UserController:
 
     def create_user(self, user_data):
         created_user_id = UserService.create_user(user_data)
+
         if not created_user_id:
-            return user, 400
+            return {"msg": "E-mail já em uso"}, 400
+        
         user = UserService.get_user_by_id(created_user_id)
         if not user:
-            return user, 404
-        return user, 201
+            return {"msg": "Erro ao criar usuário"}, 404
+        return marshal(user, user_schema), 201
 
     def login(self, request):
         credentials = request.json
