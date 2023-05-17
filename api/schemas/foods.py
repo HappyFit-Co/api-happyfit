@@ -15,9 +15,9 @@ food_parser.add_argument('fiber', type=str, required=True, help='Quantidade de f
 
 # Gerar a documentação automática do Swagger UI e a model
 macro_schema = ns.model('Macro', {
-    'protein': fields.Float(required=True, description='Quantidade de proteínas'),
-    'carbohydrate': fields.Float(required=True, description='Quantidade de carboidratos'),
-    'fat': fields.Float(required=True, description='Quantidade de gorduras')
+    'protein': fields.Float(required=True, description='Quantidade de proteínas', example=20),
+    'carbohydrate': fields.Float(required=True, description='Quantidade de carboidratos', example=50),
+    'fat': fields.Float(required=True, description='Quantidade de gorduras', example=5)
 })
 
 mineral_schema = ns.model('Mineral', {

@@ -14,14 +14,26 @@ class RecordService:
     def create_record(user_id, record_data):
         record_id = str(ObjectId())
         today = datetime.now().strftime("%Y-%m-%d")
+        diet_data = record_data.get("diet", [])
+
+        # Calcula o somatório das calorias e macronutrientes da dieta
+        total_calories = sum(item.get("calories", 0) for item in diet_data)
+        total_protein = sum(item.get("macro_nutrient", {}).get("protein", 0) for item in diet_data)
+        total_carbohydrate = sum(item.get("macro_nutrient", {}).get("carbohydrate", 0) for item in diet_data)
+        total_fat = sum(item.get("macro_nutrient", {}).get("fat", 0) for item in diet_data)
+
         record = {
             "_id": record_id,
             "date": today,
-            "daily_calories": record_data.get("daily_calories", 0),
+            "daily_calories": total_calories,
             "daily_water": record_data.get("daily_water", 0),
-            "daily_macro_nutrient": record_data.get("daily_macro_nutrient", {}),
+            "daily_macro_nutrient": {
+                "protein": total_protein,
+                "carbohydrate": total_carbohydrate,
+                "fat": total_fat
+            },
             "workout": record_data.get("workout", []),
-            "diet": record_data.get("diet", [])
+            "diet": diet_data
         }
 
         user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
@@ -46,7 +58,6 @@ class RecordService:
             # Atualiza o usuário com o campo historic atualizado
             mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic": historic}})
         return record_id
-
 
     def get_record_by_id(user_id, record_id):
         user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
