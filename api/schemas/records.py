@@ -4,12 +4,12 @@ from .foods import macro_schema
 
 ns = Namespace('records', description='Operações relacionadas a registro')
     
-workout_schema = ns.model('Workout', {
+workout_schema = ns.model('RecordWorkout', {
     'exercise_id': fields.String(required=True, description='Identificador único do exercício', example='abcdef123456789012345645'),
     'hour': fields.String(required=True, description='Hora do treino no formato HH:MM', example='HH:MM')
 })
 
-diet_schema = ns.model('Diet', {
+diet_schema = ns.model('RecordDiet', {
     'calories': fields.Integer(required=True, description='Quantidade de calorias ingeridas', example=100),
     'macro_nutrient': fields.Nested(macro_schema, required=True, description='Macro nutrientes ingeridos'),
     'hour': fields.String(required=True, description='Hora da refeição no formato HH:MM', example='HH:MM')
@@ -36,7 +36,7 @@ record_schema = ns.model('Record', {
     'diet': fields.List(fields.Nested(diet_schema), required=True, description='Lista de alimentos consumidos no dia')
 })
 
-create_record_schema = ns.model('CreateRecord', {
+create_record_schema = ns.model('RecordCreate', {
     'daily_water': fields.Integer(required=True, description='Quantidade de água ingerida no dia', example=2000),
     'workout': fields.List(fields.Nested(workout_schema), required=True, description='Lista de exercícios realizados no dia'),
     'diet': fields.List(fields.Nested(diet_schema), required=True, description='Lista de alimentos consumidos no dia')

@@ -4,13 +4,13 @@ from .foods import macro_schema
 
 ns = Namespace('goals', description='Operações relacionadas a metas')
 
-workout_schema = ns.model('Workout', {
+workout_schema = ns.model('GoalWorkout', {
     'exercise_id': fields.String(required=True, description='Identificador único do exercício'),
     'hour': fields.String(required=True, description='Horário do dia'),
     'weekday': fields.String(required=True, description='Dia da Semana')
 })
 
-diet_schema = ns.model('Diet', {
+diet_schema = ns.model('GoalDiet', {
     'food_id': fields.String(required=True, description='Identificador único do alimento'),
     'weekday': fields.String(required=True, description='Dia da Semana')
 })
