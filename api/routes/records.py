@@ -5,6 +5,7 @@ from flask_jwt_extended import get_jwt_identity, jwt_required
 from api.controllers.records import RecordController
 from api.schemas.records import (
     ns,
+    create_record_parser,
     record_schema,
     create_record_schema,
     bad_request_schema,
@@ -14,7 +15,7 @@ from api.schemas.records import (
 )
 
 @ns.route('/')
-class UserMe(Resource):
+class Record(Resource):
     @jwt_required()
     @ns.doc(security='jwt', description='Retorna registro do dia.')
     @ns.response(200, 'Sucesso', record_schema)
@@ -36,4 +37,15 @@ class UserMe(Resource):
     def post(self):
         """Registra as atividade do dia"""
         return RecordController.create_record(get_jwt_identity(), request.json)
+    
+    @jwt_required()
+    @ns.doc(security='jwt', description='Exclui registro do dia.')
+    @ns.response(200, 'Sucesso', record_schema)
+    @ns.response(400, 'Requisição inválida', bad_request_schema)
+    @ns.response(401, 'Não autorizado', unauthorized_schema)
+    @ns.response(404, 'Não encontrado', not_found_schema)
+    @ns.response(422, 'Entidade não processável', unprocessable_schema)
+    def delete(self):
+        """Deleta as atividade do dia"""
+        return RecordController.delete_record(get_jwt_identity())
 

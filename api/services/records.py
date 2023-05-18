@@ -67,3 +67,30 @@ class RecordService:
                 if record["_id"] == record_id:
                     return record
         return None
+    
+    def delete_record(user_id):
+        today = datetime.now().strftime("%Y-%m-%d")
+
+        user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+
+        if user and "historic" in user and "record" in user["historic"]:
+            record_list = user["historic"]["record"]
+
+            # Encontra o índice do registro com a data de hoje
+            index_to_delete = None
+            for i, record in enumerate(record_list):
+                if record.get("date") == today:
+                    index_to_delete = i
+                    break
+
+            if index_to_delete is not None:
+                # Remove o registro da lista
+                del record_list[index_to_delete]
+
+                # Atualiza o campo historic.record com a lista atualizada
+                mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
+                return 200
+            else:
+                return 404
+
+        return 404

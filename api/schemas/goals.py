@@ -45,9 +45,9 @@ default_goal = {
     "daily_calories": 0,
     "daily_water": 0,
     "daily_macro_nutrient": {
-        "protein": 20,
-        "carbohydrate": 50,
-        "fat": 5
+        "protein": 0,
+        "carbohydrate": 0,
+        "fat": 0
     },
     "deadline": "",
     "workout": [],
