@@ -50,13 +50,13 @@ class AddExercise(Resource):
         return GoalController.add_exercise(get_jwt_identity(), workout_parser.parse_args(strict=True))
 
 
-@ns.route('/workout/remove/<string:exercise_id>')
+@ns.route('/workout/remove')
 class RemoveExercise(Resource):
     @jwt_required()
     @ns.doc(security='jwt', responses={200: 'Sucesso'}, description='Deleta exercício da meta do usuário.')
-    def put(self, exercise_id):
+    def put(self):
         """Deleta exercício da meta do usuário"""
-        return GoalController.rmv_exercise(get_jwt_identity(), exercise_id)
+        return GoalController.rmv_exercise(get_jwt_identity(), workout_parser.parse_args(strict=True))
 
 
 @ns.route('/diet/add')
@@ -69,10 +69,10 @@ class AddDiet(Resource):
         return GoalController.add_food(get_jwt_identity(), diet_parser.parse_args(strict=True))
 
 
-@ns.route('/diet/remove/<string:food_id>')
+@ns.route('/diet/remove')
 class RemoveDiet(Resource):
     @jwt_required()
     @ns.doc(security='jwt', responses={200: 'Sucesso'}, description='Deleta comida da meta do usuário.')
-    def put(self, food_id):
+    def put(self):
         """Deleta comida da meta do usuário"""
-        return GoalController.rmv_food(get_jwt_identity(), food_id)
+        return GoalController.rmv_food(get_jwt_identity(), diet_parser.parse_args(strict=True))

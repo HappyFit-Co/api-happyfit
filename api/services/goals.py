@@ -11,7 +11,7 @@ class GoalService:
             user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
             return user["goal"]
         except:
-            return {'msg': 'Erro ao obter goal'}, 500
+            return {'msg': 'Error to return goal'}, 500
 
     def edit_goal(user_id, data):
         try:
@@ -21,7 +21,7 @@ class GoalService:
             )
             return data
         except:
-            return {'msg': 'Erro ao atualizar goal'}, 500
+            return {'msg': 'Error to update goal'}, 500
 
     def delete_goal(user_id):
         try:
@@ -29,31 +29,35 @@ class GoalService:
                 {"_id": ObjectId(user_id)},
                 {"$set": {"goal": {}}}
             )
-            return {'msg': 'Meta excluída com sucesso'}, 200
+            return {'msg': 'Goal successfully deleted'}, 200
         except:
-            return {'msg': 'Erro ao excluir a meta'}, 500
-
+            return {'msg': 'Error to delete goal'}, 500
 
     # Métodos de adicição e remoção
+
     def add_exercise(user_id, data):
         try:
             mongo.db.users.update_one(
                 {"_id": ObjectId(user_id)},
                 {"$push": {"goal.workout": data}}
             )
-            return {'msg': 'Exercício adicionado com sucesso'}, 200
+            return {'msg': 'Exercise successfully added'}, 200
         except:
-            return {'msg': 'Erro ao adicionar exercício'}, 500
+            return {'msg': 'Error to add exercise record'}, 500
 
-    def rmv_exercise(user_id, exercise_id):
+    def rmv_exercise(user_id, data):
         try:
             mongo.db.users.update_one(
                 {"_id": ObjectId(user_id)},
-                {"$pull": {"goal.workout": {"exercise_id": exercise_id}}}
+                {"$pull": {"goal.workout": {
+                    "exercise_id": data["exercise_id"],
+                    "hour": data["hour"],
+                    "weekday": data["weekday"]
+                    }}}
             )
-            return {'msg': 'Exercício removido com sucesso'}, 200
+            return {'msg': 'Exercise successfully removed'}, 200
         except:
-            return {'msg': 'Erro ao remover exercício'}, 500
+            return {'msg': 'Error to remove exercise record'}, 500
 
     def add_food(user_id, data):
         try:
@@ -61,16 +65,19 @@ class GoalService:
                 {"_id": ObjectId(user_id)},
                 {"$push": {"goal.diet": data}}
             )
-            return {'msg': 'Comida adicionado com sucesso'}, 200
+            return {'msg': 'Food successfully added'}, 200
         except:
-            return {'msg': 'Erro ao adicionar comida'}, 500
-        
-    def rmv_food(user_id, food_id):
+            return {'msg': 'Error to add food record'}, 500
+
+    def rmv_food(user_id, data):
         try:
             mongo.db.users.update_one(
                 {"_id": ObjectId(user_id)},
-                {"$pull": {"goal.diet": {"food_id": food_id}}}
+                {"$pull": {"goal.diet": {
+                    "food_id": data["food_id"],
+                    "weekday": data["weekday"]
+                }}}
             )
-            return {'msg': 'Comida removido com sucesso'}, 200
+            return {'msg': 'Food successfully removed'}, 200
         except:
-            return {'msg': 'Erro ao remover comida'}, 500
+            return {'msg': 'Error to remove food record'}, 500
