@@ -1,15 +1,45 @@
 from flask_restx import inputs
+import re, json
 
 from api.schemas.foods import macro_schema
-from api.schemas.records import (
-    create_record_schema,
-    workout_schema,
-    diet_schema
-)
+from api.schemas.records import create_record_schema, diet_schema, workout_schema
 
 def validate_email(email):
-    if not inputs.regex(r'^[\w\.-]+@[\w\.-]+\.\w+$', error='Invalid email format').__call__(email):
-        raise ValueError('Invalid email format')
+    # Expressão regular para validar o formato de um email
+    email_pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+
+    # Verifica se o email corresponde ao padrão da expressão regular
+    if re.match(email_pattern, email):
+        return True
+    else:
+        return False
+
+def validate_date_format(date_string):
+    pattern = r"^(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})$"
+    match = re.match(pattern, date_string)
+    if not match:
+        return False
+
+    year = int(match.group('year'))
+    month = int(match.group('month'))
+    day = int(match.group('day'))
+
+    # Restrições de valores
+    if year <= 0 or month <= 0 or month > 12 or day <= 0 or day > 31:
+        return False
+
+    # Restrições adicionais
+    if month in [4, 6, 9, 11] and day > 30:
+        return False
+    if month == 2:
+        if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+            if day > 29:
+                return False
+        elif day > 28:
+            return False
+
+    return True
+
     
 def validate_hour_format(hour):
     try:
@@ -84,6 +114,42 @@ def validate_create_record_schema(data):
 
             if not validate_hour_format(diet['hour']):
                 return f"Invalid hour format in diet {i}"
+
+        return None
+    except Exception as e:
+        return str(e)
+
+def validate_model_data(model, data, model_name):
+    try:
+        # Verificar se todos os campos estão presentes
+        model_fields = set(model.__schema__['properties'].keys())
+        
+        if model_fields != set(data.keys()):
+            missing_fields = model_fields - set(data.keys())
+            if missing_fields:
+                return f"Missing fields in {model_name}: {missing_fields}"
+            else:
+                extra_fields = set(data.keys()) - model_fields
+                return f"There are extra attributes in {model_name} beyond the specified fields: {extra_fields}"
+
+        # Verificar a estrutura dos dados
+        for i, item in enumerate(data, start=1):
+            # Verificar campos aninhados recursivamente
+            for nested_model_name, nested_model in model.__schema__['properties'].items():
+                if nested_model_name in item and isinstance(nested_model, dict):
+                    error = validate_model_data(nested_model, item[nested_model_name], nested_model_name)
+                    if error:
+                        return error
+
+            # Verificar campo de data (AAAA-MM-DD)
+            if 'date' in item:
+                if not validate_date_format(item['date']):
+                    return f"Invalid date format in {model_name} {i}"
+
+            # Verificar campo de hora (HH:MM)
+            if 'hour' in item:
+                if not validate_hour_format(item['hour']):
+                    return f"Invalid hour format in {model_name} {i}"
 
         return None
     except Exception as e:
