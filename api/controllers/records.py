@@ -33,5 +33,26 @@ class RecordController:
             return {'msg': 'Requested resource not found'}, 404
         else:
             return {'msg': 'Record of the day deleted successfully'}, 200
+        
+    def add_water_record(user_id, water_volume):
+        if water_volume < 0:
+            water_volume = 0
+        
+        error = RecordService.add_water_record(user_id, water_volume)
+        if error:
+            return {'msg': error}, 404
+        return {'msg': 'Success in adding water'}, 200
+    
+    def add_workout_record(user_id, exercise):
+        error = RecordService.add_workout_record(user_id, exercise)
+        if error:
+            return {'msg': error}, 404
+        return {'msg': 'Success in adding exercise'}, 200
+    
+    def remove_workout_record(user_id, exercise):
+        error = RecordService.remove_workout_record(user_id, exercise)
+        if error:
+            return {'msg': error}, 404
+        return {'msg': 'Success in removing exercise'}, 200
 
         
