@@ -1,11 +1,11 @@
 import bcrypt
 from bson.objectid import ObjectId
 
-from api.security.password import encrypt_pwd
-from api.utils.database import mongo
 from api.schemas.goals import default_goal
 from api.schemas.historics import default_historic
 from api.schemas.notifications import default_notification_config
+from api.security.password import encrypt_pwd
+from api.utils.database import mongo
 
 
 class UserService: 
@@ -28,7 +28,7 @@ class UserService:
 
             result = mongo.db.users.insert_one(user_data)
             return result.inserted_id
-        except TypeError:
+        except:
             return None
 
     def get_user_by_id(user_id):

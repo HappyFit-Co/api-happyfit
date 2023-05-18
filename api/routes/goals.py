@@ -3,8 +3,8 @@ from flask_jwt_extended import get_jwt_identity, jwt_required
 from flask_restx import Resource
 
 from api.controllers.goals import GoalController
-from api.schemas.goals import (diet_parser, diet_schema, goal_schema, ns,
-                               workout_parser, workout_schema)
+from api.schemas.goals import (diet_parser, diet_schema, goal_parser,
+                               goal_schema, ns, workout_parser, workout_schema)
 
 
 @ns.route('/')
@@ -22,7 +22,7 @@ class Goal(Resource):
     @ns.response(200, 'Sucesso', [goal_schema])
     def post(self):
         """Cria a meta do usuário"""
-        return GoalController.post_goal(get_jwt_identity(), request.json)
+        return GoalController.post_goal(get_jwt_identity(), goal_parser.parse_args(request, strict=True))
 
     @jwt_required()
     @ns.expect(goal_schema)
@@ -30,7 +30,7 @@ class Goal(Resource):
     @ns.response(200, 'Sucesso', [goal_schema])
     def put(self):
         """Edita a meta do usuário"""
-        return GoalController.put_goal(get_jwt_identity(), request.json)
+        return GoalController.put_goal(get_jwt_identity(), goal_parser.parse_args(request, strict=True))
 
     @jwt_required()
     @ns.doc(security='jwt', responses={200: 'Sucesso'}, description='Deleta a meta do usuário.')
