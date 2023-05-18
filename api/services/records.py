@@ -94,3 +94,105 @@ class RecordService:
                 return 404
 
         return 404
+    
+    from datetime import datetime
+
+    def add_water_record(user_id, water_volume):
+        today = datetime.now().strftime("%Y-%m-%d")
+
+        user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+
+        if user and "historic" in user and "record" in user["historic"]:
+            record_list = user["historic"]["record"]
+
+            # Encontra o índice do registro com a data de hoje
+            index_to_update = None
+            for i, record in enumerate(record_list):
+                if record.get("date") == today:
+                    index_to_update = i
+                    break
+
+            if index_to_update is not None:
+                # Atualiza a quantidade de água do registro
+                record_list[index_to_update]["daily_water"] += water_volume
+
+                # Atualiza o campo historic.record com a lista atualizada
+                mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
+                return None
+            else:
+                return f"No record of the day found"
+
+        return f"No record history found"
+    
+    def add_workout_record(user_id, workout):
+        today = datetime.now().strftime("%Y-%m-%d")
+
+        user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+
+        if user and "historic" in user and "record" in user["historic"]:
+            record_list = user["historic"]["record"]
+
+            # Encontra o índice do registro com a data de hoje
+            index_to_update = None
+            for i, record in enumerate(record_list):
+                if record.get("date") == today:
+                    index_to_update = i
+                    break
+
+            if index_to_update is not None:
+                # Obtém a lista de workout do registro
+                workout_list = record_list[index_to_update].get("workout", [])
+
+                # Verifica se o exercício já está presente na lista
+                for workout_item in workout_list:
+                    if workout_item == workout:
+                        return "Exercise already exists in today's workout"
+
+                # Adiciona o novo exercício à lista de workout do dia de hoje
+                workout_list.append(workout)
+
+                # Atualiza o campo historic.record com a lista atualizada
+                mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
+                return None
+            else:
+                return "No record of the day found"
+
+        return "No record history found"
+
+    def remove_workout_record(user_id, workout):
+        today = datetime.now().strftime("%Y-%m-%d")
+
+        user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+
+        if user and "historic" in user and "record" in user["historic"]:
+            record_list = user["historic"]["record"]
+
+            # Encontra o índice do registro com a data de hoje
+            index_to_update = None
+            for i, record in enumerate(record_list):
+                if record.get("date") == today:
+                    index_to_update = i
+                    break
+
+            if index_to_update is not None:
+                # Obtém a lista de workout do registro
+                workout_list = record_list[index_to_update].get("workout", [])
+
+                # Verifica se o exercício está presente na lista
+                for workout_item in workout_list:
+                    if workout_item == workout:
+                        workout_list.remove(workout_item)
+
+                        # Atualiza o campo historic.record com a lista atualizada
+                        mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
+                        return None
+
+                return "Exercise not found in today's workout"
+
+            else:
+                return "No record of the day found"
+
+        return "No record history found"
+
+
+
