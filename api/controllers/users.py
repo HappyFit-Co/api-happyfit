@@ -19,13 +19,16 @@ class UserController:
     def create_user(self, user_data):
         created_user_id = UserService.create_user(user_data)
 
+
         if not created_user_id:
             return {"msg": "E-mail já em uso"}, 400
         
-        user = UserService.get_user_by_id(created_user_id)
-        if not user:
+        new_user = UserService.get_user_by_id(created_user_id)
+
+        if not new_user:
             return {"msg": "Erro ao criar usuário"}, 404
-        return marshal(user, user_schema), 201
+        
+        return marshal(new_user, user_schema), 201
 
     def login(self, request):
         credentials = request.json

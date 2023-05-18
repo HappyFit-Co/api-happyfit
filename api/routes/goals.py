@@ -3,8 +3,8 @@ from flask_jwt_extended import get_jwt_identity, jwt_required
 from flask_restx import Resource
 
 from api.controllers.goals import GoalController
-from api.schemas.goals import (diet_parser, diet_schema, goal_schema, ns,
-                               workout_parser, workout_schema)
+from api.schemas.goals import (diet_parser, diet_schema, goal_parser,
+                               goal_schema, ns, workout_parser, workout_schema)
 
 
 @ns.route('/')
@@ -22,7 +22,7 @@ class Goal(Resource):
     @ns.response(200, 'Sucesso', [goal_schema])
     def post(self):
         """Cria a meta do usuário"""
-        return GoalController.post_goal(get_jwt_identity(), request.json)
+        return GoalController.post_goal(get_jwt_identity(), goal_parser.parse_args(request, strict=True))
 
     @jwt_required()
     @ns.expect(goal_schema)
@@ -30,7 +30,7 @@ class Goal(Resource):
     @ns.response(200, 'Sucesso', [goal_schema])
     def put(self):
         """Edita a meta do usuário"""
-        return GoalController.put_goal(get_jwt_identity(), request.json)
+        return GoalController.put_goal(get_jwt_identity(), goal_parser.parse_args(request, strict=True))
 
     @jwt_required()
     @ns.doc(security='jwt', responses={200: 'Sucesso'}, description='Deleta a meta do usuário.')
@@ -50,13 +50,13 @@ class AddExercise(Resource):
         return GoalController.add_exercise(get_jwt_identity(), workout_parser.parse_args(strict=True))
 
 
-@ns.route('/workout/remove/<string:exercise_id>')
+@ns.route('/workout/remove')
 class RemoveExercise(Resource):
     @jwt_required()
     @ns.doc(security='jwt', responses={200: 'Sucesso'}, description='Deleta exercício da meta do usuário.')
-    def put(self, exercise_id):
+    def put(self):
         """Deleta exercício da meta do usuário"""
-        return GoalController.rmv_exercise(get_jwt_identity(), exercise_id)
+        return GoalController.rmv_exercise(get_jwt_identity(), workout_parser.parse_args(strict=True))
 
 
 @ns.route('/diet/add')
@@ -69,10 +69,10 @@ class AddDiet(Resource):
         return GoalController.add_food(get_jwt_identity(), diet_parser.parse_args(strict=True))
 
 
-@ns.route('/diet/remove/<string:food_id>')
+@ns.route('/diet/remove')
 class RemoveDiet(Resource):
     @jwt_required()
     @ns.doc(security='jwt', responses={200: 'Sucesso'}, description='Deleta comida da meta do usuário.')
-    def put(self, food_id):
+    def put(self):
         """Deleta comida da meta do usuário"""
-        return GoalController.rmv_food(get_jwt_identity(), food_id)
+        return GoalController.rmv_food(get_jwt_identity(), diet_parser.parse_args(strict=True))
