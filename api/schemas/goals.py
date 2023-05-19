@@ -10,10 +10,20 @@ workout_schema = ns.model('GoalWorkout', {
     'weekday': fields.String(required=True, description='Dia da Semana')
 })
 
+workout_parser = ns.parser()
+workout_parser.add_argument('exercise_id', type=str, required=True, help='Identificador único do exercício')
+workout_parser.add_argument('hour', type=str, required=True, help='Horário do dia')
+workout_parser.add_argument('weekday', type=str, required=True, help='Dia da Semana')
+
 diet_schema = ns.model('GoalDiet', {
     'food_id': fields.String(required=True, description='Identificador único do alimento'),
     'weekday': fields.String(required=True, description='Dia da Semana')
 })
+
+diet_parser = ns.parser()
+diet_parser.add_argument('food_id', type=str, required=True, help='Identificador único do alimento')
+diet_parser.add_argument('weekday', type=str, required=True, help='Dia da Semana')
+
 
 # Analisar e validar os dados de entrada da solicitação HTTP e garantir que os campos obrigatórios estejam presentes
 goal_parser = ns.parser()

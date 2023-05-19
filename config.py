@@ -17,6 +17,7 @@ class Config:
 
     # Configurações do Flask-RESTX
     RESTX_MASK_SWAGGER = os.environ.get('RESTX_MASK_SWAGGER', False)
+    RESTX_VALIDATE = os.environ.get('RESTX_VALIDATE', True)
    
     # Configurações do JWT
     JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')

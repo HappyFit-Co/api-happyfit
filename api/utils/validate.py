@@ -2,7 +2,8 @@ from flask_restx import inputs
 import re, json
 
 from api.schemas.foods import macro_schema
-from api.schemas.records import create_record_schema, diet_schema, workout_schema
+from api.schemas.records import (create_record_schema, diet_schema,
+                                 workout_schema)
 
 def validate_email(email):
     # Expressão regular para validar o formato de um email
@@ -40,7 +41,6 @@ def validate_date_format(date_string):
 
     return True
 
-    
 def validate_hour_format(hour):
     try:
         if len(hour) != 5:
@@ -62,11 +62,21 @@ def validate_hour_format(hour):
         return True
     except ValueError:
         return False
-    
+
+def validate_day_of_week(day):
+    dias_da_semana = ['segunda-feira', 'terça-feira', 'quarta-feira',
+                      'quinta-feira', 'sexta-feira', 'sábado', 'domingo']
+
+    if day.lower() in dias_da_semana:
+        return True
+    else:
+        return False
+
 def validate_create_record_schema(data):
     try:
         # Verificar se todos os campos estão presentes
-        record_fields = set(create_record_schema.__schema__['properties'].keys())
+        record_fields = set(create_record_schema.__schema__[
+                            'properties'].keys())
         if record_fields != set(data.keys()):
             missing_fields = record_fields - set(data.keys())
             if missing_fields:
@@ -77,7 +87,8 @@ def validate_create_record_schema(data):
 
         # Verificar a estrutura dos dados em workout
         for i, workout in enumerate(data['workout'], start=1):
-            workout_fields = set(workout_schema.__schema__['properties'].keys())
+            workout_fields = set(workout_schema.__schema__[
+                                 'properties'].keys())
             if workout_fields != set(workout.keys()):
                 missing_fields = workout_fields - set(workout.keys())
                 if missing_fields:
@@ -105,11 +116,13 @@ def validate_create_record_schema(data):
                 return f"macro_nutrient in diet {i} is not a dictionary"
 
             if macro_fields != set(diet['macro_nutrient'].keys()):
-                missing_fields = macro_fields - set(diet['macro_nutrient'].keys())
+                missing_fields = macro_fields - \
+                    set(diet['macro_nutrient'].keys())
                 if missing_fields:
                     return f"Missing fields in macro_nutrient of diet {i}: {missing_fields}"
                 else:
-                    extra_fields = set(diet['macro_nutrient'].keys()) - macro_fields
+                    extra_fields = set(
+                        diet['macro_nutrient'].keys()) - macro_fields
                     return f"There are extra attributes in macro_nutrient of diet {i} beyond the specified fields: {extra_fields}"
 
             if not validate_hour_format(diet['hour']):
@@ -155,14 +168,25 @@ def validate_model_data(model, data, model_name):
     except Exception as e:
         return str(e)
 
+def validate_macro_schema(macro_nutrients_data):
+    macro_fields = set(macro_schema.__schema__['properties'].keys())
+    if macro_fields != set(macro_nutrients_data.keys()):
+        missing_fields = macro_fields - set(macro_nutrients_data.keys())
+        if missing_fields:
+            return f"Missing fields in macro_nutrient of diet: {missing_fields}"
+        else:
+            extra_fields = set(macro_nutrients_data.keys()) - macro_fields
+            return f"There are extra attributes in macro_nutrient beyond the specified fields: {extra_fields}"
+    return None
 
+def validate_exercise_goal(exercise_data):
+    error = None if validate_hour_format(
+        exercise_data["hour"]) else "Error validating the hour format. Correct format (HH:MM)."
+    error = None if validate_day_of_week(
+        exercise_data["weekday"]) else "Error validating the day of the week."
+    return error
 
-
-
-
-
-
-
-
-        
-        
+def validate_food_goal(exercise_data):
+    error = None if validate_day_of_week(
+        exercise_data["weekday"]) else "Error validating the day of the week."
+    return error
