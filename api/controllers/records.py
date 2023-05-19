@@ -1,5 +1,6 @@
 from api.services.records import RecordService
 from api.utils.validate import validate_create_record_schema
+from api.schemas.records import create_record_schema
        
 class RecordController:
     def get_daily_record(user_id):
@@ -32,5 +33,44 @@ class RecordController:
             return {'msg': 'Requested resource not found'}, 404
         else:
             return {'msg': 'Record of the day deleted successfully'}, 200
+        
+    def add_water_record(user_id, water_volume):
+        if water_volume < 0:
+            water_volume = 0
+        
+        error = RecordService.add_water_record(user_id, water_volume)
+        if error:
+            return {'msg': error}, 404
+        return {'msg': 'Success in adding water'}, 200
+    
+    def remove_water_record(user_id, water_volume):
+        error = RecordService.remove_water_record(user_id, water_volume)
+        if error:
+            return {'msg': error}, 404
+        return {'msg': 'Success in removing water'}, 200
+    
+    def add_workout_record(user_id, exercise):
+        error = RecordService.add_workout_record(user_id, exercise)
+        if error:
+            return {'msg': error}, 404
+        return {'msg': 'Success in adding exercise'}, 200
+    
+    def remove_workout_record(user_id, exercise):
+        error = RecordService.remove_workout_record(user_id, exercise)
+        if error:
+            return {'msg': error}, 404
+        return {'msg': 'Success in removing exercise'}, 200
+    
+    def add_diet_record(user_id, food):
+        error = RecordService.add_diet_record(user_id, food)
+        if error:
+            return {'msg': error}, 404
+        return {'msg': 'Success in adding food'}, 200
+    
+    def remove_diet_record(user_id, food):
+        error = RecordService.remove_diet_record(user_id, food)
+        if error:
+            return {'msg': error}, 404
+        return {'msg': 'Success in removing food'}, 200
 
         
