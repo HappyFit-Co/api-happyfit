@@ -26,6 +26,7 @@ workout_schema = ns.model('RecordWorkout', {
 })
 
 diet_schema = ns.model('RecordDiet', {
+    'food_record_id': fields.String(required=True, description='Identificador único do registro de dieta', example='abcdef123456789012345645'),
     'calories': fields.Integer(required=True, description='Quantidade de calorias ingeridas', example=100),
     'macro_nutrient': fields.Nested(macro_schema, required=True, description='Macro nutrientes ingeridos'),
     'hour': fields.String(required=True, description='Hora da refeição no formato HH:MM', example='HH:MM')
@@ -45,6 +46,12 @@ create_record_schema = ns.model('RecordCreate', {
     'daily_water': fields.Integer(required=True, description='Quantidade de água ingerida no dia', example=2000),
     'workout': fields.List(fields.Nested(workout_schema), required=True, description='Lista de exercícios realizados no dia'),
     'diet': fields.List(fields.Nested(diet_schema), required=True, description='Lista de alimentos consumidos no dia')
+})
+
+add_diet_schema = ns.model('RecordAddDiet', {
+    'calories': fields.Integer(required=True, description='Quantidade de calorias ingeridas', example=100),
+    'macro_nutrient': fields.Nested(macro_schema, required=True, description='Macro nutrientes ingeridos'),
+    'hour': fields.String(required=True, description='Hora da refeição no formato HH:MM', example='HH:MM')
 })
 
 unauthorized_schema = ns.model('UnauthorizedResponse', {

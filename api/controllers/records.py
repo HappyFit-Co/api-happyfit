@@ -54,5 +54,11 @@ class RecordController:
         if error:
             return {'msg': error}, 404
         return {'msg': 'Success in removing exercise'}, 200
+    
+    def add_diet_record(user_id, food):
+        error = RecordService.add_diet_record(user_id, food)
+        if error:
+            return {'msg': error}, 404
+        return {'msg': 'Success in adding food'}, 200
 
         

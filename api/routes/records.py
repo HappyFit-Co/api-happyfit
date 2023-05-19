@@ -7,6 +7,8 @@ from api.schemas.records import (
     ns,
     record_schema,
     workout_schema,
+    diet_schema,
+    add_diet_schema,
     create_record_schema,
     bad_request_schema,
     unauthorized_schema,
@@ -75,3 +77,12 @@ class RecordRemoveWorkout(Resource):
     def put(self):
         """Remove exercício no treino do dia."""
         return RecordController.remove_workout_record(get_jwt_identity(), request.json)
+    
+@ns.route('/diet/add')
+class RecordAddDiet(Resource):
+    @jwt_required()
+    @ns.doc(security='jwt', description='Adiciona alimento no registro do dia')
+    @ns.expect(add_diet_schema)
+    def put(self):
+        """Adiciona alimento na dieta do dia."""
+        return RecordController.add_diet_record(get_jwt_identity(), request.json)

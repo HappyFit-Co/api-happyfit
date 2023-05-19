@@ -126,7 +126,6 @@ class RecordService:
     
     def add_workout_record(user_id, workout):
         today = datetime.now().strftime("%Y-%m-%d")
-
         user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
 
         if user and "historic" in user and "record" in user["historic"]:
@@ -193,6 +192,66 @@ class RecordService:
                 return "No record of the day found"
 
         return "No record history found"
+    
+    def add_diet_record(user_id, food):
+        today = datetime.now().strftime("%Y-%m-%d")
 
+        user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
 
+        if user and "historic" in user and "record" in user["historic"]:
+            record_list = user["historic"]["record"]
 
+            # Encontra o índice do registro com a data de hoje
+            index_to_update = None
+            for i, record in enumerate(record_list):
+                if record.get("date") == today:
+                    index_to_update = i
+                    break
+
+            if index_to_update is not None:
+                # Obtém o registro existente
+                existing_record = record_list[index_to_update]
+
+                # Obtém a lista de diet do registro
+                diet_data = existing_record.get("diet", [])
+
+                # Adiciona um alimento à lista de diet do registro
+                food_record_id = str(ObjectId())
+                food_record = {
+                    "food_record_id": food_record_id,
+                    "calories": food.get("calories"),
+                    "macro_nutrient": food.get("macro_nutrient"),
+                    "hour": food.get("hour")
+                }
+
+                # Verifica se o alimento já está presente na lista
+                for food_item in diet_data:
+                    if food_item.get("calories") == food.get("calories") and \
+                    food_item.get("macro_nutrient") == food.get("macro_nutrient") and \
+                    food_item.get("hour") == food.get("hour"):
+                        return "Food already exists in today's diet"
+
+                # Adiciona o novo alimento à lista de diet do dia de hoje
+                diet_data.append(food_record)
+
+                # Calcula o somatório das calorias e macronutrientes da dieta
+                total_calories = sum(item.get("calories", 0) for item in diet_data)
+                total_protein = sum(item.get("macro_nutrient", {}).get("protein", 0) for item in diet_data)
+                total_carbohydrate = sum(item.get("macro_nutrient", {}).get("carbohydrate", 0) for item in diet_data)
+                total_fat = sum(item.get("macro_nutrient", {}).get("fat", 0) for item in diet_data)
+
+                # Atualiza os valores no registro existente
+                existing_record["daily_calories"] = total_calories
+                existing_record["daily_macro_nutrient"]["protein"] = total_protein
+                existing_record["daily_macro_nutrient"]["carbohydrate"] = total_carbohydrate
+                existing_record["daily_macro_nutrient"]["fat"] = total_fat
+                existing_record["diet"] = diet_data
+
+                # Atualiza o campo historic.record com o registro atualizado
+                mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
+                
+                return None
+            else:
+                return "No record of the day found"
+
+        return "No record history found"
