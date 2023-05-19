@@ -43,6 +43,12 @@ class RecordController:
             return {'msg': error}, 404
         return {'msg': 'Success in adding water'}, 200
     
+    def remove_water_record(user_id, water_volume):
+        error = RecordService.remove_water_record(user_id, water_volume)
+        if error:
+            return {'msg': error}, 404
+        return {'msg': 'Success in removing water'}, 200
+    
     def add_workout_record(user_id, exercise):
         error = RecordService.add_workout_record(user_id, exercise)
         if error:
@@ -60,5 +66,11 @@ class RecordController:
         if error:
             return {'msg': error}, 404
         return {'msg': 'Success in adding food'}, 200
+    
+    def remove_diet_record(user_id, food):
+        error = RecordService.remove_diet_record(user_id, food)
+        if error:
+            return {'msg': error}, 404
+        return {'msg': 'Success in removing food'}, 200
 
         

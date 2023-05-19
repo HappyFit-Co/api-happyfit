@@ -2,6 +2,8 @@ from api.utils.database import mongo
 from bson.objectid import ObjectId
 from datetime import datetime
 
+from api.schemas.records import default_record
+
 class RecordService:
     def get_daily_record(user_id):
         today = datetime.now().strftime("%Y-%m-%d")
@@ -94,8 +96,6 @@ class RecordService:
                 return 404
 
         return 404
-    
-    from datetime import datetime
 
     def add_water_record(user_id, water_volume):
         today = datetime.now().strftime("%Y-%m-%d")
@@ -118,11 +118,45 @@ class RecordService:
 
                 # Atualiza o campo historic.record com a lista atualizada
                 mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
-                return None
             else:
-                return f"No record of the day found"
+                # Cria um novo registro para a data de hoje
+                default_record["daily_water"] = water_volume
+                RecordService.create_record(user_id, default_record)
+            return None
 
         return f"No record history found"
+
+    def remove_water_record(user_id, water_volume):
+        today = datetime.now().strftime("%Y-%m-%d")
+
+        user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+
+        if user and "historic" in user and "record" in user["historic"]:
+            record_list = user["historic"]["record"]
+
+            # Encontra o índice do registro com a data de hoje
+            index_to_update = None
+            for i, record in enumerate(record_list):
+                if record.get("date") == today:
+                    index_to_update = i
+                    break
+
+            if index_to_update is not None:
+                # Remove a quantidade de água do registro
+                record_list[index_to_update]["daily_water"] -= water_volume
+
+                # Verifica se o valor final de água é negativo e o ajusta para zero
+                if record_list[index_to_update]["daily_water"] < 0:
+                    record_list[index_to_update]["daily_water"] = 0
+
+                # Atualiza o campo historic.record com a lista atualizada
+                mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
+            else:
+                # Cria um novo registro para a data de hoje
+                RecordService.create_record(user_id, default_record)
+            return None
+
+        return "No record history found"
     
     def add_workout_record(user_id, workout):
         today = datetime.now().strftime("%Y-%m-%d")
@@ -152,11 +186,14 @@ class RecordService:
 
                 # Atualiza o campo historic.record com a lista atualizada
                 mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
-                return None
             else:
-                return "No record of the day found"
+                # Cria um novo registro para a data de hoje
+                default_record["workout"] = [workout]
+                RecordService.create_record(user_id, default_record)
+            return None
 
         return "No record history found"
+
 
     def remove_workout_record(user_id, workout):
         today = datetime.now().strftime("%Y-%m-%d")
@@ -189,7 +226,9 @@ class RecordService:
                 return "Exercise not found in today's workout"
 
             else:
-                return "No record of the day found"
+                # Cria um novo registro para a data de hoje
+                RecordService.create_record(user_id, default_record)
+                return None
 
         return "No record history found"
     
@@ -249,9 +288,57 @@ class RecordService:
 
                 # Atualiza o campo historic.record com o registro atualizado
                 mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
-                
-                return None
+            else:
+                # Cria um novo registro para a data de hoje
+                default_record["diet"] = [food]
+                RecordService.create_record(user_id, default_record)
+            return None
+
+        return "No record history found"
+    
+    def remove_diet_record(user_id, food):
+        today = datetime.now().strftime("%Y-%m-%d")
+
+        user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+
+        if user and "historic" in user and "record" in user["historic"]:
+            record_list = user["historic"]["record"]
+
+            # Encontra o índice do registro com a data de hoje
+            index_to_update = None
+            for i, record in enumerate(record_list):
+                if record.get("date") == today:
+                    index_to_update = i
+                    break
+
+            if index_to_update is not None:
+                # Obtém o registro existente
+                existing_record = record_list[index_to_update]
+
+                # Obtém a lista de diet do registro
+                diet_data = existing_record.get("diet", [])
+
+                # Procura o alimento na lista de diet do registro
+                for food_item in diet_data:
+                    if food_item == food:
+                        diet_data.remove(food_item)
+
+                        # Subtrai as calorias e macronutrientes do alimento removido
+                        existing_record["daily_calories"] -= food_item.get("calories", 0)
+                        existing_record["daily_macro_nutrient"]["protein"] -= food_item.get("macro_nutrient", {}).get("protein", 0)
+                        existing_record["daily_macro_nutrient"]["carbohydrate"] -= food_item.get("macro_nutrient", {}).get("carbohydrate", 0)
+                        existing_record["daily_macro_nutrient"]["fat"] -= food_item.get("macro_nutrient", {}).get("fat", 0)
+
+                        existing_record["diet"] = diet_data
+
+                        # Atualiza o campo historic.record com o registro atualizado
+                        mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
+                        return None
+
+                return "Food not found in today's diet"
+
             else:
                 return "No record of the day found"
 
         return "No record history found"
+

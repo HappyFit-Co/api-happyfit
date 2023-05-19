@@ -69,3 +69,10 @@ not_found_schema = ns.model('NotFoundResponse', {
 bad_request_schema = ns.model('BadRequestResponse', {
     'msg': fields.String(required=False, description='Mensagem de requisição inválida', example='Invalid request due to errors or inappropriate customer data')
 })
+
+# Definindo valores padrão
+default_record = {
+    "daily_water": 0,
+    "workout": [],
+    "diet": []
+}

@@ -54,11 +54,20 @@ class Record(Resource):
 @ns.route('/water/add/<int:water_volume>')
 class RecordAddWater(Resource):
     @jwt_required()
-    @ns.doc(security='jwt', description='Adiciona consumo de água no registro do dia', params={'water_volume': 'Quantidade de água adicionada'})
+    @ns.doc(security='jwt', description='Adiciona consumo de água no registro do dia', params={'water_volume': 'Quantidade de água'})
     @ns.expect({'water_volume': int})
     def put(self, water_volume):
         """Adiciona água consumida."""
         return RecordController.add_water_record(get_jwt_identity(), water_volume)
+    
+@ns.route('/water/remove/<int:water_volume>')
+class RecordRemoveWater(Resource):
+    @jwt_required()
+    @ns.doc(security='jwt', description='Remove consumo de água no registro do dia', params={'water_volume': 'Quantidade de água'})
+    @ns.expect({'water_volume': int})
+    def put(self, water_volume):
+        """Remove água consumida."""
+        return RecordController.remove_water_record(get_jwt_identity(), water_volume)
 
 @ns.route('/workout/add')
 class RecordAddWorkout(Resource):
@@ -86,3 +95,12 @@ class RecordAddDiet(Resource):
     def put(self):
         """Adiciona alimento na dieta do dia."""
         return RecordController.add_diet_record(get_jwt_identity(), request.json)
+    
+@ns.route('/diet/remove')
+class RecordRemoveDiet(Resource):
+    @jwt_required()
+    @ns.doc(security='jwt', description='Remove alimento no registro do dia')
+    @ns.expect(diet_schema)
+    def put(self):
+        """Remove alimento na dieta do dia."""
+        return RecordController.remove_diet_record(get_jwt_identity(), request.json)
