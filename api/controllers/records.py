@@ -1,12 +1,13 @@
+from api.schemas.records import create_record_schema
 from api.services.records import RecordService
 from api.utils.validate import validate_create_record_schema
-from api.schemas.records import create_record_schema
-       
+
+
 class RecordController:
     def get_daily_record(user_id):
         user = RecordService.get_daily_record(user_id)
-        if user and "historic" in user and "record" in user["historic"] and len(user["historic"]["record"]) > 0:
-            return user["historic"]["record"][0], 200
+        if user and "historic" in user and len(user["historic"]) > 0:
+            return user["historic"][0], 200
         else:
             return {'msg': 'Requested resource not found'}, 404
         
