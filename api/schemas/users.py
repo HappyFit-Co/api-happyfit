@@ -14,6 +14,7 @@ user_parser.add_argument('pwd', type=str, required=True, help='Senha do usuário
 user_parser.add_argument('weight', type=float, required=True, help='Peso do usuário em kg')
 user_parser.add_argument('height', type=float, required=True, help='Altura do usuário em metros')
 user_parser.add_argument('birthday', type=str, required=True, help='Data de Nascimento no formato AAAA-MM-DD')
+user_parser.add_argument('sex', type=str, required=True, help='Sexo biológico')
 user_parser.add_argument('activity_level', type=str, required=True, help='Nível de atividade física do usuário')
 user_parser.add_argument('goal', type=dict, required=True, help='Objetivo do usuário')
 user_parser.add_argument('historic', type=dict, required=True, help='Histórico do usuário')
@@ -27,6 +28,7 @@ user_schema = ns.model('User', {
     'weight': fields.Float(required=True, description='Peso do usuário em kg'),
     'height': fields.Float(required=True, description='Altura do usuário em metros'),
     'birthday': fields.String(required=True, description='Data de Nascimento no formato AAAA-MM-DD', example='AAAA-MM-DD'),
+    'sex': fields.String(required=True, description='Sexo biológico', example='Masculino'),
     'activity_level': fields.String(required=True, description='Nível de atividade física do usuário'),
     'goal': fields.Nested(goal_schema, required=True, description='Objetivo do usuário'),
     'historic': fields.List(fields.Nested(record_schema, required=True, description='Registro de histórico')),
@@ -40,6 +42,7 @@ create_user_schema = ns.model('UserCreate', {
     'weight': fields.Float(required=True, description='Peso do usuário em kg'),
     'height': fields.Float(required=True, description='Altura do usuário em metros'),
     'birthday': fields.String(required=True, description='Data de Nascimento no formato AAAA-MM-DD', example='AAAA-MM-DD'),
+    'sex': fields.String(required=True, description='Sexo biológico', example='Masculino'),
     'activity_level': fields.String(required=True, description='Nível de atividade física do usuário')
 })
 

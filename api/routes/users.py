@@ -12,6 +12,7 @@ user_controller = UserController()
 class UserMe(Resource):
     @jwt_required()
     @ns.doc(security='jwt', description='Retorna as informações do usuário logado')
+    @ns.response(200, 'Sucesso', user_schema)
     def get(self):
         """Lista o usuário logado"""
         return user_controller.get_user_me(get_jwt_identity())
