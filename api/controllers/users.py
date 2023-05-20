@@ -9,12 +9,8 @@ from api.services.users import UserService
 
 class UserController:
     def get_user_me(self, user_id):
-        if not user_id:
-            abort(401, description='Usuário não encontrado')
-        
         user = UserService.get_user_by_id(user_id)
-
-        return user
+        return marshal(user, user_schema), 200
 
     def create_user(self, user_data):
         created_user_id = UserService.create_user(user_data)

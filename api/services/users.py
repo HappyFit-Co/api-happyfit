@@ -48,6 +48,7 @@ class UserService:
                 "weight": edited_user.get("weight"),
                 "height": edited_user.get("height"),
                 "birthday": edited_user.get("birthday"),
+                "sex": edited_user.get("sex"),
                 "activity_level": edited_user.get("activity_level")
             }
         }
