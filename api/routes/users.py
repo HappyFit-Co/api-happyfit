@@ -12,7 +12,6 @@ user_controller = UserController()
 class UserMe(Resource):
     @jwt_required()
     @ns.doc(security='jwt', description='Retorna as informações do usuário logado')
-    @ns.marshal_with(user_schema)
     def get(self):
         """Lista o usuário logado"""
         return user_controller.get_user_me(get_jwt_identity())
@@ -28,9 +27,13 @@ class UserMe(Resource):
     @ns.expect(create_user_schema, validate=True, strict=False)
     def put(self):
         """Edita o seu usuário"""
-        return user_controller.update_user(get_jwt_identity(), request.json)
-
-
+        return user_controller.edit_user(get_jwt_identity(), request.json)
+    
+    @jwt_required()
+    @ns.doc(description='Deleta seu usuário')
+    def delete(self):
+        """Exclui o seu usuário"""
+        return user_controller.delete_user(get_jwt_identity())
 
 @ns.route('/login')
 class LoginUser(Resource):

@@ -49,8 +49,10 @@ class UserController:
     def get_user_by_email(self, user_email):
         return UserService.get_user_by_email(user_email)
     
-    def update_user(user_id, user):
-        error = UserService.update_user(user_id)
-        if error:
-            return {'msg': error}, 404
+    def edit_user(self, user_id, user):
+        UserService.edit_user(user_id, user)
         return {'msg': 'User updated successfully'}, 200
+    
+    def delete_user(self, user_id):
+        UserService.delete_user(user_id)
+        return {'msg': 'User deleted successfully'}, 200
