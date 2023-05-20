@@ -30,7 +30,6 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 ## 🐍 Usando o HappyFit
 :small_blue_diamond: [🐳 Execução com Docker](#-execução-com-docker)
 
-Para usar a API RESTful HappyFit com docker basta seguir a etapa abaixo: 
 :small_blue_diamond: [📃 Executando os testes unitários](#-executando-os-testes-unitários)
 
 :small_blue_diamond: [🛠 Construído com](#-construído-com)
