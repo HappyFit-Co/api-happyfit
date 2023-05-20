@@ -3,6 +3,7 @@ from flask_restx import Namespace, fields
 from .goals import goal_schema
 from .historics import historic_schema
 from .notifications import notification_schema
+from .records import record_schema
 
 ns = Namespace('users', description='Operações relacionadas a usuários')
 
@@ -29,7 +30,7 @@ user_schema = ns.model('User', {
     'birthday': fields.String(required=True, description='Data de Nascimento no formato AAAA-MM-DD', example='AAAA-MM-DD'),
     'activity_level': fields.String(required=True, description='Nível de atividade física do usuário'),
     'goal': fields.Nested(goal_schema, required=True, description='Objetivo do usuário'),
-    'historic': fields.Nested(historic_schema, required=True, description='Histórico do usuário'),
+    'historic': fields.List(fields.Nested(record_schema, required=True, description='Registro de histórico')),
     'notification_config': fields.Nested(notification_schema, required=True, description='Configurações de notificação do usuário'),
 })
 

@@ -22,6 +22,13 @@ class UserMe(Resource):
     def post(self):
         """Cadastra um novo usuário"""
         return user_controller.create_user(request.json)
+    
+    @jwt_required()
+    @ns.doc(description='Altera dados do seu usuário')
+    def put(self):
+        """Edita o seu usuário"""
+        return user_controller.set_user(get_jwt_identity())
+
 
 
 @ns.route('/login')

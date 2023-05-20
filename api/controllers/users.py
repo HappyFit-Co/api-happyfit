@@ -50,3 +50,9 @@ class UserController:
     
     def get_user_by_email(self, user_email):
         return UserService.get_user_by_email(user_email)
+    
+    def set_user(user_id):
+        error = RecordService.add_workout_record(user_id, exercise)
+        if error:
+            return {'msg': error}, 404
+        return {'msg': 'Success in adding exercise'}, 200
