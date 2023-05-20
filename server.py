@@ -1,8 +1,12 @@
 from flask import Flask
+from flask_jwt_extended import JWTManager
+
 from api import api
 from api.utils.database import mongo
 
 app = Flask(__name__)
+
+JWTManager(app)
 app.config.from_object('config.Config')
 mongo.init_app(app)
 

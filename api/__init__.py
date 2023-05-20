@@ -1,5 +1,5 @@
-from flask_restx import Api
 from flask_pymongo import PyMongo
+from flask_restx import Api
 
 # Inicializa a extensão PyMongo
 mongo = PyMongo() 
@@ -15,20 +15,14 @@ api = Api(
     license='MIT License',
     license_url='https://github.com/HappyFit-Co/api-happyfit/blob/main/LICENSE',
     authorizations={
-        'apikey': {
-            'type': 'apiKey',
-            'in': 'header',
-            'name': 'X-API-Key',
-            'description': 'Chave da API para autenticação de uso.'
-        },
         'jwt': {
             'type': 'apiKey',
             'in': 'header',
             'name': 'Authorization',
-            'description': 'Para autenticar, coloque o token JWT no formato **Bearer**.'
+            'description': 'Para autenticar, coloque o token JWT no formato **Bearer &lt;token&gt;**.'
         }
     },
-    security='jwt,apikey'
+    security='jwt'
 )
 
 # Importa os namespaces criados
