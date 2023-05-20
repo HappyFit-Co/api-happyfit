@@ -1,7 +1,6 @@
 from flask_restx import Namespace, fields
 
 from .goals import goal_schema
-from .historics import historic_schema
 from .notifications import notification_schema
 from .records import record_schema
 

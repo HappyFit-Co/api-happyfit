@@ -18,8 +18,6 @@ class UserController:
 
     def create_user(self, user_data):
         created_user_id = UserService.create_user(user_data)
-
-
         if not created_user_id:
             return {"msg": "E-mail já em uso"}, 400
         
@@ -51,8 +49,8 @@ class UserController:
     def get_user_by_email(self, user_email):
         return UserService.get_user_by_email(user_email)
     
-    def set_user(user_id):
-        error = RecordService.add_workout_record(user_id, exercise)
+    def update_user(user_id, user):
+        error = UserService.update_user(user_id)
         if error:
             return {'msg': error}, 404
-        return {'msg': 'Success in adding exercise'}, 200
+        return {'msg': 'User updated successfully'}, 200

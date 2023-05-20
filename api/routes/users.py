@@ -25,9 +25,10 @@ class UserMe(Resource):
     
     @jwt_required()
     @ns.doc(description='Altera dados do seu usuário')
+    @ns.expect(create_user_schema, validate=True, strict=False)
     def put(self):
         """Edita o seu usuário"""
-        return user_controller.set_user(get_jwt_identity())
+        return user_controller.update_user(get_jwt_identity(), request.json)
 
 
 

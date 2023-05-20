@@ -2,7 +2,6 @@ import bcrypt
 from bson.objectid import ObjectId
 
 from api.schemas.goals import default_goal
-from api.schemas.historics import default_historic
 from api.schemas.notifications import default_notification_config
 from api.security.password import encrypt_pwd
 from api.utils.database import mongo
@@ -23,7 +22,7 @@ class UserService:
 
             # Define os campos padrão
             user_data.setdefault("goal", default_goal)
-            user_data.setdefault("historic", default_historic)
+            user_data.setdefault("historic", [])
             user_data.setdefault("notification_config", default_notification_config)
 
             result = mongo.db.users.insert_one(user_data)
@@ -38,3 +37,10 @@ class UserService:
     def get_user_by_email(user_email):
         user = mongo.db.users.find_one({"email": user_email})
         return user
+    
+    def update_user(user_id, user):
+        result = mongo.db.users.update_one({'_id': user_id}, {'$set': user})
+        if result.matched_count > 0:
+            return None
+        else:
+            return "User not found"
