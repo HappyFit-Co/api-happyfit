@@ -37,3 +37,24 @@ class UserService:
     def get_user_by_email(user_email):
         user = mongo.db.users.find_one({"email": user_email})
         return user
+        
+    def edit_user(user_id, edited_user):
+        query = {"_id": ObjectId(user_id)}
+        update = {
+            "$set": {
+                "name": edited_user.get("name"),
+                "email": edited_user.get("email"),
+                "pwd": edited_user.get("pwd"),
+                "weight": edited_user.get("weight"),
+                "height": edited_user.get("height"),
+                "birthday": edited_user.get("birthday"),
+                "activity_level": edited_user.get("activity_level")
+            }
+        }
+        mongo.db.users.update_one(query, update)
+        
+    def delete_user(user_id):
+        mongo.db.users.delete_one({"_id": ObjectId(user_id)})
+
+
+        
