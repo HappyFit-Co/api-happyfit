@@ -1,15 +1,17 @@
-from api.utils.database import mongo
-from bson.objectid import ObjectId
 from datetime import datetime
 
+from bson.objectid import ObjectId
+
 from api.schemas.records import default_record
+from api.utils.database import mongo
+
 
 class RecordService:
     def get_daily_record(user_id):
         today = datetime.now().strftime("%Y-%m-%d")
         user = mongo.db.users.find_one(
-            {"_id": ObjectId(user_id), "historic.record.date": today},
-            {"historic.record.$": 1}
+            {"_id": ObjectId(user_id), "historic.date": today},
+            {"historic.$": 1}
         )
         return user
     
@@ -41,8 +43,7 @@ class RecordService:
         user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
 
         if user:
-            historic = user.get("historic", {})
-            record_list = historic.get("record", [])
+            record_list = user.get("historic", [])
 
             # Procura um registro com a mesma data
             existing_record = next((r for r in record_list if r.get("date") == today), None)
@@ -54,17 +55,14 @@ class RecordService:
                 # Adiciona o novo registro à lista
                 record_list.append(record)
 
-            # Atualiza o campo historic.record com a lista atualizada
-            historic["record"] = record_list
-
             # Atualiza o usuário com o campo historic atualizado
-            mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic": historic}})
+            mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic": record_list}})
         return record_id
 
     def get_record_by_id(user_id, record_id):
         user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
-        if user and "historic" in user and "record" in user["historic"]:
-            record_list = user["historic"]["record"]
+        if user and "historic" in user:
+            record_list = user["historic"]
             for record in record_list:
                 if record["_id"] == record_id:
                     return record
@@ -75,8 +73,8 @@ class RecordService:
 
         user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
 
-        if user and "historic" in user and "record" in user["historic"]:
-            record_list = user["historic"]["record"]
+        if user and "historic" in user:
+            record_list = user["historic"]
 
             # Encontra o índice do registro com a data de hoje
             index_to_delete = None
@@ -102,8 +100,8 @@ class RecordService:
 
         user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
 
-        if user and "historic" in user and "record" in user["historic"]:
-            record_list = user["historic"]["record"]
+        if user and "historic" in user:
+            record_list = user["historic"]
 
             # Encontra o índice do registro com a data de hoje
             index_to_update = None
@@ -117,7 +115,7 @@ class RecordService:
                 record_list[index_to_update]["daily_water"] += water_volume
 
                 # Atualiza o campo historic.record com a lista atualizada
-                mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
+                mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic": record_list}})
             else:
                 # Cria um novo registro para a data de hoje
                 default_record["daily_water"] = water_volume
@@ -131,8 +129,8 @@ class RecordService:
 
         user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
 
-        if user and "historic" in user and "record" in user["historic"]:
-            record_list = user["historic"]["record"]
+        if user and "historic" in user:
+            record_list = user["historic"]
 
             # Encontra o índice do registro com a data de hoje
             index_to_update = None
@@ -150,7 +148,7 @@ class RecordService:
                     record_list[index_to_update]["daily_water"] = 0
 
                 # Atualiza o campo historic.record com a lista atualizada
-                mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
+                mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic": record_list}})
             else:
                 # Cria um novo registro para a data de hoje
                 RecordService.create_record(user_id, default_record)
@@ -162,8 +160,8 @@ class RecordService:
         today = datetime.now().strftime("%Y-%m-%d")
         user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
 
-        if user and "historic" in user and "record" in user["historic"]:
-            record_list = user["historic"]["record"]
+        if user and "historic" in user:
+            record_list = user["historic"]
 
             # Encontra o índice do registro com a data de hoje
             index_to_update = None
@@ -185,7 +183,7 @@ class RecordService:
                 workout_list.append(workout)
 
                 # Atualiza o campo historic.record com a lista atualizada
-                mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
+                mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic": record_list}})
             else:
                 # Cria um novo registro para a data de hoje
                 default_record["workout"] = [workout]
@@ -200,8 +198,8 @@ class RecordService:
 
         user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
 
-        if user and "historic" in user and "record" in user["historic"]:
-            record_list = user["historic"]["record"]
+        if user and "historic" in user:
+            record_list = user["historic"]
 
             # Encontra o índice do registro com a data de hoje
             index_to_update = None
@@ -220,7 +218,7 @@ class RecordService:
                         workout_list.remove(workout_item)
 
                         # Atualiza o campo historic.record com a lista atualizada
-                        mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
+                        mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic": record_list}})
                         return None
 
                 return "Exercise not found in today's workout"
@@ -237,8 +235,8 @@ class RecordService:
 
         user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
 
-        if user and "historic" in user and "record" in user["historic"]:
-            record_list = user["historic"]["record"]
+        if user and "historic" in user :
+            record_list = user["historic"]
 
             # Encontra o índice do registro com a data de hoje
             index_to_update = None
@@ -287,7 +285,7 @@ class RecordService:
                 existing_record["diet"] = diet_data
 
                 # Atualiza o campo historic.record com o registro atualizado
-                mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
+                mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic": record_list}})
             else:
                 # Cria um novo registro para a data de hoje
                 default_record["diet"] = [food]
@@ -301,8 +299,8 @@ class RecordService:
 
         user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
 
-        if user and "historic" in user and "record" in user["historic"]:
-            record_list = user["historic"]["record"]
+        if user and "historic" in user:
+            record_list = user["historic"]
 
             # Encontra o índice do registro com a data de hoje
             index_to_update = None
@@ -332,7 +330,7 @@ class RecordService:
                         existing_record["diet"] = diet_data
 
                         # Atualiza o campo historic.record com o registro atualizado
-                        mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic.record": record_list}})
+                        mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic": record_list}})
                         return None
 
                 return "Food not found in today's diet"
