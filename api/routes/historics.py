@@ -2,7 +2,7 @@ from flask_jwt_extended import get_jwt_identity, jwt_required
 from flask_restx import Resource
 
 from api.controllers.historics import HistoricController
-from api.schemas.historics import historic_schema, ns
+from api.schemas.historics import ns
 
 
 @ns.route('/')
