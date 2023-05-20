@@ -44,7 +44,7 @@ class UserService:
             "$set": {
                 "name": edited_user.get("name"),
                 "email": edited_user.get("email"),
-                "pwd": edited_user.get("pwd"),
+                "pwd": encrypt_pwd(edited_user.get("pwd")),
                 "weight": edited_user.get("weight"),
                 "height": edited_user.get("height"),
                 "birthday": edited_user.get("birthday"),

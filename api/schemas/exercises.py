@@ -24,6 +24,7 @@ exercise_schema = ns.model('Exercise', {
     'series': fields.Integer(required=False, description='Número de séries', example=3),
     'interval': fields.Integer(required=False, description='Tempo de intervalo entre séries', example=60),
     'equipment': fields.String(required=False, description='Equipamento', example='Barra de peso'),
+    'description': fields.String(required=False, description='Descrição', example='Execute o exercício de forma lenta e contínua, sem interromper o movimento.'),
     'execution_gif': fields.String(required=False, description='Gif de execução do exercício', example='https://example.com/exercise.gif')
 })
 
