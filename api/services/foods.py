@@ -7,18 +7,18 @@ class FoodService:
             foods = list(mongo.db.foods.find())
             return foods, None
         except:
-            return None, "Error returning data from service"
+            return None, "Internal error handling data in service"
 
     def get_food_by_id(food_id):
         try:
             food = mongo.db.foods.find_one({"_id": ObjectId(food_id)})
             return food, None
         except:
-            return None, "Error returning data from service"
+            return None, "Internal error handling data in service"
 
     def get_food_by_name(food_name):
         try:
             foods = list(mongo.db.foods.find({"name": {"$regex": food_name, "$options": "i"}}))
             return foods, None
         except:
-            return None, "Error returning data from service"
+            return None, "Internal error handling data in service"

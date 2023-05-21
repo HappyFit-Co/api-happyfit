@@ -1,9 +1,28 @@
-from flask_restx import inputs
+from flask_restx import fields
 import re, json
 
 from api.schemas.foods import macro_schema
 from api.schemas.records import (create_record_schema, diet_schema,
                                  workout_schema)
+
+def validate_request(payload, schema):
+    validated_data = {}
+
+    for key, field in schema.items():
+        if isinstance(field, fields.Nested):
+            if key in payload and isinstance(payload[key], dict):
+                validated_data[key] = validate_request(payload[key], field.model)
+        elif isinstance(field, fields.List):
+            if key in payload and isinstance(payload[key], list):
+                validated_data[key] = []
+                for item in payload[key]:
+                    if isinstance(item, dict):
+                        validated_item = validate_request(item, field.container)
+                        validated_data[key].append(validated_item)
+        else:
+            if key in payload:
+                validated_data[key] = payload[key]
+    return validated_data
 
 def validate_email(email):
     # Expressão regular para validar o formato de um email

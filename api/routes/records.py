@@ -2,6 +2,7 @@ from flask import request
 from flask_restx import Resource
 from flask_jwt_extended import get_jwt_identity, jwt_required
 
+from api.utils.validate import validate_request
 from api.controllers.records import RecordController
 from api.schemas.records import (
     ns,
@@ -94,7 +95,7 @@ class RecordAddDiet(Resource):
     @ns.expect(add_diet_schema)
     def put(self):
         """Adiciona alimento na dieta do dia."""
-        return RecordController.add_diet_record(get_jwt_identity(), request.json)
+        return RecordController.add_diet_record(get_jwt_identity(), validate_request(ns.payload, add_diet_schema))
     
 @ns.route('/diet/remove')
 class RecordRemoveDiet(Resource):
