@@ -21,21 +21,21 @@ macro_schema = ns.model('FoodMacro', {
 })
 
 mineral_schema = ns.model('FoodMineral', {
-    'sodium': fields.String(required=True, description='Quantidade de sódio'),
-    'calcium': fields.String(required=True, description='Quantidade de cálcio'),
-    'magnesium': fields.String(required=True, description='Quantidade de magnésio'),
-    'potassium': fields.String(required=True, description='Quantidade de potássio'),
-    'selenium': fields.String(required=True, description='Quantidade de selênio'),
-    'zinc': fields.String(required=True, description='Quantidade de zinco')
+    'sodium': fields.String(required=True, description='Quantidade de sódio', example='130 mg'),
+    'calcium': fields.String(required=True, description='Quantidade de cálcio', example='90 mg'),
+    'magnesium': fields.String(required=True, description='Quantidade de magnésio', example='30 mg'),
+    'potassium': fields.String(required=True, description='Quantidade de potássio', example='110 mg'),
+    'selenium': fields.String(required=True, description='Quantidade de selênio', example='3 mg'),
+    'zinc': fields.String(required=True, description='Quantidade de zinco', example='1 mg')
 })
 
 food_schema = ns.model('Food', {
-    '_id': fields.String(description='Identificador único'),
-    'name': fields.String(required=True, description='Nome da comida'),
-    'portion': fields.String(required=True, description='Porção da comida'),
-    'calories': fields.Integer(required=True, description='Quantidade de calorias'),
+    '_id': fields.String(description='Identificador único', example='6123456789abcdef01234567'),
+    'name': fields.String(required=True, description='Nome da comida', example='Nome do alimento'),
+    'portion': fields.String(required=True, description='Porção da comida', example='100g'),
+    'calories': fields.Integer(required=True, description='Quantidade de calorias', example=250),
     'macro_nutrient': fields.Nested(macro_schema, required=True, description='Macro nutrientes (proteína, carboidrato e gordura)'),
     'minerals': fields.Nested(mineral_schema, required=True, description='Minerais (sódio, cálcio, magnésio, potássio, selênio e zinco)'),
-    'sugar': fields.String(description='Quantidade de açúcar'),
-    'fiber': fields.String(description='Quantidade de fibras')
+    'sugar': fields.String(description='Quantidade de açúcar', example='18 g'),
+    'fiber': fields.String(description='Quantidade de fibras', example='1 g')
 })

@@ -27,17 +27,3 @@ exercise_schema = ns.model('Exercise', {
     'description': fields.String(required=False, description='Descrição', example='Execute o exercício de forma lenta e contínua, sem interromper o movimento.'),
     'execution_gif': fields.String(required=False, description='Gif de execução do exercício', example='https://example.com/exercise.gif')
 })
-
-unauthorized_schema = ns.model('UnauthorizedResponse', {
-    'msg': fields.String(required=False, description='Mensagem de não autorizado', example='Missing Authorization Header')
-})
-
-unprocessable_schema = ns.model('UnprocessableEntityResponse', {
-    'msg': fields.String(required=False, description='Mensagem de entidade não processável', example='Bearer token from invalid header')
-})
-
-not_found_schema = ns.model('NotFoundResponse', {
-    'msg': fields.String(required=False, description='Mensagem de não encontrado', example='Searched _id not found')
-})
-
-empty_list_schema = fields.List(fields.Raw, example=[])
