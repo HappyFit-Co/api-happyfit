@@ -3,30 +3,34 @@ from api.services.exercises import ExerciseService
 from api.schemas.exercises import exercise_schema
 
 class ExerciseController: 
-    def __init__(self):
-        self.exercise_service = ExerciseService()
-
-    def get_all_exercises(self):
-        exercises = self.exercise_service.get_all_exercises()
+    def get_all_exercises():
+        exercises, error = ExerciseService.get_all_exercises()
+        if error:
+            return {'msg': error}, 500
         if not exercises:
-            return exercises, 404
-        return exercises, 200
+            return [], 404
+        return marshal(exercises, exercise_schema), 200
 
-    def get_exercise_by_id(self, exercise_id):
-        exercise = self.exercise_service.get_exercise_by_id(exercise_id)
+    def get_exercise_by_id(exercise_id):
+        exercise, error = ExerciseService.get_exercise_by_id(exercise_id)
+        if error:
+            return {'msg': error}, 500
         if not exercise:
-            return {'msg': 'Searched _id not found'}, 404
+            return {'msg': "No data was found"}, 404
         return marshal(exercise, exercise_schema), 200
-    
-
-    def get_exercise_by_name(self, exercise_name):
-        exercises = self.exercise_service.get_exercise_by_name(exercise_name)
+        
+    def get_exercise_by_name(exercise_name):
+        exercises, error = ExerciseService.get_exercise_by_name(exercise_name)
+        if error:
+            return {'msg': error}, 500
         if not exercises:
-            return exercises, 404
-        return exercises, 200
+            return [], 404
+        return marshal(exercises, exercise_schema), 200
 
-    def get_exercise_by_target(self, exercise_target):
-        exercises = self.exercise_service.get_exercise_by_target(exercise_target)
+    def get_exercise_by_target(exercise_target):
+        exercises, error = ExerciseService.get_exercise_by_target(exercise_target)
+        if error:
+            return {'msg': error}, 500
         if not exercises:
-            return exercises, 404
-        return exercises, 200
+            return [], 404
+        return marshal(exercises, exercise_schema), 200

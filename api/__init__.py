@@ -1,6 +1,16 @@
 from flask_pymongo import PyMongo
 from flask_restx import Api
 
+# Importa os namespaces criados
+from api.routes.exercises import ns as exercise_namespace
+from api.routes.foods import ns as food_namespace
+from api.routes.goals import ns as goal_namespace
+from api.routes.historics import ns as historic_namespace
+from api.routes.notifications import ns as notification_namespace
+from api.routes.records import ns as record_namespace
+from api.routes.users import ns as user_namespace
+from api.schemas.response import ns as response_namespace
+
 # Inicializa a extensão PyMongo
 mongo = PyMongo() 
 
@@ -25,15 +35,6 @@ api = Api(
     security='jwt'
 )
 
-# Importa os namespaces criados
-from api.routes.exercises import ns as exercise_namespace
-from api.routes.foods import ns as food_namespace
-from api.routes.goals import ns as goal_namespace
-from api.routes.historics import ns as historic_namespace
-from api.routes.notifications import ns as notification_namespace
-from api.routes.records import ns as record_namespace
-from api.routes.users import ns as user_namespace
-
 # Adiciona os namespaces à API
 api.add_namespace(exercise_namespace)
 api.add_namespace(food_namespace)
@@ -42,3 +43,4 @@ api.add_namespace(historic_namespace)
 api.add_namespace(notification_namespace)
 api.add_namespace(record_namespace)
 api.add_namespace(user_namespace)
+api.add_namespace(response_namespace)
