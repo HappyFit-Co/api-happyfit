@@ -1,9 +1,8 @@
-from flask import jsonify
 from flask_jwt_extended import jwt_required
 from flask_restx import Resource
 
 from api.controllers.exercises import ExerciseController
-from api.schemas.exercises import (ns, exercise_schema)
+from api.schemas.exercises import ns, exercise_schema
 from api.schemas.response import (
     unauthorized_schema,
     empty_list_schema,
@@ -15,7 +14,7 @@ from api.schemas.response import (
 @ns.route('/') 
 class ExerciseList(Resource):
     @jwt_required()
-    @ns.doc(security='jwt', description='Retorna a lista de dados de exercício.')
+    @ns.doc(security='jwt', description='Retorna a lista de dados de exercício')
     @ns.response(200, 'Sucesso', [exercise_schema])
     @ns.response(401, 'Não autorizado', unauthorized_schema)
     @ns.response(404, 'Não encontrado', empty_list_schema)

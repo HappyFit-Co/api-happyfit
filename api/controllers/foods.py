@@ -1,23 +1,28 @@
+from flask_restx import marshal
 from api.services.foods import FoodService
+from api.schemas.foods import food_schema
 
 class FoodController: 
-    def __init__(self):
-        self.food_service = FoodService()
-
-    def get_all_foods(self):
-        foods = self.food_service.get_all_foods()
+    def get_all_foods():
+        foods, error = FoodService.get_all_foods()
+        if error:
+            return {'msg': error}, 500
         if not foods:
-            return foods, 404
-        return foods, 200
+            return [], 404
+        return marshal(foods, food_schema), 200
     
-    def get_food_by_id(self, food_id):
-        food = self.food_service.get_food_by_id(food_id)
+    def get_food_by_id(food_id):
+        food, error = FoodService.get_food_by_id(food_id)
+        if error:
+            return {'msg': error}, 500
         if not food:
-            return food, 404
-        return food, 200
+            return {'msg': "No data was found"}, 404
+        return marshal(food, food_schema), 200
 
-    def get_food_by_name(self, food_name):
-        foods = self.food_service.get_food_by_name(food_name)
+    def get_food_by_name(food_name):
+        foods, error = FoodService.get_food_by_name(food_name)
+        if error:
+            return {'msg': error}, 500
         if not foods:
-            return foods, 404
-        return foods, 200
+            return [], 404
+        return marshal(foods, food_schema), 200
