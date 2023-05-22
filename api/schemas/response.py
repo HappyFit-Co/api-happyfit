@@ -28,12 +28,12 @@ bad_request_schema = ns.model('BadRequestResponse', {
     'msg': fields.String(required=False, description='Mensagem de requisição inválida', example='Invalid or incomplete input data')
 })
 
-unprocessable_schema = ns.model('UnprocessableEntityResponse', {
-    'msg': fields.String(required=False, description='Mensagem de entidade não processável', example='Bearer token from invalid header')
-})
-
 not_found_schema = ns.model('NotFoundResponse', {
     'msg': fields.String(required=False, description='Mensagem de não encontrado', example='No data was found')
+})
+
+unprocessable_schema = ns.model('UnprocessableEntityResponse', {
+    'msg': fields.String(required=False, description='Mensagem de entidade não processável', example='Bearer token from invalid header')
 })
 
 internal_server_schema = ns.model('InternalServerError', {

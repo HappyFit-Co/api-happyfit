@@ -1,5 +1,4 @@
-from flask_jwt_extended import create_access_token
-from flask_restx import abort, marshal
+from flask_restx import marshal
 
 from api.schemas.goals import default_goal
 from api.schemas.notifications import default_notification_config

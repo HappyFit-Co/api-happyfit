@@ -9,14 +9,14 @@ notification_parser.add_argument('water', type=dict, required=True, help='Detalh
 
 # Gerar a documentação automática do Swagger UI e a model
 workout_schema = ns.model('NotificationWorkout', {
-    'frequency': fields.String(required=True, description='Frequência de treino'),
-    'hour': fields.String(required=True, description='Horário do treino')
+    'frequency': fields.String(required=True, description='Frequência de treino', example='every weekday'),
+    'hour': fields.String(required=True, description='Horário do treino', example='HH:MM')
 })
 
 water_schema = ns.model('NotificationWater', {
-    'frequency': fields.String(required=True, description='Frequência de hidratação'),
-    'start_hour': fields.String(required=True, description='Horário de início da hidratação'),
-    'end_hour': fields.String(required=True, description='Horário de término da hidratação')
+    'frequency': fields.String(required=True, description='Frequência de hidratação', example='hourly'),
+    'start_hour': fields.String(required=True, description='Horário de início da hidratação', example='HH:MM'),
+    'end_hour': fields.String(required=True, description='Horário de término da hidratação', example='HH:MM')
 })
 
 notification_schema = ns.model('Notification', {
