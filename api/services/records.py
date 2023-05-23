@@ -201,11 +201,9 @@ class RecordService:
         except:
             return "Internal error handling data in service", None
 
-
     def remove_workout_record(user_id, workout):
         try:
             today = datetime.now().strftime("%Y-%m-%d")
-
             user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
 
             if user and "historic" in user:
