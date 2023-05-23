@@ -2,6 +2,10 @@ from flask_restx import Namespace, fields
 
 ns = Namespace('responses', description='Respostas em caso de não sucesso')
 
+add_sucess_schema = ns.model('AddSucessResponse', {
+    'msg': fields.String(required=False, description='Mensagem de sucesso na adição de dados', example='Successfully added')
+})
+
 update_sucess_schema = ns.model('UpdateSucessResponse', {
     'msg': fields.String(required=False, description='Mensagem de sucesso na edição de dados', example='Successfully updated')
 })
@@ -26,6 +30,10 @@ invalid_credentials_schema = ns.model('InvalidCredentialsResponse', {
 
 bad_request_schema = ns.model('BadRequestResponse', {
     'msg': fields.String(required=False, description='Mensagem de requisição inválida', example='Invalid or incomplete input data')
+})
+
+redundancy_schema = ns.model('RedundancyResponse', {
+    'msg': fields.String(required=False, description='Mensagem de redundância de dados', example='Data already exists, avoids redundancy')
 })
 
 not_found_schema = ns.model('NotFoundResponse', {
