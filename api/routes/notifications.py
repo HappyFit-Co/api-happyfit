@@ -44,7 +44,7 @@ class NotificationsWorkout(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def put(self):
         """Altera configurações de notificação de treino"""
-        return NotificationController.set_notification_workout(get_jwt_identity(), validate_request(ns.payload, workout_schema))
+        return NotificationController.set_notification_workout(get_jwt_identity(), ns.payload)
         
 @ns.route('/workout/default')
 class NotificationsWorkoutDefault(Resource):
@@ -70,7 +70,7 @@ class NotificationsWater(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def put(self):
         """Altera configurações de notificação de água"""
-        return NotificationController.set_notification_water(get_jwt_identity(), validate_request(ns.payload, water_schema))
+        return NotificationController.set_notification_water(get_jwt_identity(), ns.payload)
     
 @ns.route('/water/default')
 class NotificationsWaterDefault(Resource):

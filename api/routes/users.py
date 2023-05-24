@@ -43,7 +43,7 @@ class UserMe(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def post(self):
         """Cadastra um novo usuário"""
-        return UserController.create_user(validate_request(ns.payload, create_user_schema))
+        return UserController.create_user(ns.payload)
     
     @jwt_required()
     @ns.doc(security='jwt', description='Altera dados do seu usuário')
@@ -55,7 +55,7 @@ class UserMe(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def put(self):
         """Edita o seu usuário"""
-        return UserController.update_user(get_jwt_identity(), validate_request(ns.payload, create_user_schema))
+        return UserController.update_user(get_jwt_identity(), ns.payload)
     
     @jwt_required()
     @ns.doc(security='jwt', description='Deleta dados do seu usuário')
@@ -72,9 +72,10 @@ class LoginUser(Resource):
     @ns.doc(description='Login do usuário')
     @ns.expect(login_user_schema)
     @ns.response(200, 'Sucesso', login_sucess_schema)
+    @ns.response(400, 'Requisição inválida', bad_request_schema)
     @ns.response(401, 'Não autorizado', invalid_credentials_schema)
     @ns.response(422, 'Entidade não processável', unprocessable_schema)
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def post(self):
         """Faz login do usuário"""
-        return UserController.login(validate_request(ns.payload, login_user_schema)) 
+        return UserController.login(ns.payload) 

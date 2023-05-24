@@ -50,3 +50,11 @@ login_user_schema = ns.model('UserLogin', {
     'email': fields.String(required=True, description='Endereço de email do usuário', example='nome@example.com'),
     'pwd': fields.String(required=True, description='Senha do usuário', example='<senha sem hash>')
 })
+
+# Valores de dia da semana
+# values_day_of_week = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado']
+values_day_of_week = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+
+# Valores de nível de atividade física
+# values_activity_level = ['inativo', 'baixo', 'moderado', 'ativo', 'alto']
+values_activity_level = ['inactive', 'low', 'moderate', 'active', 'high']

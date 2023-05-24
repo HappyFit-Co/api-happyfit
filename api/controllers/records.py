@@ -1,8 +1,7 @@
 from flask_restx import marshal
 
-from api.schemas.records import create_record_schema, record_schema
+from api.schemas.records import record_schema
 from api.services.records import RecordService
-from api.utils.validate import validate_create_record_schema
 
 class RecordController:
     def get_daily_record(user_id):
