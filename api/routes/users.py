@@ -8,7 +8,7 @@ from api.schemas.users import (
     create_user_schema, 
     login_user_schema
 )
-from api.schemas.response import (
+from api.schemas.responses import (
     update_sucess_schema,
     delete_sucess_schema,
     login_sucess_schema,

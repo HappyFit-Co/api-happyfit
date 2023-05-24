@@ -8,7 +8,7 @@ from api.schemas.notifications import (
     water_schema,
     workout_schema
 )
-from api.schemas.response import (
+from api.schemas.responses import (
     update_sucess_schema,
     unauthorized_schema,
     bad_request_schema,

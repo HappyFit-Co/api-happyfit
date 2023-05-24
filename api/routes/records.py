@@ -10,7 +10,7 @@ from api.schemas.records import (
     add_diet_schema,
     create_record_schema
 )
-from api.schemas.response import (
+from api.schemas.responses import (
     add_sucess_schema,
     delete_sucess_schema,
     unauthorized_schema,

@@ -1,0 +1,10 @@
+version: '3'
+services:
+  app:
+    image: happyfit
+    container_name: happyfit
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080

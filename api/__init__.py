@@ -9,7 +9,7 @@ from api.routes.historics import ns as historic_namespace
 from api.routes.notifications import ns as notification_namespace
 from api.routes.records import ns as record_namespace
 from api.routes.users import ns as user_namespace
-from api.schemas.response import ns as response_namespace
+from api.schemas.responses import ns as response_namespace
 
 # Inicializa a extensão PyMongo
 mongo = PyMongo() 

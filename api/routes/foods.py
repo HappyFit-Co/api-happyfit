@@ -3,7 +3,7 @@ from flask_restx import Resource
 
 from api.controllers.foods import FoodController
 from api.schemas.foods import ns, food_schema
-from api.schemas.response import (
+from api.schemas.responses import (
     unauthorized_schema,
     empty_list_schema,
     not_found_schema,

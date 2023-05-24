@@ -8,7 +8,7 @@ from api.schemas.goals import (
     workout_schema,
     diet_schema
     )
-from api.schemas.response import (
+from api.schemas.responses import (
     add_sucess_schema,
     update_sucess_schema,
     delete_sucess_schema,
