@@ -1,7 +1,6 @@
 from flask_restx import Resource
 from flask_jwt_extended import get_jwt_identity, jwt_required
 
-from api.utils.validate import validate_request
 from api.controllers.records import RecordController
 from api.schemas.records import (
     ns,
@@ -13,7 +12,6 @@ from api.schemas.records import (
 )
 from api.schemas.response import (
     add_sucess_schema,
-    update_sucess_schema,
     delete_sucess_schema,
     unauthorized_schema,
     bad_request_schema,
@@ -47,7 +45,7 @@ class Record(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def post(self):
         """Registra as atividade do dia"""
-        return RecordController.create_record(get_jwt_identity(), validate_request(ns.payload, create_record_schema))
+        return RecordController.create_record(get_jwt_identity(), ns.payload)
     
     @jwt_required()
     @ns.doc(security='jwt', description='Exclui registro do dia.')
@@ -97,7 +95,7 @@ class RecordAddWorkout(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def put(self):
         """Adiciona exercício no treino do dia."""
-        return RecordController.add_workout_record(get_jwt_identity(), validate_request(ns.payload, workout_schema))
+        return RecordController.add_workout_record(get_jwt_identity(), ns.payload)
          
 @ns.route('/workout/remove')
 class RecordRemoveWorkout(Resource):
@@ -111,7 +109,7 @@ class RecordRemoveWorkout(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def put(self):
         """Remove exercício no treino do dia."""
-        return RecordController.remove_workout_record(get_jwt_identity(), validate_request(ns.payload, workout_schema))
+        return RecordController.remove_workout_record(get_jwt_identity(), ns.payload)
     
 @ns.route('/diet/add')
 class RecordAddDiet(Resource):
@@ -125,7 +123,7 @@ class RecordAddDiet(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def put(self):
         """Adiciona alimento na dieta do dia."""
-        return RecordController.add_diet_record(get_jwt_identity(), validate_request(ns.payload, add_diet_schema))
+        return RecordController.add_diet_record(get_jwt_identity(), ns.payload)
     
 @ns.route('/diet/remove')
 class RecordRemoveDiet(Resource):
@@ -139,4 +137,4 @@ class RecordRemoveDiet(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def put(self):
         """Remove alimento na dieta do dia."""
-        return RecordController.remove_diet_record(get_jwt_identity(), validate_request(ns.payload, diet_schema))
+        return RecordController.remove_diet_record(get_jwt_identity(), ns.payload)

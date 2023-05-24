@@ -2,7 +2,6 @@ from flask import request
 from flask_jwt_extended import get_jwt_identity, jwt_required
 from flask_restx import Resource
 
-from api.utils.validate import validate_request
 from api.controllers.users import UserController
 from api.schemas.users import (
     ns,

@@ -44,6 +44,11 @@ def validate_request(payload, schema):
             if not validate_hour_format(payload.get(key)):
                 raise InvalidInputException("Invalid hour format for {}".format(key))
             validated_data[key] = payload[key]   
+            
+            # Verificar start_hour < end_hour
+            if key == 'start_hour' and 'end_hour' in payload:
+                if payload.get(key) >= payload.get('end_hour'):
+                    raise InvalidInputException("The start_hour field must be less than end_hour")
         elif key == 'weekday':
             if not validate_day_of_week(payload.get(key)):
                 raise InvalidInputException("Invalid weekday")
