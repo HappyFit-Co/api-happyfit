@@ -1,0 +1,9 @@
+# Ignorar arquivos e diretórios específicos
+env/
+test/
+.vscode/
+__pycache__/
+.env.sample
+.gitignore
+LICENSE
+README.md

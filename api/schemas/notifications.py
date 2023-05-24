@@ -9,14 +9,14 @@ notification_parser.add_argument('water', type=dict, required=True, help='Detalh
 
 # Gerar a documentação automática do Swagger UI e a model
 workout_schema = ns.model('NotificationWorkout', {
-    'frequency': fields.String(required=True, description='Frequência de treino'),
-    'hour': fields.String(required=True, description='Horário do treino')
+    'frequency': fields.String(required=True, description='Frequência de treino', example='every weekday'),
+    'hour': fields.String(required=True, description='Horário do treino', example='HH:MM')
 })
 
 water_schema = ns.model('NotificationWater', {
-    'frequency': fields.String(required=True, description='Frequência de hidratação'),
-    'start_hour': fields.String(required=True, description='Horário de início da hidratação'),
-    'end_hour': fields.String(required=True, description='Horário de término da hidratação')
+    'frequency': fields.String(required=True, description='Frequência de hidratação', example='hourly'),
+    'start_hour': fields.String(required=True, description='Horário de início da hidratação', example='HH:MM'),
+    'end_hour': fields.String(required=True, description='Horário de término da hidratação', example='HH:MM')
 })
 
 notification_schema = ns.model('Notification', {
@@ -36,3 +36,11 @@ default_notification_config = {
         "end_hour": "20:00"
     }
 }
+
+# Valores de frequência de treino
+# values_workout_frequency = ['nenhum dia', 'diariamente', 'semanalmente', 'dia sim, dia não', 'todos os dias da semana', 'todos os fins de semana']
+values_workout_frequency = ['no day', 'daily', 'weekly', 'every other day', 'every weekday', 'every weekend']
+
+# Valores de frequência de hidratação
+# values_water_frequency = ['nunca', 'a cada hora', 'a cada 2 horas', 'a cada 3 horas', 'a cada 4 horas', 'a cada 6 horas']
+values_water_frequency = ['never', 'hourly', 'every 2 hours', 'every 3 hours', 'every 4 hours', 'every 6 hours']

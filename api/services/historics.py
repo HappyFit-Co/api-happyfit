@@ -2,14 +2,13 @@ from bson.objectid import ObjectId
 
 from api.utils.database import mongo
 
-
 class HistoricService: 
     def get_historic(user_id):
         try:
             user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
-            return user["historic"]
+            return user["historic"], None
         except:
-            return {'msg': 'Error to return historic'}, 500
+            return None, 'Internal error handling data in service'
 
     def clear_historic(user_id):
         try:
@@ -17,6 +16,7 @@ class HistoricService:
                 {"_id": ObjectId(user_id)},
                 {"$set": {"historic": [] }}
             )
-            return {'msg': 'Historic successfully deleted'}, 200
+            return None
         except:
-            return {'msg': 'Error to delete historic'}, 500
+            return 'Internal error handling data in service'
+        

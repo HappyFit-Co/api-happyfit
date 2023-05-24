@@ -1,4 +1,4 @@
-from flask_restx import Namespace, fields, inputs
+from flask_restx import Namespace, fields
 
 from .foods import macro_schema
 
@@ -52,22 +52,6 @@ add_diet_schema = ns.model('RecordAddDiet', {
     'calories': fields.Integer(required=True, description='Quantidade de calorias ingeridas', example=100),
     'macro_nutrient': fields.Nested(macro_schema, required=True, description='Macro nutrientes ingeridos'),
     'hour': fields.String(required=True, description='Hora da refeição no formato HH:MM', example='HH:MM')
-})
-
-unauthorized_schema = ns.model('UnauthorizedResponse', {
-    'msg': fields.String(required=False, description='Mensagem de não autorizado', example='Missing Authorization Header')
-})
-
-unprocessable_schema = ns.model('UnprocessableEntityResponse', {
-    'msg': fields.String(required=False, description='Mensagem de entidade não processável', example='Bearer token from invalid header')
-})
-
-not_found_schema = ns.model('NotFoundResponse', {
-    'msg': fields.String(required=False, description='Mensagem de não encontrado', example='Requested resource not found')
-})
-
-bad_request_schema = ns.model('BadRequestResponse', {
-    'msg': fields.String(required=False, description='Mensagem de requisição inválida', example='Invalid request due to errors or inappropriate customer data')
 })
 
 # Definindo valores padrão
