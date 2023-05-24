@@ -1,4 +1,5 @@
 from flask_restx import marshal
+
 from api.services.foods import FoodService
 from api.schemas.foods import food_schema
 
@@ -26,3 +27,4 @@ class FoodController:
         if not foods:
             return [], 404
         return marshal(foods, food_schema), 200
+    

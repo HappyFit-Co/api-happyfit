@@ -1,4 +1,5 @@
 from flask_restx import marshal
+
 from api.services.exercises import ExerciseService
 from api.schemas.exercises import exercise_schema
 

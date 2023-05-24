@@ -2,7 +2,11 @@ from flask_restx import marshal
 
 from api.schemas.goals import default_goal
 from api.schemas.notifications import default_notification_config
-from api.schemas.users import user_schema, create_user_schema, login_user_schema
+from api.schemas.users import (
+    user_schema, 
+    create_user_schema, 
+    login_user_schema
+)
 from api.security.password import encrypt_pwd, compare_pwd
 from api.security.token import create_token
 from api.services.users import UserService

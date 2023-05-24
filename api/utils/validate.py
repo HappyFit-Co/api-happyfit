@@ -2,15 +2,15 @@ from flask_restx import fields
 import re
 import datetime
 
-from api.schemas.users import (
-    values_day_of_week,
-    values_activity_level
-)
 from api.schemas.notifications import (
     workout_schema,
     water_schema,
     values_workout_frequency, 
     values_water_frequency)
+from api.schemas.users import (
+    values_day_of_week,
+    values_activity_level
+)
 from api.services.exercises import ExerciseService
 from api.services.foods import FoodService
 
@@ -95,25 +95,6 @@ def validate_request(payload, schema):
                             raise InvalidInputException("Invalid frequency field")
 
     return validated_data
-
-'''def validate_request(payload, schema):
-    validated_data = {}
-
-    for key, field in schema.items():
-        if isinstance(field, fields.Nested):
-            if key in payload and isinstance(payload[key], dict):
-                validated_data[key] = validate_request(payload[key], field.model)
-        elif isinstance(field, fields.List):
-            if key in payload and isinstance(payload[key], list):
-                validated_data[key] = []
-                for item in payload[key]:
-                    if isinstance(item, dict):
-                        validated_item = validate_request(item, field.container)
-                        validated_data[key].append(validated_item)
-        else:
-            if key in payload:
-                validated_data[key] = payload[key]
-    return validated_data'''
 
 def validate_email(email):
     # Expressão regular para validar o formato de um email

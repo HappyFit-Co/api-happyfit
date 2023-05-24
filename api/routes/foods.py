@@ -51,3 +51,4 @@ class FoodByName(Resource):
     def get(self, food_name):
         """Lista alimentos pelo name"""
         return FoodController.get_food_by_name(food_name)
+    

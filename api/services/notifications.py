@@ -1,5 +1,4 @@
 from bson.objectid import ObjectId
-from flask_restx import abort
 
 from api.utils.database import mongo
 
