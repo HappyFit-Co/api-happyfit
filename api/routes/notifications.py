@@ -1,8 +1,6 @@
-from flask import request
 from flask_jwt_extended import get_jwt_identity, jwt_required
 from flask_restx import Resource
 
-from api.utils.validate import validate_request
 from api.controllers.notifications import NotificationController
 from api.schemas.notifications import (
     ns,
@@ -10,7 +8,7 @@ from api.schemas.notifications import (
     water_schema,
     workout_schema
 )
-from api.schemas.response import (
+from api.schemas.responses import (
     update_sucess_schema,
     unauthorized_schema,
     bad_request_schema,
@@ -44,7 +42,7 @@ class NotificationsWorkout(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def put(self):
         """Altera configurações de notificação de treino"""
-        return NotificationController.set_notification_workout(get_jwt_identity(), validate_request(ns.payload, workout_schema))
+        return NotificationController.set_notification_workout(get_jwt_identity(), ns.payload)
         
 @ns.route('/workout/default')
 class NotificationsWorkoutDefault(Resource):
@@ -70,7 +68,7 @@ class NotificationsWater(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def put(self):
         """Altera configurações de notificação de água"""
-        return NotificationController.set_notification_water(get_jwt_identity(), validate_request(ns.payload, water_schema))
+        return NotificationController.set_notification_water(get_jwt_identity(), ns.payload)
     
 @ns.route('/water/default')
 class NotificationsWaterDefault(Resource):

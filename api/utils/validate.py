@@ -1,27 +1,99 @@
 from flask_restx import fields
-import re, json
+import re
+import datetime
 
-from api.schemas.foods import macro_schema
-from api.schemas.records import (create_record_schema, diet_schema,
-                                 workout_schema)
+from api.schemas.notifications import (
+    workout_schema,
+    water_schema,
+    values_workout_frequency, 
+    values_water_frequency)
+from api.schemas.users import (
+    values_day_of_week,
+    values_activity_level
+)
+from api.services.exercises import ExerciseService
+from api.services.foods import FoodService
 
+class InvalidInputException(Exception):
+    pass
+
+def validate_data(payload, schema):
+    try:
+        data = validate_request(payload, schema)
+        return data, None
+    except InvalidInputException as e:
+        return None, str(e)
+    
 def validate_request(payload, schema):
     validated_data = {}
 
     for key, field in schema.items():
-        if isinstance(field, fields.Nested):
-            if key in payload and isinstance(payload[key], dict):
-                validated_data[key] = validate_request(payload[key], field.model)
-        elif isinstance(field, fields.List):
-            if key in payload and isinstance(payload[key], list):
-                validated_data[key] = []
-                for item in payload[key]:
-                    if isinstance(item, dict):
-                        validated_item = validate_request(item, field.container)
-                        validated_data[key].append(validated_item)
+        if key == 'email':
+            if not validate_email(payload.get(key)):
+                raise InvalidInputException("Invalid email format")
+            validated_data[key] = payload[key]
+        elif key in ['date', 'deadline']:
+            if not validate_date_format(payload.get(key)):
+                raise InvalidInputException("Invalid date format for {}".format(key))
+            validated_data[key] = payload[key]
+        elif key == 'birthday':
+            if not validate_birthday_format(payload.get(key)):
+                raise InvalidInputException("Invalid date format for birthday")
+            validated_data[key] = payload[key] 
+        elif key in ['hour', 'start_hour', 'end_hour']:
+            if not validate_hour_format(payload.get(key)):
+                raise InvalidInputException("Invalid hour format for {}".format(key))
+            validated_data[key] = payload[key]   
+            
+            # Verificar start_hour < end_hour
+            if key == 'start_hour' and 'end_hour' in payload:
+                if payload.get(key) >= payload.get('end_hour'):
+                    raise InvalidInputException("The start_hour field must be less than end_hour")
+        elif key == 'weekday':
+            if not validate_day_of_week(payload.get(key)):
+                raise InvalidInputException("Invalid weekday")
+            validated_data[key] = payload[key]
+        elif key == 'activity_level':
+            if not validate_activity_level(payload.get(key)):
+                raise InvalidInputException("Invalid activity level")
+            validated_data[key] = payload[key]
+        elif key == 'exercise_id':
+            if not validate_exercise_id(payload.get(key)):
+                raise InvalidInputException("Invalid exercise id")
+            validated_data[key] = payload[key]
+        elif key == 'food_id':
+            if not validate_food_id(payload.get(key)):
+                raise InvalidInputException("Invalid food id")
+            validated_data[key] = payload[key]
         else:
-            if key in payload:
-                validated_data[key] = payload[key]
+            if isinstance(field, fields.Nested):
+                if key in payload and isinstance(payload[key], dict):
+                    validated_data[key] = validate_request(payload[key], field.model)
+            elif isinstance(field, fields.List):
+                if key in payload and isinstance(payload[key], list):
+                    validated_data[key] = []
+                    for item in payload[key]:
+                        if isinstance(item, dict):
+                            validated_item = validate_request(item, field.container)
+                            validated_data[key].append(validated_item)
+            else:
+                if key in payload:
+                    if isinstance(payload[key], (int, float)) and payload[key] < 0:
+                        raise InvalidInputException("Invalid negative value for field: {}".format(key))
+                    validated_data[key] = payload[key]
+
+                    if key == 'frequency':
+                        if all(key in payload for key in workout_schema.keys()):
+                            # Pertence à estrutura "workout"
+                            if validated_data[key] not in values_workout_frequency:
+                                raise InvalidInputException("Invalid frequency for workout")
+                        elif all(key in payload for key in water_schema.keys()):
+                            # Pertence à estrutura "water"
+                            if validated_data[key] not in values_water_frequency:
+                                raise InvalidInputException("Invalid frequency for water")
+                        else:
+                            raise InvalidInputException("Invalid frequency field")
+
     return validated_data
 
 def validate_email(email):
@@ -60,6 +132,24 @@ def validate_date_format(date_string):
 
     return True
 
+def validate_birthday_format(date_string):
+    if not validate_date_format(date_string):
+        return False
+    
+    pattern = r"^(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})$"
+    match = re.match(pattern, date_string)
+    year = int(match.group('year'))
+    month = int(match.group('month'))
+    day = int(match.group('day'))
+    
+    # Verificação de data de aniversário no futuro
+    current_date = datetime.date.today()
+    birthday = datetime.date(year, month, day)
+    if birthday > current_date:
+        return False
+
+    return True
+
 def validate_hour_format(hour):
     try:
         if len(hour) != 5:
@@ -83,129 +173,33 @@ def validate_hour_format(hour):
         return False
 
 def validate_day_of_week(day):
-    dias_da_semana = ['segunda-feira', 'terça-feira', 'quarta-feira',
-                      'quinta-feira', 'sexta-feira', 'sábado', 'domingo']
+    dias_da_semana = values_day_of_week
 
     if day.lower() in dias_da_semana:
         return True
     else:
         return False
 
-def validate_create_record_schema(data):
-    try:
-        # Verificar se todos os campos estão presentes
-        record_fields = set(create_record_schema.__schema__[
-                            'properties'].keys())
-        if record_fields != set(data.keys()):
-            missing_fields = record_fields - set(data.keys())
-            if missing_fields:
-                return f"Missing fields: {missing_fields}"
-            else:
-                extra_fields = set(data.keys()) - record_fields
-                return f"There are extra attributes beyond the specified fields: {extra_fields}"
+def validate_activity_level(activity):
+    activity_level = values_activity_level
 
-        # Verificar a estrutura dos dados em workout
-        for i, workout in enumerate(data['workout'], start=1):
-            workout_fields = set(workout_schema.__schema__[
-                                 'properties'].keys())
-            if workout_fields != set(workout.keys()):
-                missing_fields = workout_fields - set(workout.keys())
-                if missing_fields:
-                    return f"Missing fields in workout {i}: {missing_fields}"
-                else:
-                    extra_fields = set(workout.keys()) - workout_fields
-                    return f"There are extra attributes in workout {i} beyond the specified fields: {extra_fields}"
-
-            if not validate_hour_format(workout['hour']):
-                return f"Invalid hour format in workout {i}"
-
-        # Verificar a estrutura dos dados em diet
-        for i, diet in enumerate(data['diet'], start=1):
-            diet_fields = set(diet_schema.__schema__['properties'].keys())
-            macro_fields = set(macro_schema.__schema__['properties'].keys())
-            if diet_fields != set(diet.keys()):
-                missing_fields = diet_fields - set(diet.keys())
-                if missing_fields:
-                    return f"Missing fields in diet {i}: {missing_fields}"
-                else:
-                    extra_fields = set(diet.keys()) - diet_fields
-                    return f"There are extra attributes in diet {i} beyond the specified fields: {extra_fields}"
-
-            if not isinstance(diet['macro_nutrient'], dict):
-                return f"macro_nutrient in diet {i} is not a dictionary"
-
-            if macro_fields != set(diet['macro_nutrient'].keys()):
-                missing_fields = macro_fields - \
-                    set(diet['macro_nutrient'].keys())
-                if missing_fields:
-                    return f"Missing fields in macro_nutrient of diet {i}: {missing_fields}"
-                else:
-                    extra_fields = set(
-                        diet['macro_nutrient'].keys()) - macro_fields
-                    return f"There are extra attributes in macro_nutrient of diet {i} beyond the specified fields: {extra_fields}"
-
-            if not validate_hour_format(diet['hour']):
-                return f"Invalid hour format in diet {i}"
-
-        return None
-    except Exception as e:
-        return str(e)
-
-def validate_model_data(model, data, model_name):
-    try:
-        # Verificar se todos os campos estão presentes
-        model_fields = set(model.__schema__['properties'].keys())
-        
-        if model_fields != set(data.keys()):
-            missing_fields = model_fields - set(data.keys())
-            if missing_fields:
-                return f"Missing fields in {model_name}: {missing_fields}"
-            else:
-                extra_fields = set(data.keys()) - model_fields
-                return f"There are extra attributes in {model_name} beyond the specified fields: {extra_fields}"
-
-        # Verificar a estrutura dos dados
-        for i, item in enumerate(data, start=1):
-            # Verificar campos aninhados recursivamente
-            for nested_model_name, nested_model in model.__schema__['properties'].items():
-                if nested_model_name in item and isinstance(nested_model, dict):
-                    error = validate_model_data(nested_model, item[nested_model_name], nested_model_name)
-                    if error:
-                        return error
-
-            # Verificar campo de data (AAAA-MM-DD)
-            if 'date' in item:
-                if not validate_date_format(item['date']):
-                    return f"Invalid date format in {model_name} {i}"
-
-            # Verificar campo de hora (HH:MM)
-            if 'hour' in item:
-                if not validate_hour_format(item['hour']):
-                    return f"Invalid hour format in {model_name} {i}"
-
-        return None
-    except Exception as e:
-        return str(e)
-
-def validate_macro_schema(macro_nutrients_data):
-    macro_fields = set(macro_schema.__schema__['properties'].keys())
-    if macro_fields != set(macro_nutrients_data.keys()):
-        missing_fields = macro_fields - set(macro_nutrients_data.keys())
-        if missing_fields:
-            return f"Missing fields in macro_nutrient of diet: {missing_fields}"
-        else:
-            extra_fields = set(macro_nutrients_data.keys()) - macro_fields
-            return f"There are extra attributes in macro_nutrient beyond the specified fields: {extra_fields}"
-    return None
-
-def validate_exercise_goal(exercise_data):
-    error = None if validate_hour_format(
-        exercise_data["hour"]) else "Error validating the hour format. Correct format (HH:MM)."
-    error = None if validate_day_of_week(
-        exercise_data["weekday"]) else "Error validating the day of the week."
-    return error
-
-def validate_food_goal(exercise_data):
-    error = None if validate_day_of_week(
-        exercise_data["weekday"]) else "Error validating the day of the week."
-    return error
+    if activity.lower() in activity_level:
+        return True
+    else:
+        return False
+    
+def validate_exercise_id(exercise_id):
+    exercise, error = ExerciseService.get_exercise_by_id(exercise_id)
+    if error:
+        return False
+    if not exercise:
+        return False
+    return True
+    
+def validate_food_id(food_id):
+    food, error = FoodService.get_food_by_id(food_id)
+    if error:
+        return False
+    if not food:
+        return False
+    return True

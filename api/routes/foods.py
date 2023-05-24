@@ -3,7 +3,7 @@ from flask_restx import Resource
 
 from api.controllers.foods import FoodController
 from api.schemas.foods import ns, food_schema
-from api.schemas.response import (
+from api.schemas.responses import (
     unauthorized_schema,
     empty_list_schema,
     not_found_schema,
@@ -51,3 +51,4 @@ class FoodByName(Resource):
     def get(self, food_name):
         """Lista alimentos pelo name"""
         return FoodController.get_food_by_name(food_name)
+    

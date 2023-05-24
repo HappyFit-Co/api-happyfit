@@ -19,3 +19,4 @@ class HistoricService:
             return None
         except:
             return 'Internal error handling data in service'
+        

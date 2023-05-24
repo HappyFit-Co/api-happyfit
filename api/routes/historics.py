@@ -4,7 +4,7 @@ from flask_restx import Resource
 from api.controllers.historics import HistoricController
 from api.schemas.historics import ns
 from api.schemas.users import user_schema
-from api.schemas.response import (
+from api.schemas.responses import (
     delete_sucess_schema,
     unauthorized_schema,
     unprocessable_schema,

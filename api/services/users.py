@@ -1,9 +1,7 @@
-import bcrypt
 from bson.objectid import ObjectId
 
 from api.security.password import encrypt_pwd
 from api.utils.database import mongo
-
 
 class UserService: 
     def create_user(user_data):

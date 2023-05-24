@@ -1,8 +1,14 @@
 from flask_restx import marshal
 
-from api.schemas.records import create_record_schema, record_schema
+from api.schemas.records import (
+    record_schema, 
+    create_record_schema, 
+    workout_schema,
+    diet_schema,
+    add_diet_schema
+)
 from api.services.records import RecordService
-from api.utils.validate import validate_create_record_schema
+from api.utils.validate import validate_data
 
 class RecordController:
     def get_daily_record(user_id):
@@ -13,7 +19,11 @@ class RecordController:
             return {'msg': "No data was found"}, 404
         return marshal(user["historic"][0], record_schema), 200
       
-    def create_record(user_id, record_data):
+    def create_record(user_id, data):
+        record_data, error = validate_data(data, create_record_schema)
+        if error:
+            return {'msg': error}, 400
+        
         record_id, error = RecordService.create_record(user_id, record_data)
         if error:
             return {'msg': error}, 500
@@ -51,7 +61,11 @@ class RecordController:
             return {'msg': error}, 404
         return {'msg': 'Successfully deleted'}, 200
     
-    def add_workout_record(user_id, exercise):
+    def add_workout_record(user_id, data):
+        exercise, error = validate_data(data, workout_schema)
+        if error:
+            return {'msg': error}, 400
+        
         error, redundancy = RecordService.add_workout_record(user_id, exercise)
         if error:
             return {'msg': error}, 500
@@ -59,13 +73,21 @@ class RecordController:
             return {'msg': redundancy}, 400
         return {'msg': 'Successfully added'}, 200
     
-    def remove_workout_record(user_id, exercise):
+    def remove_workout_record(user_id, data):
+        exercise, error = validate_data(data, workout_schema)
+        if error:
+            return {'msg': error}, 400
+        
         error = RecordService.remove_workout_record(user_id, exercise)
         if error:
             return {'msg': error}, 500
         return {'msg': 'Successfully deleted'}, 200
     
-    def add_diet_record(user_id, food):
+    def add_diet_record(user_id, data):
+        food, error = validate_data(data, add_diet_schema)
+        if error:
+            return {'msg': error}, 400
+        
         error, redundancy = RecordService.add_diet_record(user_id, food)
         if error:
             return {'msg': error}, 500
@@ -73,7 +95,11 @@ class RecordController:
             return {'msg': redundancy}, 400
         return {'msg': 'Successfully added'}, 200
     
-    def remove_diet_record(user_id, food):
+    def remove_diet_record(user_id, data):
+        food, error = validate_data(data, diet_schema)
+        if error:
+            return {'msg': error}, 400
+        
         error = RecordService.remove_diet_record(user_id, food)
         if error:
             return {'msg': error}, 500

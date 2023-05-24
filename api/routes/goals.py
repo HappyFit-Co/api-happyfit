@@ -1,8 +1,6 @@
-from flask import request
 from flask_jwt_extended import get_jwt_identity, jwt_required
 from flask_restx import Resource
 
-from api.utils.validate import validate_request
 from api.controllers.goals import GoalController
 from api.schemas.goals import (
     ns,
@@ -10,7 +8,7 @@ from api.schemas.goals import (
     workout_schema,
     diet_schema
     )
-from api.schemas.response import (
+from api.schemas.responses import (
     add_sucess_schema,
     update_sucess_schema,
     delete_sucess_schema,
@@ -46,7 +44,7 @@ class Goal(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def post(self):
         """Cria a meta do usuário"""
-        return GoalController.post_goal(get_jwt_identity(), validate_request(ns.payload, goal_schema))
+        return GoalController.post_goal(get_jwt_identity(), ns.payload)
         
     @jwt_required()
     @ns.doc(security='jwt', description='Edita a meta do usuário')
@@ -59,7 +57,7 @@ class Goal(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def put(self):
         """Edita a meta do usuário"""
-        return GoalController.put_goal(get_jwt_identity(), validate_request(ns.payload, goal_schema))
+        return GoalController.put_goal(get_jwt_identity(), ns.payload)
 
     @jwt_required()
     @ns.doc(security='jwt', description='Deleta a meta do usuário')
@@ -83,7 +81,7 @@ class AddExercise(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def put(self):
         """Adiciona exercício à meta do usuário"""
-        return GoalController.add_exercise(get_jwt_identity(), validate_request(ns.payload, workout_schema))
+        return GoalController.add_exercise(get_jwt_identity(), ns.payload)
 
 @ns.route('/workout/remove')
 class RemoveExercise(Resource):
@@ -97,7 +95,7 @@ class RemoveExercise(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def put(self):
         """Deleta exercício da meta do usuário"""
-        return GoalController.rmv_exercise(get_jwt_identity(), validate_request(ns.payload, workout_schema))
+        return GoalController.rmv_exercise(get_jwt_identity(), ns.payload)
 
 @ns.route('/diet/add')
 class AddDiet(Resource):
@@ -111,7 +109,7 @@ class AddDiet(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def put(self):
         """Adiciona comida à meta do usuário"""
-        return GoalController.add_food(get_jwt_identity(), validate_request(ns.payload, diet_schema))
+        return GoalController.add_food(get_jwt_identity(), ns.payload)
 
 @ns.route('/diet/remove')
 class RemoveDiet(Resource):
@@ -125,4 +123,4 @@ class RemoveDiet(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def put(self):
         """Deleta comida da meta do usuário"""
-        return GoalController.rmv_food(get_jwt_identity(), validate_request(ns.payload, diet_schema))
+        return GoalController.rmv_food(get_jwt_identity(), ns.payload)

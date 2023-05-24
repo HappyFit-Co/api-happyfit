@@ -3,7 +3,7 @@ from flask_restx import Resource
 
 from api.controllers.exercises import ExerciseController
 from api.schemas.exercises import ns, exercise_schema
-from api.schemas.response import (
+from api.schemas.responses import (
     unauthorized_schema,
     empty_list_schema,
     not_found_schema,

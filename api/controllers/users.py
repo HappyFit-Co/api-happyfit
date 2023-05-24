@@ -2,11 +2,15 @@ from flask_restx import marshal
 
 from api.schemas.goals import default_goal
 from api.schemas.notifications import default_notification_config
-from api.schemas.users import user_schema
+from api.schemas.users import (
+    user_schema, 
+    create_user_schema, 
+    login_user_schema
+)
 from api.security.password import encrypt_pwd, compare_pwd
-from api.security.token import create_token, is_token_valid
+from api.security.token import create_token
 from api.services.users import UserService
-
+from api.utils.validate import validate_data
 
 class UserController:
     def get_user_me(user_id):
@@ -17,7 +21,11 @@ class UserController:
             return {'msg': "No data was found"}, 404
         return marshal(user, user_schema), 200
 
-    def create_user(user_data):
+    def create_user(data):
+        user_data, error = validate_data(data, create_user_schema)
+        if error:
+            return {'msg': error}, 400
+        
         # Criptografando senha do usuário
         password = user_data.get('pwd')
         hashed_password = encrypt_pwd(password)
@@ -48,7 +56,11 @@ class UserController:
             return {'msg': "No data was found"}, 404
         return marshal(new_user, user_schema), 201
 
-    def login(credentials):
+    def login(data):
+        credentials, error = validate_data(data, login_user_schema)
+        if error:
+            return {'msg': error}, 400
+        
         email = credentials['email']
         password = credentials['pwd']
 
@@ -63,7 +75,11 @@ class UserController:
         access_token = create_token(user['_id'])
         return {'access_token': access_token}
     
-    def update_user(user_id, user):    
+    def update_user(user_id, data):  
+        user, error = validate_data(data, create_user_schema)
+        if error:
+            return {'msg': error}, 400
+          
         existing_user, error = UserService.get_user_by_email(user["email"])
         if error:
             return {'msg': error}, 500
