@@ -17,17 +17,11 @@
 </div>
 
 > O software proposto visa controlar a ingestão de alimentos e água, bem como gerenciar treinos de academia do usuário. Com interface web, o aplicativo oferecerá notificações sobre consumo de água e metas diárias, estimulando hábitos saudáveis
-## 💻 Pré-requisitos
+
 ## Tópicos 
 
-Antes de começar, verifique se você atendeu aos seguintes requisitos:
-<!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
-* Você instalou a versão mais recente de `<linguagem / dependência / requeridos>`
-* Você tem uma máquina `<Windows / Linux / Mac>`. Indique qual sistema operacional é compatível / não compatível.
-* Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
 :small_blue_diamond: [🐍 Execução localmente](#-execução-localmente)
 
-## 🐍 Usando o HappyFit
 :small_blue_diamond: [🐳 Execução com Docker](#-execução-com-docker)
 
 :small_blue_diamond: [📃 Executando os testes unitários](#-executando-os-testes-unitários)
@@ -43,7 +37,10 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 ## 🐍 Execução localmente
 
 Este tutorial foi desenvolvido para usuários do Windows com um terminal PowerShell:
-* Para executar o projeto localmente na sua máquina, precisa criar o ambiente virtual:
+
+* Para executar o projeto localmente na sua máquina, primeiramete crie um arquivo ".env" e o configure corretamente, use como exemplo o arquivo ".env.sample".
+
+* Depois é precisa criar o ambiente virtual:
 ```
 python -m venv env
 ```
@@ -69,18 +66,34 @@ deactivate
 ```
 
 ## 🐳 Execução com Docker
-Para executar o projeto com docker, basta dar o seguinte comando no terminal na pasta raiz do projeto:
+
+Para executar o projeto com docker:
+
+* Basta criar um arquivo ".env" e o configure corretamente, use como exemplo o arquivo ".env.sample". 
+
+* Além de executar o seguinte comando no terminal na pasta raiz do projeto:
 ```
-docker run -d --rm -p 5000:5000 happyfit
+docker-compose up
 ```
 
 ## 📃 Executando os testes unitários
 
 ## 🛠 Construído com
 
+- [Python](https://www.python.org/): Linguagem de programação poderosa e de alto nível.
+- [Flask](https://flask.palletsprojects.com/): Framework web leve e flexível para Python.
+- [Flask-RESTX](https://flask-restx.readthedocs.io/): Extensão do Flask para criação de APIs RESTful de maneira fácil e rápida.
+- [MongoDB](https://www.mongodb.com/): Banco de dados NoSQL altamente escalável e flexível.
+- [Swagger UI](https://swagger.io/tools/swagger-ui/): Interface de usuário interativa para explorar e testar APIs RESTful.
+- [Docker](https://www.docker.com/): Plataforma de contêineres que facilita a criação e implantação de aplicativos em ambientes isolados.
+
+Essas são as principais tecnologias utilizadas para construir esta API RESTful. O Flask e o Flask-RESTX são responsáveis por criar as rotas e manipular as respostas HTTP da API. O MongoDB é utilizado como banco de dados para armazenar e recuperar os dados da aplicação de forma eficiente. O Swagger UI fornece uma interface amigável para explorar e testar a API. O Docker é utilizado para empacotar a aplicação e suas dependências em contêineres, facilitando a implantação e a portabilidade.
+
 ## 📫 Documentação
 
-Confira a [Documentação do HappyFit]().
+Abaixo temos a documentação do Projeto e da API com o Swagger:
+* [Documentação do Projeto](https://cdn.discordapp.com/attachments/1089358473483006105/1111483062363111464/ProjectPlan_HappyFit.pdf)
+* [Documentação do Swagger](https://cdn.discordapp.com/attachments/1089358473483006105/1111479233684975616/Swagger_HappyFit.pdf)
 
 ## 🤝 Equipe
 
