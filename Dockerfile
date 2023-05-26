@@ -1,17 +1,26 @@
-# Dockerfile
-FROM python:3.8-slim
+# Estágio de compilação
+FROM python:3.8-alpine as builder
 
-# Definindo o diretório de trabalho no container
 WORKDIR /app
 
-# Copiando o diretório do código-fonte para o diretório de trabalho
+# Copie apenas os arquivos necessários para instalar as dependências
+COPY requirements.txt .
+
+# Instale as dependências de compilação
+RUN apk add --no-cache --virtual .build-deps gcc musl-dev \
+    && pip install --no-cache-dir --prefix=/install -r requirements.txt
+
+# Estágio de execução
+FROM python:3.8-alpine
+
+WORKDIR /app
+
+# Copie o restante do projeto do estágio de compilação
+COPY --from=builder /install /usr/local
 COPY . .
 
-# Instalando as dependências do projeto
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Expondo a porta em que o aplicativo irá escutar
-EXPOSE 8080
+# Exponha a porta em que o aplicativo irá escutar
+EXPOSE ${PORT}
 
 # Comando para executar o aplicativo
 CMD ["python", "server.py"]

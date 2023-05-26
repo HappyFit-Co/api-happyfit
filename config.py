@@ -12,7 +12,7 @@ class Config:
 
     # Configurações do Flask
     DEBUG = os.environ.get('DEBUG', True)
-    HOST = os.environ.get('HOST', 'localhost')
+    HOST = os.environ.get('HOST', '0.0.0.0')
     PORT = os.environ.get('PORT', 5000)
 
     # Configurações do Flask-RESTX
