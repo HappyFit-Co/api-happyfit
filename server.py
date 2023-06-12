@@ -1,10 +1,14 @@
 from flask import Flask
+from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 
 from api import api
 from api.utils.database import mongo
 
 app = Flask(__name__)
+
+# Configura o CORS
+CORS(app)
 
 JWTManager(app)
 app.config.from_object('config.Config')
