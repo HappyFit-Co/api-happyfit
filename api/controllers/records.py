@@ -24,7 +24,7 @@ class RecordController:
         if error:
             return {'msg': error}, 400
         
-        record_id, error = RecordService.create_record(user_id, record_data)
+        record_id, error = RecordService.create_record(user_id, data)
         if error:
             return {'msg': error}, 500
         if not record_id:
