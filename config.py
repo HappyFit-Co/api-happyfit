@@ -24,3 +24,4 @@ class Config:
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(
         hours=int(os.environ.get('JWT_ACCESS_TOKEN_EXPIRES', 6))
     )
+    JWT_COOKIE_SECURE  = os.environ.get('JWT_COOKIE_SECURE', True)

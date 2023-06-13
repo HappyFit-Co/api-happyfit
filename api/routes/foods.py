@@ -2,14 +2,11 @@ from flask_jwt_extended import jwt_required
 from flask_restx import Resource
 
 from api.controllers.foods import FoodController
-from api.schemas.foods import ns, food_schema
-from api.schemas.responses import (
-    unauthorized_schema,
-    empty_list_schema,
-    not_found_schema,
-    unprocessable_schema,
-    internal_server_schema
-)
+from api.schemas.foods import food_schema, ns
+from api.schemas.responses import (empty_list_schema, internal_server_schema,
+                                   not_found_schema, unauthorized_schema,
+                                   unprocessable_schema)
+
 
 @ns.route('/') 
 class FoodList(Resource):

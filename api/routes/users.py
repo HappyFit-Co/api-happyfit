@@ -1,24 +1,17 @@
+from flask_cors import cross_origin
 from flask_jwt_extended import get_jwt_identity, jwt_required
 from flask_restx import Resource
 
 from api.controllers.users import UserController
-from api.schemas.users import (
-    ns,
-    user_schema,
-    create_user_schema, 
-    login_user_schema
-)
-from api.schemas.responses import (
-    update_sucess_schema,
-    delete_sucess_schema,
-    login_sucess_schema,
-    unauthorized_schema,
-    invalid_credentials_schema,
-    bad_request_schema,
-    not_found_schema,
-    unprocessable_schema,
-    internal_server_schema
-)
+from api.schemas.responses import (bad_request_schema, delete_sucess_schema,
+                                   internal_server_schema,
+                                   invalid_credentials_schema,
+                                   login_sucess_schema, not_found_schema,
+                                   unauthorized_schema, unprocessable_schema,
+                                   update_sucess_schema)
+from api.schemas.users import (create_user_schema, login_user_schema, ns,
+                               user_schema)
+
 
 @ns.route('/')
 class UserMe(Resource):
