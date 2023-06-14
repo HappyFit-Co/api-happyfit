@@ -11,3 +11,18 @@ def is_token_valid(token):
     except Exception:
         return False
     
+def get_claims(request):
+    token = request.headers.get('Authorization')
+    if not token or not token.startswith('Bearer '):
+        return None
+    
+    token = token.split('Bearer ')[1]
+    
+    try:
+        decoded_token = decode_token(token)
+        user_id = decoded_token['sub']
+        return user_id
+
+    except Exception:
+        return None
+    
