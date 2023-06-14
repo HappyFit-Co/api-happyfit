@@ -25,3 +25,5 @@ class Config:
         hours=int(os.environ.get('JWT_ACCESS_TOKEN_EXPIRES', 6))
     )
     JWT_COOKIE_SECURE  = os.environ.get('JWT_COOKIE_SECURE', True)
+
+    CORS_ENABLED = True
