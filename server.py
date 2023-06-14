@@ -8,13 +8,11 @@ from api.utils.database import mongo
 app = Flask(__name__)
 
 # Configura o CORS
-CORS(app, resources={r"/*": {"origins": "*"}},
-     supports_credentials=True,
-     allowed_headers=['Content-Type', 'Content-Length', 'Accept-Encoding', 'X-CSRF-Token', 'Authorization', 'accept', 'origin', 'Cache-Control', 'X-Requested-With'],
-     methods=['POST', 'OPTIONS', 'GET', 'PUT', 'DELETE'])
+CORS(app)
 
 JWTManager(app)
 app.config.from_object('config.Config')
+app.config['PROPAGATE_EXCEPTIONS'] = True
 mongo.init_app(app)
 
 # Configura a API com a instância do objeto api criada em api.__init__.py

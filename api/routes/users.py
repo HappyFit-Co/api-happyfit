@@ -2,9 +2,7 @@ from flask import jsonify, request
 from flask_jwt_extended import get_jwt_identity, jwt_required
 from flask_restx import Resource
 
-from api.controllers.users import UserController
-from api.middlewares.auth import middleware
-from api.security.token import get_claims
+from api.controllers.users import UserController  
 from api.schemas.users import (
     ns,
     user_schema,
@@ -25,7 +23,7 @@ from api.schemas.responses import (
 
 @ns.route('/')
 class UserMe(Resource):
-    @middleware
+    @jwt_required()
     @ns.doc(security='jwt', description='Retorna as informações do usuário logado')
     @ns.response(200, 'Sucesso', user_schema)
     @ns.response(401, 'Não autorizado', unauthorized_schema)
@@ -34,7 +32,7 @@ class UserMe(Resource):
     @ns.response(500, 'Erro interno do servidor', internal_server_schema)
     def get(self):
         """Lista o usuário logado"""
-        return UserController.get_user_me(get_claims(request))
+        return UserController.get_user_me(get_jwt_identity())
 
     @ns.doc(description='Registra um novo usuário')
     @ns.expect(create_user_schema)
