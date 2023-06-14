@@ -1,7 +1,7 @@
 from flask_jwt_extended import get_jwt_identity, jwt_required
 from flask_restx import Resource
 
-from api.controllers.users import UserController
+from api.controllers.users import UserController  
 from api.schemas.users import (
     ns,
     user_schema,

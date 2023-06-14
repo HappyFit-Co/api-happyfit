@@ -135,7 +135,7 @@ Essas são as principais tecnologias utilizadas para construir esta API RESTful.
 A documentação do projeto e da API está disponível nos seguintes links:
 
 - [Documentação do Projeto](https://cdn.discordapp.com/attachments/1089358473483006105/1111483062363111464/ProjectPlan_HappyFit.pdf): Este documento fornece uma visão geral do projeto HappyFit, incluindo sua finalidade, escopo e funcionalidades.
-- [Documentação do Swagger](https://cdn.discordapp.com/attachments/1089358473483006105/1111479233684975616/Swagger_HappyFit.pdf): A documentação do Swagger descreve os endpoints e os modelos da API de forma detalhada.
+- [Documentação do Swagger Completa](https://cdn.discordapp.com/attachments/1089358473483006105/1111660409854906418/FullSwagger_HappyFit.pdf) e [Resumida](https://cdn.discordapp.com/attachments/1089358473483006105/1111660436081885184/ShortSwagger_HappyFit.pdf): A documentação do Swagger descreve os endpoints e os modelos da API de forma detalhada.
 
 Após executar a aplicação, você pode acessar o Swagger UI pela rota "/", onde encontrará uma interface interativa para explorar e testar a API.
 
