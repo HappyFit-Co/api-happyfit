@@ -17,7 +17,7 @@ class FoodController:
         if error:
             return {'msg': error}, 500
         if not food:
-            return {'msg': "No data was found"}, 404
+            return {'msg': 'Nenhum dado encontrado'}, 404
         return marshal(food, food_schema), 200
 
     def get_food_by_name(food_name):

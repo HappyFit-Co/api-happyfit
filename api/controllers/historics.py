@@ -11,4 +11,4 @@ class HistoricController:
         error = HistoricService.clear_historic(user_id)
         if error:
             return {'msg': error}, 500
-        return {'msg': 'Successfully deleted'}, 200
+        return {'msg': 'Excluído com sucesso'}, 200

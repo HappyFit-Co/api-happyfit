@@ -10,7 +10,7 @@ class GoalService:
             user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
             return user["goal"], None
         except:
-            return None, "Internal error handling data in service"
+            return None, 'Erro interno ao manipular dados no serviço'
 
     def edit_goal(user_id, data):
         try:
@@ -20,7 +20,7 @@ class GoalService:
             )
             return data, None
         except:
-            return None, "Internal error handling data in service"
+            return None, 'Erro interno ao manipular dados no serviço'
 
     def delete_goal(user_id):
         try:
@@ -30,7 +30,7 @@ class GoalService:
             )
             return None
         except:
-            return "Internal error handling data in service"
+            return 'Erro interno ao manipular dados no serviço'
 
     # Métodos de adicição e remoção
 
@@ -47,11 +47,11 @@ class GoalService:
                         {"$push": {"goal.workout": data}}
                     )
                 else:
-                    return None, "Data already exists, avoids redundancy"
+                    return None, 'Os dados já existem, evite redundância'
                 
             return None, None
         except:
-            return "Internal error handling data in service", None
+            return 'Erro interno ao manipular dados no serviço', None
 
     def rmv_exercise(user_id, data):
         try:
@@ -65,7 +65,7 @@ class GoalService:
             )
             return None
         except:
-            return "Internal error handling data in service"
+            return 'Erro interno ao manipular dados no serviço'
 
     def add_food(user_id, data):
         try:
@@ -80,11 +80,11 @@ class GoalService:
                         {"$push": {"goal.diet": data}}
                     )
                 else:
-                    return None, "Data already exists, avoids redundancy"
+                    return None, 'Os dados já existem, evite redundância'
                 
             return None, None
         except:
-            return "Internal error handling data in service", None
+            return 'Erro interno ao manipular dados no serviço', None
 
     def rmv_food(user_id, data):
         try:
@@ -97,4 +97,4 @@ class GoalService:
             )
             return None
         except:
-            return "Internal error handling data in service"
+            return 'Erro interno ao manipular dados no serviço'

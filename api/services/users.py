@@ -9,21 +9,21 @@ class UserService:
             result = mongo.db.users.insert_one(user_data)
             return result.inserted_id, None
         except:
-            return None, "Internal error handling data in service"
+            return None, 'Erro interno ao manipular dados no serviço'
 
     def get_user_by_id(user_id):
         try:
             user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
             return user, None
         except:
-            return None, "Internal error handling data in service"
+            return None, 'Erro interno ao manipular dados no serviço'
 
     def get_user_by_email(user_email):
         try:
             user = mongo.db.users.find_one({"email": user_email})
             return user, None
         except:
-            return None, "Internal error handling data in service"
+            return None, 'Erro interno ao manipular dados no serviço'
         
     def update_user(user_id, edited_user):
         try:
@@ -43,12 +43,12 @@ class UserService:
             mongo.db.users.update_one(query, update)
             return None
         except:
-            return "Internal error handling data in service"
+            return 'Erro interno ao manipular dados no serviço'
         
     def delete_user(user_id):
         try:
             mongo.db.users.delete_one({"_id": ObjectId(user_id)})
             return None
         except:
-            return "Internal error handling data in service"
+            return 'Erro interno ao manipular dados no serviço'
               

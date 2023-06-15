@@ -15,11 +15,11 @@ class NotificationController:
         if error:
             return {'msg': error}, 500
         if not user:
-            return {'msg': "No data was found"}, 404
+            return {'msg': 'Nenhum dado encontrado'}, 404
         
         notification = user["notification_config"]
         if not user:
-            return {'msg': "No data was found"}, 404
+            return {'msg': 'Nenhum dado encontrado'}, 404
         
         return marshal(notification, notification_schema), 200
 
@@ -31,7 +31,7 @@ class NotificationController:
         error = NotificationService.set_workout_config(user_id, newConfig)
         if error:
             return {'msg': error}, 500
-        return {'msg': 'Successfully updated'}, 200
+        return {'msg': 'Atualizado com sucesso'}, 200
     
 
     def set_notification_workout_default(user_id):
@@ -40,7 +40,7 @@ class NotificationController:
         error = NotificationService.set_workout_config(user_id, defaultWorkoutConfig)
         if error:
             return {'msg': error}, 500
-        return {'msg': 'Successfully updated'}, 200
+        return {'msg': 'Atualizado com sucesso'}, 200
     
 
     def set_notification_water(user_id, data):
@@ -51,7 +51,7 @@ class NotificationController:
         error = NotificationService.set_water_config(user_id, newConfig)
         if error:
             return {'msg': error}, 500
-        return {'msg': 'Successfully updated'}, 200
+        return {'msg': 'Atualizado com sucesso'}, 200
 
     def set_notification_water_default(user_id):
         defaultWaterConfig = default_notification_config['water']
@@ -59,4 +59,4 @@ class NotificationController:
         error = NotificationService.set_water_config(user_id, defaultWaterConfig)
         if error:
             return {'msg': error}, 500
-        return {'msg': 'Successfully updated'}, 200
+        return {'msg': 'Atualizado com sucesso'}, 200
