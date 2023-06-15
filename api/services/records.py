@@ -14,7 +14,7 @@ class RecordService:
             )
             return user, None
         except:
-            return None, "Internal error handling data in service"
+            return None, 'Erro interno ao manipular dados no serviço'
     
     def create_record(user_id, record_data):
         try:
@@ -61,7 +61,7 @@ class RecordService:
                 mongo.db.users.update_one({"_id": ObjectId(user_id)}, {"$set": {"historic": record_list}})
             return record_id, None
         except:
-            return None, "Internal error handling data in service"
+            return None, 'Erro interno ao manipular dados no serviço'
 
     def get_record_by_id(user_id, record_id):
         try:
@@ -72,7 +72,7 @@ class RecordService:
                     if record["_id"] == record_id:
                         return record, None
         except:
-            return None, "Internal error handling data in service"
+            return None, 'Erro interno ao manipular dados no serviço'
     
     def delete_record(user_id):
         try:
@@ -98,7 +98,7 @@ class RecordService:
                     
             return None
         except:
-            return "Internal error handling data in service"
+            return 'Erro interno ao manipular dados no serviço'
 
     def add_water_record(user_id, water_volume):
         try:
@@ -128,7 +128,7 @@ class RecordService:
                     
             return None
         except:
-            return "Internal error handling data in service"
+            return 'Erro interno ao manipular dados no serviço'
 
     def remove_water_record(user_id, water_volume):
         try:
@@ -161,7 +161,7 @@ class RecordService:
 
             return None
         except:
-            return "Internal error handling data in service"
+            return 'Erro interno ao manipular dados no serviço'
     
     def add_workout_record(user_id, workout):
         try:
@@ -185,7 +185,7 @@ class RecordService:
                     # Verifica se o exercício já está presente na lista
                     for workout_item in workout_list:
                         if workout_item == workout:
-                            return None, "Data already exists, avoids redundancy"
+                            return None, 'Os dados já existem, evite redundância'
 
                     # Adiciona o novo exercício à lista de workout do dia de hoje
                     workout_list.append(workout)
@@ -199,7 +199,7 @@ class RecordService:
                 
             return None, None
         except:
-            return "Internal error handling data in service", None
+            return 'Erro interno ao manipular dados no serviço', None
 
     def remove_workout_record(user_id, workout):
         try:
@@ -234,7 +234,7 @@ class RecordService:
 
             return None
         except:
-            return "Internal error handling data in service"
+            return 'Erro interno ao manipular dados no serviço'
     
     def add_diet_record(user_id, food):
         try:
@@ -272,7 +272,7 @@ class RecordService:
                         if food_item.get("calories") == food.get("calories") and \
                         food_item.get("macro_nutrient") == food.get("macro_nutrient") and \
                         food_item.get("hour") == food.get("hour"):
-                            return None, "Data already exists, avoids redundancy"
+                            return None, 'Os dados já existem, evite redundância'
 
                     # Adiciona o novo alimento à lista de diet do dia de hoje
                     diet_data.append(food_record)
@@ -299,7 +299,7 @@ class RecordService:
                 
             return None, None
         except:
-            return "Internal error handling data in service", None
+            return 'Erro interno ao manipular dados no serviço', None
     
     def remove_diet_record(user_id, food):
         try:
@@ -344,4 +344,4 @@ class RecordService:
 
             return None
         except:
-            return "Internal error handling data in service"
+            return 'Erro interno ao manipular dados no serviço'

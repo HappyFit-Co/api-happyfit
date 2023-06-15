@@ -17,7 +17,7 @@ class ExerciseController:
         if error:
             return {'msg': error}, 500
         if not exercise:
-            return {'msg': "No data was found"}, 404
+            return {'msg': 'Nenhum dado encontrado'}, 404
         return marshal(exercise, exercise_schema), 200
         
     def get_exercise_by_name(exercise_name):

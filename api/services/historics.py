@@ -8,7 +8,7 @@ class HistoricService:
             user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
             return user["historic"], None
         except:
-            return None, 'Internal error handling data in service'
+            return None, 'Erro interno ao manipular dados no serviço'
 
     def clear_historic(user_id):
         try:
@@ -18,5 +18,5 @@ class HistoricService:
             )
             return None
         except:
-            return 'Internal error handling data in service'
+            return 'Erro interno ao manipular dados no serviço'
         

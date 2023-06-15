@@ -18,7 +18,7 @@ class UserController:
         if error:
             return {'msg': error}, 500
         if not user:
-            return {'msg': "No data was found"}, 404
+            return {'msg': 'Nenhum dado encontrado'}, 404
         return marshal(user, user_schema), 200
 
     def create_user(data):
@@ -36,7 +36,7 @@ class UserController:
         if error:
             return {'msg': error}, 500
         if existing_user:
-            return {'msg': "Email is already being used"}, 400
+            return {'msg': 'O email já está sendo usado'}, 400
 
         # Define os campos padrão
         user_data.setdefault("goal", default_goal)
@@ -53,7 +53,7 @@ class UserController:
         if error:
             return {'msg': error}, 500
         if not new_user:
-            return {'msg': "No data was found"}, 404
+            return {'msg': 'Nenhum dado encontrado'}, 404
         return marshal(new_user, user_schema), 201
 
     def login(data):
@@ -68,9 +68,9 @@ class UserController:
         if error:
             return {'msg': error}, 500
         if not user:
-            return {'msg': 'Invalid user credentials'}, 401
+            return {'msg': 'Credenciais de usuário inválidas'}, 401
         if not compare_pwd(password, user['pwd']):
-            return {'msg': 'Invalid user credentials'}, 401
+            return {'msg': 'Credenciais de usuário inválidas'}, 401
 
         access_token = create_token(user['_id'])
         return {'access_token': access_token}
@@ -85,17 +85,17 @@ class UserController:
             return {'msg': error}, 500
 
         if existing_user and str(existing_user["_id"]) != str(user_id):
-            return {'msg': "Email is already being used"}, 400
+            return {'msg': 'O email já está sendo usado'}, 400
         
         user["pwd"] = encrypt_pwd(user["pwd"])
         
         error = UserService.update_user(user_id, user)
         if error:
             return {'msg': error}, 500
-        return {'msg': "Successfully updated"}, 200
+        return {'msg': 'Atualizado com sucesso'}, 200
     
     def delete_user(user_id):
         error = UserService.delete_user(user_id)
         if error:
             return {'msg': error}, 500
-        return {'msg': "Successfully deleted"}, 200
+        return {'msg': 'Excluído com sucesso'}, 200

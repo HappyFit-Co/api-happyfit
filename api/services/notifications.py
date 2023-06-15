@@ -8,7 +8,7 @@ class NotificationService:
             user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
             return user, None
         except:
-            return None, "Internal error handling data in service"
+            return None, 'Erro interno ao manipular dados no serviço'
 
     def set_workout_config(user_id, newConfig):
         try:
@@ -18,7 +18,7 @@ class NotificationService:
             )
             return None
         except:
-            return "Internal error handling data in service"
+            return 'Erro interno ao manipular dados no serviço'
 
     def set_water_config(user_id, newConfig):
         try:
@@ -28,4 +28,4 @@ class NotificationService:
             )
             return None
         except:
-            return "Internal error handling data in service"
+            return 'Erro interno ao manipular dados no serviço'
