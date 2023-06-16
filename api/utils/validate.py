@@ -74,8 +74,8 @@ def validate_request(payload, schema):
                     validated_data[key] = []
                     for item in payload[key]:
                         if isinstance(item, dict):
-                            validated_item = validate_request(item, field.container)
-                            validated_data[key].append(validated_item)
+                            validated_item = validate_request(item, field.container.model)
+                            validated_data[key].append(validated_item) 
             else:
                 if key in payload:
                     if isinstance(payload[key], (int, float)) and payload[key] < 0:

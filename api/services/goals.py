@@ -11,16 +11,32 @@ class GoalService:
             return user["goal"], None
         except:
             return None, 'Erro interno ao manipular dados no serviço'
-
-    def edit_goal(user_id, data):
+        
+    def edit_goal(user_id, goal_data):
         try:
+            goal = {
+                "weight" : goal_data.get("weight", 0),
+                "objective" : goal_data.get("objective", ""),
+                "daily_calories" : goal_data.get("daily_calories", ""),
+                "daily_water" : goal_data.get("daily_water", 0),
+                "daily_macro_nutrient": {
+                    "protein": goal_data.get("daily_macro_nutrient").get("protein", 0),
+                    "carbohydrate": goal_data.get("daily_macro_nutrient").get("carbohydrate", 0),
+                    "fat": goal_data.get("daily_macro_nutrient").get("fat", 0)
+                },
+                "deadline" : goal_data.get("deadline", ""),
+                "workout" : [],
+                "diet" : []
+            }
+            
             mongo.db.users.update_one(
                 {"_id": ObjectId(user_id)},
-                {"$set": {"goal": data}}
+                {"$set": {"goal": goal}}
             )
-            return data, None
+            return None
+
         except:
-            return None, 'Erro interno ao manipular dados no serviço'
+            return 'Erro interno ao manipular dados no serviço'
 
     def delete_goal(user_id):
         try:
