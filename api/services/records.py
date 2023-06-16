@@ -20,26 +20,19 @@ class RecordService:
         try:
             record_id = str(ObjectId())
             today = datetime.now().strftime("%Y-%m-%d")
-            diet_data = record_data.get("diet", [])
-
-            # Calcula o somatório das calorias e macronutrientes da dieta
-            total_calories = sum(item.get("calories", 0) for item in diet_data)
-            total_protein = sum(item.get("macro_nutrient", {}).get("protein", 0) for item in diet_data)
-            total_carbohydrate = sum(item.get("macro_nutrient", {}).get("carbohydrate", 0) for item in diet_data)
-            total_fat = sum(item.get("macro_nutrient", {}).get("fat", 0) for item in diet_data)
 
             record = {
                 "_id": record_id,
                 "date": today,
-                "daily_calories": total_calories,
+                "daily_calories": 0,
                 "daily_water": record_data.get("daily_water", 0),
                 "daily_macro_nutrient": {
-                    "protein": total_protein,
-                    "carbohydrate": total_carbohydrate,
-                    "fat": total_fat
+                    "protein": 0,
+                    "carbohydrate": 0,
+                    "fat": 0
                 },
-                "workout": record_data.get("workout", []),
-                "diet": diet_data
+                "workout": [],
+                "diet": []
             }
 
             user = mongo.db.users.find_one({"_id": ObjectId(user_id)})

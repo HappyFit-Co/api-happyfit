@@ -24,11 +24,21 @@ class RecordController:
         if error:
             return {'msg': error}, 400
         
-        record_id, error = RecordService.create_record(user_id, data)
+        record_id, error = RecordService.create_record(user_id, record_data)
         if error:
             return {'msg': error}, 500
         if not record_id:
             return {'msg': 'Dados de entrada inválidos ou incompletos'}, 400
+        
+        for workout_data in record_data.get('workout', []):
+            response, _ = RecordController().add_workout_record(user_id, workout_data)
+            if response.get('msg') != 'Adicionado com sucesso':
+                return response, 400
+        
+        for diet_data in record_data.get('diet', []):
+            response, _ = RecordController().add_diet_record(user_id, diet_data)
+            if response.get('msg') != 'Adicionado com sucesso':
+                return response, 400
         
         record, error = RecordService.get_record_by_id(user_id, record_id)
         if error:
@@ -61,6 +71,7 @@ class RecordController:
             return {'msg': error}, 404
         return {'msg': 'Excluído com sucesso'}, 200
     
+    @staticmethod
     def add_workout_record(user_id, data):
         exercise, error = validate_data(data, workout_schema)
         if error:
@@ -83,6 +94,7 @@ class RecordController:
             return {'msg': error}, 500
         return {'msg': 'Excluído com sucesso'}, 200
     
+    @staticmethod
     def add_diet_record(user_id, data):
         food, error = validate_data(data, add_diet_schema)
         if error:

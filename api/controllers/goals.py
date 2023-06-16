@@ -22,7 +22,21 @@ class GoalController:
         if error:
             return {'msg': error}, 400
         
-        goal, error = GoalService.edit_goal(user_id, goal_register)
+        error = GoalService.edit_goal(user_id, goal_register)
+        if error:
+            return {'msg': error}, 500
+        
+        for workout_data in goal_register.get('workout', []):
+            response, _ = GoalController().add_exercise(user_id, workout_data)
+            if response.get('msg') != 'Adicionado com sucesso':
+                return response, 400
+        
+        for diet_data in goal_register.get('diet', []):
+            response, _ = GoalController().add_food(user_id, diet_data)
+            if response.get('msg') != 'Adicionado com sucesso':
+                return response, 400
+        
+        goal, error = GoalService.get_goal(user_id)
         if error:
             return {'msg': error}, 500
         if not goal:
@@ -34,7 +48,21 @@ class GoalController:
         if error:
             return {'msg': error}, 400
         
-        goal, error = GoalService.edit_goal(user_id, goal_register)
+        error = GoalService.edit_goal(user_id, goal_register)
+        if error:
+            return {'msg': error}, 500
+        
+        for workout_data in goal_register.get('workout', []):
+            response, _ = GoalController().add_exercise(user_id, workout_data)
+            if response.get('msg') != 'Adicionado com sucesso':
+                return response, 400
+        
+        for diet_data in goal_register.get('diet', []):
+            response, _ = GoalController().add_food(user_id, diet_data)
+            if response.get('msg') != 'Adicionado com sucesso':
+                return response, 400
+        
+        goal, error = GoalService.get_goal(user_id)
         if error:
             return {'msg': error}, 500
         if not goal:
@@ -47,6 +75,7 @@ class GoalController:
             return {'msg': error}, 500
         return {'msg': "Excluído com sucesso"}, 200
 
+    @staticmethod
     def add_exercise(user_id, data):
         exercise_register, error = validate_data(data, workout_schema)
         if error:
@@ -69,6 +98,7 @@ class GoalController:
             return {'msg': error}, 500
         return {'msg': 'Excluído com sucesso'}, 200
 
+    @staticmethod
     def add_food(user_id, data):
         food_register, error = validate_data(data, diet_schema)
         if error:
