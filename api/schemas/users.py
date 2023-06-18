@@ -52,9 +52,9 @@ login_user_schema = ns.model('UserLogin', {
 })
 
 # Valores de dia da semana
-# values_day_of_week = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado']
-values_day_of_week = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
+values_day_of_week = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado']
+# values_day_of_week = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 
 # Valores de nível de atividade física
-# values_activity_level = ['inativo', 'baixo', 'moderado', 'ativo', 'alto']
-values_activity_level = ['inactive', 'low', 'moderate', 'active', 'high']
+values_activity_level = ['inativo', 'baixo', 'moderado', 'ativo', 'alto']
+# values_activity_level = ['inactive', 'low', 'moderate', 'active', 'high']
