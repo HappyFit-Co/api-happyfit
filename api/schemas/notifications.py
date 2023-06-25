@@ -38,9 +38,9 @@ default_notification_config = {
 }
 
 # Valores de frequência de treino
-values_workout_frequency = ['nenhum dia', 'diariamente', 'semanalmente', 'dia sim, dia não', 'todos os dias da semana', 'todos os fins de semana']
-# values_workout_frequency = ['no day', 'daily', 'weekly', 'every other day', 'every weekday', 'every weekend']
+# values_workout_frequency = ['nenhum dia', 'diariamente', 'semanalmente', 'dia sim, dia não', 'todos os dias da semana', 'todos os fins de semana']
+values_workout_frequency = ['no day', 'daily', 'weekly', 'every other day', 'every weekday', 'every weekend']
 
 # Valores de frequência de hidratação
-values_water_frequency = ['nunca', 'a cada hora', 'a cada 2 horas', 'a cada 3 horas', 'a cada 4 horas', 'a cada 6 horas']
-# values_water_frequency = ['never', 'hourly', 'every 2 hours', 'every 3 hours', 'every 4 hours', 'every 6 hours']
+# values_water_frequency = ['nunca', 'a cada hora', 'a cada 2 horas', 'a cada 3 horas', 'a cada 4 horas', 'a cada 6 horas']
+values_water_frequency = ['never', 'hourly', 'every 2 hours', 'every 3 hours', 'every 4 hours', 'every 6 hours']
