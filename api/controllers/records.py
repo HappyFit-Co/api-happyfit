@@ -5,7 +5,8 @@ from api.schemas.records import (
     create_record_schema, 
     workout_schema,
     diet_schema,
-    add_diet_schema
+    add_diet_schema,
+    default_record
 )
 from api.services.records import RecordService
 from api.utils.validate import validate_data
@@ -16,9 +17,10 @@ class RecordController:
         if error:
             return {'msg': error}, 500
         if not (user and "historic" in user and len(user["historic"]) > 0):
-            return {'msg': 'Nenhum dado encontrado'}, 404
+            return RecordController().create_record(user_id, default_record)
         return marshal(user["historic"][0], record_schema), 200
       
+    @staticmethod
     def create_record(user_id, data):
         record_data, error = validate_data(data, create_record_schema)
         if error:
